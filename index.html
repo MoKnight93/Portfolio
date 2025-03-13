@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./Assets/Images/spider.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@coreui/icons/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Patrick+Hand+SC|Bangers|Happy+Monkey">
+  <link rel="stylesheet" href='https://use.typekit.net/lcn2zwi.css'>
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+  <link rel='stylesheet' href='https://unpkg.com/splitting/dist/splitting.css'>
+  <link rel='stylesheet' href='https://unpkg.com/splitting/dist/splitting-cells.css'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Mohamed Samir</title>
+</head>
+
+<body>
+  <!-- Loading Screen -->
+  <section id="loadingContainer" class="loading-container">
+    <img id="spidermanIcon" src="./Assets/Images/Spider-Man-Emblem.png" alt="Loading Icon">
+  </section>
+  <div class="clear"></div>
+
+  <!-- Head -->
+  <iframe src="https://lottie.host/embed/c84e2287-5461-4d4d-8f3b-c85b9a3ae0a4/WATPUpJ89C.lottie" class="position-absolute top-0 right-0 col-3"></iframe>
+  <section class="header container my-5">
+    <div class="row align-items-center">
+      <div class="text col-md-6">
+        <h1 class="display-4">Hi
+          <iframe src="https://lottie.host/embed/57df8e0c-388a-49ec-8937-8882a735b8b7/gmHYQjUjwb.lottie"></iframe>
+          , I'm <span class="name">Mohamed Samir</span><br><span id="typed-text"></span>
+        </h1>
+          <p class="lead my-4">
+            This portfolio says a lot about its owner—questionable mental stability, probably a bit of a psychopath, definitely not someone you'd trust with responsibilities. Prefers playing games and watching movies for long hours instead of meeting real people and having a normal social life like everyone else. Still watches cartoons, obsessed with fantasy dumbass heroes, thinks he has a sense of humor (pathetic), and is a lonely introvert… but hey, he knows how to code, and that’s what really matters!
+          </p>
+        <div class="social-icons">
+          <a href="https://github.com/MoKnight93" target="_blank" class="mr-3 git" title="My Github Page"><i
+              class="fab fa-github git"></i></a>
+          <a href="https://www.linkedin.com/in/mohamed-samir-5a2354224/" target="_blank" class="mr-3 in"
+            title="My Linkedin Profile"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto: prog.mohamedsamir093@gmail.com" class="mr-3 email" title="Mail Me"><i
+              class="fa-solid fa-envelope"></i></a>
+          <a href="https://wa.me/+201272964500" class="mr-3 wa" title="Contact Me"><i
+              class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://t.me/mohamedsamir093" class="mr-3 tele" title="Contact Me"><i
+              class="fa-brands fa-telegram"></i></a>
+          <a href="./Assets/Pdf/Mohamed Samir Resume.pdf" target="_blank" class="mr-3 cv" title="Show My Resume"><i
+              class="fa-solid fa-file"></i></a>
+        </div>
+      </div>
+      <div class="vid col-md-6 col-12">
+        <iframe src="https://lottie.host/embed/9b61c42e-e533-48e8-a1c2-adc6900fd79e/aAa3HN25Ih.lottie"></iframe>
+      </div>
+    </div>
+    <div class="mouse-scroll" href="#"> 
+      <span class="mouse">
+        <span class="mouse-movement"> 
+        </span>
+      </span>
+      <span class="mouse-message fadeIn">scroll</span> 
+    </div>
+    <div class="progress-wrap">
+      <svg class="progress-circle" width="46" height="46" viewBox="0 0 46 46">
+        <path d="M23 2C11.7157 2 2 11.7157 2 23c0 11.2843 9.7157 21 21 21 11.2843 0 21-9.7157 21-21C44 11.7157 34.2843 2 23 2z" />
+      </svg>
+      <span class="icon"></span>
+    </div>
+  </section>
+  <div class="clear"></div>
+  
+  <!-- Party -->
+  <section class="party my-5 row">
+    <h1 class="party-heading container text-center mb-5">
+      Feel Free to Play Some Music While You Browse
+      <br>
+      <span class="highlight">
+        (If You Want)
+      </span>
+    </h1>
+    <div class="player col-12">
+      <div id="root"></div>
+    </div>
+    <div class="troll-container col-3">
+      <div class="troll">
+        <div class="troll__head">
+          <img class="troll__face" src="./Assets/Images/head.png" alt="Trollface" width="140" height="115">
+          <div class="troll__right-arm">
+            <div class="troll__right-lower-arm">
+              <div class="troll__right-hand"></div>
+            </div>
+          </div>
+          <div class="troll__left-arm">
+            <div class="troll__left-lower-arm">
+              <div class="troll__left-hand"></div>
+            </div>
+          </div>
+          <div class="troll__upper-body">
+            <div class="troll__lower-body">
+              <div class="troll__right-thigh">
+                <div class="troll__right-lower-leg">
+                  <div class="troll__right-foot"></div>
+                </div>
+              </div>
+              <div class="troll__left-thigh">
+                <div class="troll__left-lower-leg">
+                  <div class="troll__left-foot"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dance-hero col-6">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 1600 800">
+        <g class="batman">
+      
+          <defs>
+            <linearGradient id="batman-shoes" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="38%" style="stop-color:rgb(77,77,77); stop-opacity:1" />
+              <stop offset="42%" style="stop-color:rgb(0,0,0); stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="hand1" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="45%" style="stop-color:rgb(0,0,0); stop-opacity:1" />
+              <stop offset="50%" style="stop-color:rgb(77,77,77); stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="hand2" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="55%" style="stop-color:rgb(77,77,77); stop-opacity:1" />
+              <stop offset="60%" style="stop-color:rgb(0,0,0); stop-opacity:1" />
+            </linearGradient>
+          </defs>
+      
+          <g class="head">
+            <path fill="#db9b93" class="head_face" d="M 320 390 v -120 h 55 v 120 h -55"></path>
+            <path fill="#000000" class="head_mask" d="M 315 350 v -160 l 12 24 q 10 -6 20 -5 v -25 l 15 30 c 5 0 14 14 14 25 v 35 h -12 l -6 20 l -6 -20h -28 v 76 z"></path>
+            <ellipse fill="#ffffff" class="head_eye" cx="350" cy="251" rx="5" ry="12"></ellipse>
+            <ellipse fill="#ffffff" class="head_eye" cx="364" cy="251" rx="5" ry="12"></ellipse>
+          </g>
+      
+          <g class="body">
+      
+            <g class="hand_up">
+              <path fill="#000000" class="hand_up-paw" d="M 525 330 c -5 -10 -40 -20 -20 -40 c -10 -60 10 -60 10 -5 q 6 -1 12 -2 q 5 -8 12 -2 c 20 0 25 20 20 30 c 3 30 -30 30 -34 19"></path>
+              <path fill="url(#hand1)" d="M 495 390 c 60 25 45 0 30 -60 l 37 -10 c 15 90 0 130 -77 85"></path>
+            </g>
+      
+            <g class="torso">
+              <path fill="#000000" d="M 275 520 h 100 v 50 h -100 z"></path>
+              <path fill="#363636" d="M 220 330 h 85 a 25 25 0 0 1 25 25 v 128 h -135 v -128 a 25 25 0 0 1 25 -25"></path>
+              <path fill="#b2a800" d="M 195 483 h 135 v 27 h -135 z"></path>
+              <path fill="#363636" d="M 195 510 h 135 v 35 a 25 25 0 0 1 -25 25 h -85 a 25 25 0 0 1 -25 -25 z"></path>
+              <path fill="#4d4d4d" d="M 355 330 h 115 a 25 25 0 0 1 25 25 v 128 h -165 v -128 a 25 25 0 0 1 25 -25"></path>
+              <path fill="#fff100" d="M 330 483 h 165 v 27 h -165 z"></path>
+              <path fill="#4d4d4d" d="M 330 510 h 165 v 35 a 25 25 0 0 1 -25 25 h -115 a 25 25  0 0 1 -25 -25 z"></path>
+              <path fill="#000000" d="M 30 305 q 10 35 165 25 h 275 a 25 25 0 0 1 25 25 v 25 l -80 -50 l -85 47 l -50 -17 q -250 10 -250 -55"></path>
+      
+              <ellipse fill="#fff100" stroke="#000000" stroke-width="2px" cx="416" cy="497" rx="29" ry="19"></ellipse>
+              <path fill="#000000" d="M 417 425 c 0 -10 16 -25 16 -10 c 20 -20 20 5 10 10 c 30 -10 30 -45 -7 -55 c 10 20 -15 30 -13 -3 q -6 10 -12 0 c 2 23 -23 33 -13 3 c -37 10 -37 45 -7 55 c -10 -5 -10 -30 10 -10 c 0 -15 16 0 16 10"></path>
+              <path fill="#000000" style="transform: scale(0.5); transform-origin: 415px 495px;" d="M 417 525 c 0 -10 16 -25 16 -10 c 20 -20 20 5 10 10 c 30 -10 30 -45 -7 -55 c 10 20 -15 30 -13 -3 q -6 10 -12 0 c 2 23 -23 33 -13 3 c -37 10 -37 45 -7 55 c -10 -5 -10 -30 10 -10 c 0 -15 16 0 16 10"></path>
+            </g>
+      
+            <g class="hand_down">
+              <path fill="url(#hand2)" d="M 260 380 c 10 3 15 20 0 20 c -15 0 -86 -20 -86 0 c -5 5 -8 56 -3 75 h -42 c 0 -50 10 -100 35 -100 q 43 -10 97 5"></path>
+              <path fill="#000000" d="M 170 475 c 15 35 -15 65 -20 50 q -8 7 -13 -5 q -8 7 -10 -8 c -10 0 -10 -30 2 -30 v -7 z"></path>
+            </g>
+          </g>
+      
+          <g class="legs">
+            <path class="leg" fill="url(#batman-shoes)" d="M 350 570 c 15 25 10 40 -22 85 q -10 15 60 9 c 15 0 -10 -15 -21 -26 q 15 -34 -3 -68"></path>
+            <path class="leg" fill="url(#batman-shoes)" d="M 350 570 c 15 25 10 40 -22 85 q -10 15 60 9 c 15 0 -10 -15 -21 -26 q 15 -34 -3 -68"></path>
+          </g>
+      
+        </g>
+      
+      </svg>
+    </div>
+    <div class="frank col-3" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus" data-bs-content="Use Arrows">
+      <div class="body" data-body-pos="0" data-arm-pos="0">
+        <div class="hips">
+          <svg viewBox="0 0 72.01 32">
+            <path fill="#4c2e12" d="M71,1V16A15,15,0,0,1,56,31H16A15,15,0,0,1,1,16C1,7.72,1,1,1,1Z"/>
+            <line x1="30.5" y1="31" x2="30.5" y2="1"/>
+            <line x1="40.5" y1="1" x2="40.5" y2="31"/>
+          </svg>
+        </div>
+        
+        <div class="leg left">
+          <svg viewBox="0 0 32 67">
+            <path fill="#4c2e12" d="M1,1V51a15,15,0,1,0,30,0V1"/>
+          </svg>
+      
+          <div class="lowerleg">
+            <svg viewBox="0 0 42 66.92">
+              <polyline fill="#4c2e12" points="1 1 1 30.92 31 30.92 31 1"/>
+              <polygon fill="#b5f7d9" points="31 16 26 11 21 16 16 11 11 16 6 11 1 16 1 31 31 31 31 16"/>
+              <line x1="33" y1="26" x2="21" y2="26"/>
+              <line x1="33" y1="21" x2="21" y2="21"/>
+              <path fill="#664a31" d="M31,35.88v15h5A5.1,5.1,0,0,1,41,56v4.88H1v-25Z"/>
+              <rect fill="#4c2e12" x="1" y="30.92" width="30" height="5.08"/>
+              <path d="M11,51H31"/>
+              <rect fill="#4c2e12" x="1" y="61" width="40" height="4.92"/>
+              <line x1="33" y1="42" x2="23" y2="42"/>
+              <line x1="33" y1="46" x2="23" y2="46"/>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="leg right">
+          <svg viewBox="0 0 32 67">
+            <path fill="#4c2e12" d="M1,1V51a15,15,0,1,0,30,0V1"/>
+          </svg>
+          
+          <div class="lowerleg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.02 66.92">
+              <polyline fill="#4c2e12" points="11.02 1 11.02 30.92 41.02 30.92 41.02 1"/>
+              <polygon fill="#b5f7d9" points="11.02 31 41.02 31 41.02 16 36.02 11 31.02 16 26.02 11 21.02 16 16.02 11 11.02 16 11.02 31"/>
+              <line x1="21.02" y1="26" x2="9.02" y2="26"/>
+              <line x1="21.02" y1="21" x2="9.02" y2="21"/>
+              <path fill="#664a31" d="M11,35.88v15H6A5.11,5.11,0,0,0,1,56v4.88H41v-25Z"/>
+              <rect fill="#4c2e12" x="11.02" y="30.92" width="30" height="5.08"/>
+              <path d="M11,51H31"/>
+              <rect fill="#4c2e12" x="1.02" y="61" width="40" height="4.92"/>
+              <line x1="19.02" y1="42" x2="9.02" y2="42"/>
+              <line x1="19.02" y1="46" x2="9.02" y2="46"/>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="crotch">
+          <svg viewBox="0 0 32 2">
+            <line x1="31" y1="1" x2="1" y2="1"/>
+          </svg>
+        </div>
+        
+        <div class="torso">
+          <svg viewBox="0 0 118.27 137">
+            <rect fill="#b5cdf4" x="32" y="8" width="7" height="4"/>
+            <rect fill="#b5cdf4" x="79" y="8" width="7" height="4"/>
+            <path fill="#607d8b" d="M79.13,21a20,20,0,0,1-40,0v95h40Z"/>
+            <path fill="#455a64" d="M39.68,39.58a24.83,24.83,0,0,0,19.45,9,26.21,26.21,0,0,0,20-9.63V21a20,20,0,0,1-40,0Z"/>
+            <rect fill="#455a64" x="39.13" y="108" width="40.01" height="8"/>
+            <path fill="#90d6b4" d="M79.13,1V21a20,20,0,0,1-40,0V1"/><line class="cls-4" x1="59.14" y1="21" x2="59.14" y2="36"/>
+            <path fill="#664a31" d="M14.13,136V105l-13-55.71A7.3,7.3,0,0,1,4.3,41.9L39.13,21V121a15,15,0,0,1-15,15Z"/>
+            <polygon fill="#4c2e12" points="39.14 87.74 22.14 51 31.14 48 22.14 41 39.14 21 39.14 87.74"/>
+            <line x1="39.14" y1="77.39" x2="26.74" y2="49.47"/>
+            <path fill="#4c2e12" d="M14.13,105h15v15a5,5,0,0,1-5,5h-10Z"/>
+            <line x1="14.14" y1="110.05" x2="29.14" y2="110.05"/>
+            <line x1="39.14" y1="27.33" x2="25.78" y2="43.81"/>
+            <path fill="#664a31" d="M94.14,136a15,15,0,0,1-15-15V21L114,41.9a7.3,7.3,0,0,1,3.15,7.44l-13,55.71v31Z"/>
+            <polygon fill="#4c2e12" points="79.13 21 96.13 41 87.13 48 96.13 51 79.13 87.74 79.13 21"/>
+            <line x1="91.53" y1="49.47" x2="79.13" y2="77.39"/>
+            <path fill="#4c2e12" d="M104.14,125h-10a5,5,0,0,1-5-5V105h15Z"/>
+            <line x1="89.13" y1="110.05" x2="104.13" y2="110.05"/>
+            <line x1="92.49" y1="43.81" x2="79.13" y2="27.33"/>
+          </svg>
+        </div>
+        
+        <div class="head">
+          <svg viewBox="0 0 56 62">
+            <path fill="#90d6b4" d="M5,41H5a3,3,0,0,1-3-3V31a3,3,0,0,1,3-3H8V38A3,3,0,0,1,5,41Z"/>
+            <path fill="#90d6b4" d="M51,41h0a3,3,0,0,0,3-3V31a3,3,0,0,0-3-3H48V38A3,3,0,0,0,51,41Z"/>
+            <path fill="#b5f7d9" d="M43,61H13a5,5,0,0,1-5-5V1H48V56A5,5,0,0,1,43,61Z"/>
+            <path fill="#90d6b4" d="M48,28H8a7,7,0,0,1,7-7H41A7,7,0,0,1,48,28Z"/>
+            <line x1="16" y1="61" x2="8" y2="28"/>
+            <line x1="48" y1="28" x2="40" y2="61"/>
+            <line x1="20" y1="16" x2="36" y2="16"/>
+            <line x1="32" y1="12" x2="24" y2="12"/>
+            <line x1="28" y1="5" x2="28" y2="1"/>
+            <line x1="36.59" y1="31.42" x2="39.42" y2="28.59"/>
+            <line x1="39.42" y1="31.42" x2="36.59" y2="28.59"/>
+            <line x1="32" y1="5" x2="32" y2="4"/>
+            <line x1="36" y1="5" x2="36" y2="1"/>
+            <polyline points="40 1 40 9 44 9 44 12"/>
+            <line x1="44" y1="5" x2="44" y2="1"/>
+            <line x1="24" y1="5" x2="24" y2="1"/>
+            <line x1="20" y1="8" x2="20" y2="1"/>
+            <line x1="16" y1="5" x2="16" y2="1"/>
+            <line x1="12" y1="5" x2="12" y2="1"/>
+            <path d="M8,10.73a2,2,0,0,1,2,2h0a2,2,0,0,1-2,2"/>
+            <path d="M20,38.73a2,2,0,0,1,2-2h0a2,2,0,0,1,2,2"/>
+            <path d="M32,38.73a2,2,0,0,1,2-2h0a2,2,0,0,1,2,2"/>
+            <rect x="24" y="28" width="8" height="14"/>
+            <path fill="#fff" d="M18,28h0a2,2,0,0,1,2,2h0a2,2,0,0,1-2,2h0a2,2,0,0,1-2-2h0A2,2,0,0,1,18,28Z"/>
+      
+            <g id="mouth-flat">
+              <line x1="20" y1="49" x2="36" y2="49"/>
+              <line x1="26" y1="53" x2="30" y2="53"/>
+            </g>
+      
+            <g id="mouth-smile">
+              <path fill="#fff" d="M20,46H36s2.51,8-8,8S20,46,20,46Z"/>
+              <line x1="20" y1="49" x2="36" y2="49"/>
+              <line x1="26" y1="53" x2="30" y2="53"/>
+            </g>
+      
+            <circle fill="#000" id="mouth-o" class="cls-6" cx="27.99" cy="50" r="4"/>
+          </svg>
+        </div>
+        
+        <div class="arm left">
+          <svg viewBox="0 0 17.01 65.71">
+            <path fill="#664a31" d="M1,57.2a7.51,7.51,0,0,0,15,0V8.51a7.51,7.51,0,0,0-15,0Z"/>
+          </svg>
+      
+          <div class="forarm">
+            <svg viewBox="0 0 25.99 81.4">
+              <polyline fill="#664a31" points="23 1 23 26.4 7.99 26.4 7.99 1"/>
+              <path fill="#b5f7d9" d="M5,74.4H23v-54l-3.5-4-4,4-4-4L8,20.4v30H8a7,7,0,0,0-7,7v8H5Z"/>
+              <polyline fill="#b5f7d9" points="18.99 60.4 18.99 77.4 14.99 77.4"/>
+              <path fill="#b5f7d9" d="M15,60.4v20H12a3,3,0,0,1-3-3"/>
+              <line x1="24.99" y1="26.4" x2="14.99" y2="26.4"/>
+              <line x1="24.99" y1="31.4" x2="14.99" y2="31.4"/>
+              <line x1="24.99" y1="36.4" x2="14.99" y2="36.4"/>
+              <line x1="24.99" y1="41.4" x2="14.99" y2="41.4"/>
+              <path fill="#b5f7d9" d="M11,60.4v17H8a3,3,0,0,1-3-3v-9"/>
+              <path d="M4,65.4a3,3,0,0,0,3-3v-5"/>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="arm right">
+          <svg viewBox="0 0 17.01 65.71">
+            <path fill="#664a31" d="M1,57.2a7.51,7.51,0,0,0,15,0V8.51a7.51,7.51,0,0,0-15,0Z"/>
+          </svg>
+          
+          <div class="forarm">
+            <svg viewBox="0 0 25.99 81.4">
+              <polyline fill="#664a31" points="2.99 1 2.99 26.4 18 26.4 18 1"/>
+              <path fill="#b5f7d9" d="M21,65.4h4v-8a7,7,0,0,0-7-7h0v-30l-3.5-4-4,4-4-4L3,20.4v54H21Z"/>
+              <polyline fill="#b5f7d9" points="11 77.4 7 77.4 7 60.4"/>
+              <path fill="#b5f7d9" d="M17,77.4a3,3,0,0,1-3,3H11v-20"/>
+              <line x1="11" y1="26.4" x2="1" y2="26.4"/>
+              <line x1="11" y1="31.4" x2="1" y2="31.4"/>
+              <line x1="11" y1="36.4" x2="1" y2="36.4"/>
+              <line x1="11" y1="41.4" x2="1" y2="41.4"/>
+              <path fill="#b5f7d9" d="M21,65.4v9a3,3,0,0,1-3,3H15v-17"/>
+              <path d="M19,57.4v5a3,3,0,0,0,3,3"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="clear"></div>
+  
+  <!-- Photo -->
+  <section class="photo">
+    <h1 class="photo-heading container text-center mb-5">
+      I'm shy about posting my <span class="highlight">photo</span>, so you'll find me hiding among friends. Unlike others, I actually have a bachelor's degree
+    </h1>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://m.media-amazon.com/images/M/MV5BNWFmNmI2NmYtNDUyYi00MDZhLTk0ZmEtODY0MmM5NGQxMWEwXkEyXkFqcGc@._V1_.jpg">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://m.media-amazon.com/images/M/MV5BNWJjYjMzMTQtY2I2NS00YjJlLTg4YzAtNDBlZWQzNzVhMDkxXkEyXkFqcGc@._V1_.jpg">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://m.media-amazon.com/images/M/MV5BNTFjZDU5NmYtYzZlMy00YThmLTg5ZjUtYjkyZWI2OTk2Mjc1XkEyXkFqcGc@._V1_.jpg">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://m.media-amazon.com/images/M/MV5BMjI0MTg3MzI0M15BMl5BanBnXkFtZTcwMzQyODU2Mw@@._V1_FMjpg_UX1000_.jpg">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://m.media-amazon.com/images/M/MV5BNzQ0YWM1ODEtZDFkYy00MGJhLTkwZDUtMzVkZjljODU3ZTRmXkEyXkFqcGc@._V1_.jpg">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://m.media-amazon.com/images/M/MV5BMTQwMjAwNzI0M15BMl5BanBnXkFtZTcwOTY1MTMyOQ@@._V1_.jpg">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://m.media-amazon.com/images/M/MV5BNDEzOTdhNDUtY2EyMy00YTNmLWE5MjItZmRjMmQzYTRlMGRkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+        </div>
+        <div class="swiper-slide">
+          <img src="./Assets/Images/IMG-20240708-WA0027.jpg">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://m.media-amazon.com/images/M/MV5BMzRiNDhiMDQtYWZkMS00ZjU5LTg5NzUtOTc4NzE2Yzc0ZWUwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://m.media-amazon.com/images/M/MV5BMTQ2MjMwNDA3Nl5BMl5BanBnXkFtZTcwMTA2NDY3NQ@@._V1_.jpg">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://m.media-amazon.com/images/M/MV5BOTU2MTI0NTIyNV5BMl5BanBnXkFtZTcwMTA4Nzc3OA@@._V1_.jpg">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://rodolfogrimaldi.com/wp-content/uploads/2013/01/Tom-Hardy.jpg">
+        </div>
+      </div>
+      <div class="swiper-button swiper-button-next"></div>
+      <div class="swiper-button swiper-button-prev"></div>
+    </div>
+  </section>
+  <div class="clear"></div>
+
+  <!-- About -->
+  <section class="about-container wow animate__animated animate__fadeInUpBig p-5 mt-5">
+    <h1 class="about-heading container text-center mb-5">
+      <span class="highlight">About</span>
+      Me
+    </h1>
+    <div class="row">
+      <div class="col-md-6 col-12">
+        <div class="iframe-container">
+          <iframe src="https://lottie.host/embed/9d6c8de3-ec7a-486f-bc2a-ab0ef7e7f8e4/8DM3L9eU6T.lottie" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://lottie.host/embed/a779c88c-0fdc-4ce3-abd9-e928bff17823/OVVOTWoKuW.lottie" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="col-md-6 col-12 points-container">
+        <ul class="list-unstyled text-left">
+          <li id="stage-name-li">🙋‍♂️  My name is <span id="typed-name"></span></li>
+          <li>🌍 I am from Port Said, Egypt</li>
+          <li>🎓 Graduate from <strong>faculty of Computers & Informatics</strong> at <strong>Suez Canal University</strong></li>
+          <li>🎯 Competitive Programmer: @ 
+            <strong><a href="https://codeforces.com/profile/MoKnight93">Codeforces</a></strong>, 
+            <strong><a href="https://leetcode.com/u/MoKnight93/">LeetCode</a></strong>, 
+            <strong><a href="https://atcoder.jp/users/MoKnight93">AtCoder</a></strong>, 
+            <strong><a href="https://www.hackerrank.com/profile/MoKnight93">HackerRank</a></strong>, 
+            <strong><a href="https://www.codechef.com/users/moknight93">CodeChef</a></strong>, 
+          </li>
+          <li>📚 Always learning new things</li>
+          <li>🛠️ Software Developer with a passion for creating efficient and scalable solutions</li>
+          <li>💡 Passionate about solving problems through technology</li>
+          <li>📝 Experienced in writing clean, maintainable, and well-documented code</li>
+          <li>📊 Proficient in data structures and algorithms, with a focus on problem-solving</li>
+          <li>🤖 Interested in artificial intelligence and machine learning</li>
+          <li>🌐 Familiar with web development technologies such as HTML, CSS, JavaScript, and frameworks like React and Node.js</li>
+          <li>📦 Experienced with version control systems like Git and GitHub</li>
+          <li>🤝 Collaborative team player with excellent communication skills</li>
+          <li>🌟 Proactive learner who stays updated with the latest trends in technology</li>
+          <li>✨ Believes in continuous growth and self-improvement</li>
+          <li>💬 Fluent in learning languages: <strong>Arabic (Native)</strong>, <strong>English (B2 level)</strong></li>
+          <li>📖 Passionate about reading and eager to learn from diverse sources</li>
+          <li>🎶 Enjoys listening to music in various genres</li>
+          <li>🍕 Loves exploring new cuisines and trying out different recipes</li>
+          <li>🎨 Creative thinker with a keen eye for design and user experience</li>
+          <li>🎨 I excel in <strong>Creativity</strong>, turning ideas into reality.</li>
+          <li>🎯 My <strong>Decision Making</strong> abilities help me navigate challenges effectively.</li>
+          <li>⏰ With strong <strong>Time Management</strong> skills, I prioritize tasks efficiently.</li>
+          <li>🔄 I'm highly <strong>Adaptable</strong>, embracing change with confidence and resilience.</li>
+          <li>⚽ The kings of Europe, the definition of greatness, my heart belongs to <strong class="rmc">Real Madrid</strong>! 👑🏆</li>
+          <li>🐐 Goats don’t say maa... they say SUIIIII</li>
+          <li>🎵 "Even through the darkest days, this fire burns always!" 🔥 No song gets me as hyped as <strong class="fire"><a href="https://www.youtube.com/watch?v=DMdqsS0a9tY">This Fire Burns</a></strong></li>
+          <li>🎥 The first rule of <strong class="fight">Fight Club</strong> is:</li>
+          <li>🏎 "Speed. I am speed." ⚡ Growing up, no animated movie fueled my love for racing like <strong class="cars">Cars</strong>. Ka-Chow! 🏁</li>
+          <li>🥶 Cool, calm, and legendary—my favorite color is <strong class="blue">Blue</strong>! 💙</li>
+          <li>🕷️ No hero swings higher than <strong class="spidey">Spider-Man</strong>—the ultimate friendly neighborhood legend! 🕸️</li>
+          <li>🦇 The Dark Knight, Gotham’s protector, The Vengeance, The Night, my ultimate hero—<strong class="bat">Batman</strong>!</li>
+          <li>🎮 Neon lights, 80s vibes, and a crime empire to build! <strong class="gta">GTA Vice City</strong> is an absolute classic 🌴</li>
+          <li>6️⃣ "We need to locate the biohazard container." 🎯 Tactical Strategies and endlessly competitive! <strong class="r6">Rainbow Six Siege</strong> is the ultimate multiplayer addiction!</li>
+          <li>🍎 I'll take a potato chip... and eat it!, What do you think now, L? This is my perfect victory! It’s right... I win!, This isn’t just an anime, this is the rise of a god for the New World! It’s <strong class="kira">Death Note</strong>.</li>
+          <li>🏎️ Forza <strong class="ferrari">Ferrari</strong>, Nothing in F1 gets my heart racing like the Prancing Horse!, F*** Mercedes, Max Verstappen, and Lando Norris and Sorry About Lewis Hamilton</li>
+        </ul>
+      </div>
+    </div>
+    <div class="counter_up_wrapper">
+      <div class="container">
+        <div class="all_items">
+          <div class="single_counter_item">
+            <h3><span class="timer">30</span>+</h3>
+            <h4>Happy Clients</h4>
+          </div>
+          <div class="single_counter_item">
+            <h3><span class="timer">5</span>+</h3>
+            <h4>Projects Complete</h4>
+          </div>
+          <div class="single_counter_item">
+            <h3><span class="timer">0</span></h3>
+            <h4>Years of Experince</h4>
+          </div>
+          <div class="single_counter_item">
+            <h3><span class="timer">99</span>+</h3>
+            <h4>Cup of Milk Tea</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="clear"></div>
+
+  <!-- Career -->
+  <section class="career-container mb-1 p-5">
+    <h1 class="career-heading container text-left mb-5">
+      My <span class="highlight">Career History</span>
+    </h1>
+    <div class="row container">
+      <div class="col-11 container">
+        <h2 class="timeline-head mb-3">
+          My <span class="highlight">Education</span>
+        </h2>
+        <ul class="timeline container">
+          <li class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">Bachelor’s Degree in Computer Science</h3>
+              <p>I earned my <strong>Bachelor’s degree in Computer Science</strong> from <strong>Suez Canal University</strong> with a <strong>GPA 3.04/4.00</strong> Very Good grade and an Excellent for my graduation project.<br> My coursework encompassed key topics such as programming fundamentals, object-oriented programming (OOP), databases, data structures, algorithms, web development, networks, problem-solving, and competitive programming. Through rigorous academic training and hands-on projects, I have developed strong analytical and technical skills, equipping me to tackle real-world challenges in the field of computer science</p>
+              </div>
+              <div class="timeline-info">
+                <span>Sept 2020 - July 2024</span>
+              </div>
+          </li>
+          <h2 class="timeline-head my-4">
+            My
+            <span class="highlight">Work Experience</span>
+          </h2>
+          <li class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">DEPI - React Frontend Web Developer Intern</h3>
+              <p>During my internship at DEPI as Software Development, I specialized in React Frontend Development, gaining hands-on experience in building modern web applications using HTML, CSS, JavaScript, and TypeScript. I developed a strong understanding of UX/UI design principles, functional documentation, and unit testing, while also working with Git and GitHub for version control, Node.js and Express for backend development, and containerization using Docker and Kubernetes. The internship concluded with a Full Stack Cloud Development Capstone Project, where I integrated React and Node.js to develop a real-world web application, applying best practices in development and deployment.</p>
+                <div class="timeline-info">
+                  <span>Oct 2024 - Present</span>
+                </div>
+            </div>
+          </li>
+          <h2 class="timeline-head my-4">
+            My
+            <span class="highlight">Volunteering</span>
+          </h2>
+          <li class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">University Volunteer Activities</h3>
+              <p>I volunteered as a Video Editor and Graphic Designer, contributing to educational content creation in the field of programming. As a Video Editor and Media Team Member at Trosc, a university-based team, I worked on developing educational videos covering Data Structures and Algorithms (DSA) techniques, such as Heap Sort, to support students in learning complex programming concepts. Additionally, I was a Graphic Designer at Msh Hackers, another university team, where I contributed to visual content creation, enhancing the quality and presentation of educational materials.</p>
+                <div class="timeline-info">
+                  <span>Dec 2023 - July 2024</span>
+                </div>
+            </div>
+          </li>
+          <h2 class="timeline-head my-4">
+            My
+            <span class="highlight">Awards</span>
+          </h2>
+          <li class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">Bachelor's Degree in Computer Science</h3>
+              <p>Earned upon successful graduation from the Faculty of Computers & Informatics at Suez Canal University with a
+                <strong>
+                  Very Good
+                </strong>
+                grade, demonstrating strong academic performance and technical proficiency.
+              </p>
+              <div class="timeline-info">
+                <span>Oct 2020 - July 2024</span>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">Graduation Project Excellence Award</h3>
+              <p>Awarded for the successful completion of the graduation project at the Faculty of Computers & Informatics, Suez
+                Canal University. The project was recognized with an
+                <strong>
+                  Excellent
+                </strong>
+                grade, reflecting outstanding research, innovation, and technical execution.
+              </p>
+              <div class="timeline-info">
+                <span>Oct 2023 - July 2024</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <div class="clear"></div>
+  
+  <!-- Hero -->
+  <section class="hero wow animate__animated animate__fadeInUpBig">
+    <h1 class="hero-heading container text-center">My
+      <span class="highlight">Ultimate Heros</span>
+    </h1>
+    <div class="card-container">
+      <div class="hero-card">
+        <div class="overflow">
+          <div class="model">
+            <model-viewer camera-orbit="0deg 90deg 164m" camera-target="0m 140m 10m" src="./Assets/Models/spider-_man_chapter_3_season_2_skin.glb" shadow-intensity="0.4"></model-viewer>
+          </div>
+        </div>
+        <div class="glass">
+          <div class="gradient-blur">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="content">
+          <h2>SpiderMan</h2>
+          <p>A quick-witted hero who swings through the city, using his acrobatic agility, web-slinging skills, and spider-sense to outmaneuver enemies and protect the innocent.</p>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="overflow">
+          <div class="model">
+            <model-viewer camera-orbit="0deg 90deg 164m" camera-target="0m 140m 10m" src="./Assets/Models/thor__marvel_rivals.glb" shadow-intensity="0.4"></model-viewer>
+          </div>
+        </div>
+        <div class="glass">
+          <div class="gradient-blur">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="content">
+          <h2>Thor</h2>
+          <p>The mighty God of Thunder wields Mjolnir to summon lightning, crush foes with godly strength, and defend realms with unshakable valor.</p>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="overflow">
+          <div class="model">
+            <model-viewer camera-orbit="0deg 90deg 164m" camera-target="0m 140m 10m" src="./Assets/Models/stylized_fortnite_batman.glb" shadow-intensity="0.4"></model-viewer>
+          </div>
+        </div>
+        <div class="glass">
+          <div class="gradient-blur">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="content">
+          <h2>Batman</h2>
+          <p>A relentless vigilante and tactical genius, wielding fear, combat mastery, and advanced technology to protect Gotham from crime.</p>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="overflow">
+          <div class="model">
+            <model-viewer camera-orbit="0deg 90deg 164m" camera-target="0m 140m 10m" src="./Assets/Models/moon_knight.glb" shadow-intensity="0.4"></model-viewer>
+          </div>
+        </div>
+        <div class="glass">
+          <div class="gradient-blur">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="content">
+          <h2>Moon Knight</h2>
+          <p>A relentless vigilante empowered by Khonshu, striking from the shadows with masterful combat skills, unbreakable will, and multiple identities that keep enemies guessing.</p>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="overflow">
+          <div class="model">
+            <model-viewer camera-orbit="0deg 90deg 164m" camera-target="0m 140m 10m" src="./Assets/Models/doctor_strange__marvel_rivals.glb" shadow-intensity="0.4"></model-viewer>
+          </div>
+        </div>
+        <div class="glass">
+          <div class="gradient-blur">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="content">
+          <h2>Doctor Strange</h2>
+          <p>The Sorcerer Supreme wields mystical arts to bend reality, conjure powerful spells, and protect the multiverse from supernatural threats.</p>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="overflow">
+          <div class="model">
+            <model-viewer camera-orbit="0deg 90deg 164m" camera-target="0m 140m 10m" src="./Assets/Models/black_panther_-_marvel_rivals_-_animated.glb" shadow-intensity="0.4"></model-viewer>
+          </div>
+        </div>
+        <div class="glass">
+          <div class="gradient-blur">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="content">
+          <h2>Black Panther</h2>
+          <p>The noble king of Wakanda, enhanced by the Heart-Shaped Herb, combines superhuman agility, genius intellect, and vibranium technology to protect his people and the world.</p>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="overflow">
+          <div class="model">
+            <model-viewer camera-orbit="0deg 90deg 164m" camera-target="0m 140m 10m" src="./Assets/Models/venomvenommarvel_rivals.glb" shadow-intensity="0.4"></model-viewer>
+          </div>
+        </div>
+        <div class="glass">
+          <div class="gradient-blur">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="content">
+          <h2>Venom</h2>
+          <p>A fearsome anti-hero bonded with a powerful symbiote, granting superhuman strength, shape-shifting abilities, and a monstrous appetite for justice—or vengeance.</p>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="overflow">
+          <div class="model">
+            <model-viewer camera-orbit="0deg 90deg 164m" camera-target="0m 140m 10m" src="./Assets/Models/deadpool_movie_model.glb" shadow-intensity="0.4"></model-viewer>
+          </div>
+        </div>
+        <div class="glass">
+          <div class="gradient-blur">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="content">
+          <h2>Deadpool</h2>
+          <p>An unkillable mercenary with a razor-sharp wit, unmatched combat skills, and a healing factor that makes him nearly unstoppable—breaking the fourth wall as easily as his enemies.</p>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="overflow">
+          <div class="model">
+            <model-viewer camera-orbit="0deg 90deg 164m" camera-target="0m 140m 10m" src="./Assets/Models/james_howlett_-_wolverine.glb" shadow-intensity="0.4"></model-viewer>
+          </div>
+        </div>
+        <div class="glass">
+          <div class="gradient-blur">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="content">
+          <h2>Wolverine</h2>
+          <p>A fierce warrior with unbreakable claws, accelerated healing, and a relentless fighting spirit, carving through enemies with primal ferocity.</p>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="overflow">
+          <div class="model">
+            <!-- <model-viewer camera-orbit="0deg 90deg 164m" camera-target="0m 140m 10m" src="./Assets/Models/fortnite_daredevil_version_1.glb" shadow-intensity="0.4"></model-viewer> -->
+            <model-viewer camera-orbit="0deg 90deg 164m" camera-target="0m 140m 10m" src="./Assets/Models/matt_murdock_daredevil.glb" shadow-intensity="0.4"></model-viewer>
+          </div>
+        </div>
+        <div class="glass">
+          <div class="gradient-blur">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="content">
+          <h2>Daredevil</h2>
+          <p>A blind lawyer by day, a fearless vigilante by night—Daredevil fights injustice with heightened senses and masterful combat skills.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="clear"></div>
+
+  <!-- Treasure -->
+  <section class="treasure">
+    <h1 class="treasure-heading text-center">Reveal the Hidden <span class="highlight" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus" data-bs-title="Seagulls Searching for Gold" data-bs-content="A bunch of clueless pirates have finally found the key to a rich treasure! But, as expected, they arrived fashionably late—so late, in fact, that most of the treasures on the map are already empty! After tripping over their own peg legs, they’re now running in circles, scratching their heads. Help these scallywags find the last untouched treasure and enter the number engraved on the key near it… before someone else beats them to it!"">Treasure</span><br>Dare to Think Beyond!</h1>
+    <div class="img-container container">
+      <img src="./Assets/Images/treasure_map.jpg" class="map">
+      <img src="./Assets/Images/treasure-coin.png" class="coin" onclick="checkCoin()" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus" data-bs-content="Click on me, ye bilge-suckin' rat!">
+      <img src="./Assets/Images/treasure-chest.png" class="tc1" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus" data-bs-content="86">
+      <img src="./Assets/Images/treasure-chest.png" class="tc2" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus" data-bs-content="41">
+      <img src="./Assets/Images/treasure-chest.png" class="tc3" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus" data-bs-content="55">
+      <img src="./Assets/Images/treasure-chest.png" class="tc4" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus" data-bs-content="70">
+      <img src="./Assets/Images/treasure-chest.png" class="tc5" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus" data-bs-content="93">0
+    </div>
+  </section>
+  <div class="clear"></div>
+
+  <!-- Services -->
+  <section class="services-container">
+    <iframe src="https://lottie.host/embed/3d18ad00-e8b3-43d2-ab25-faa23b4d60b6/26PxQj3gJE.lottie"></iframe>
+    <h1 class="services-heading container">My
+      <span class="highlight">Services</span>
+    </h1>
+    <div class="services-loop">
+      <div class="services-list" id="servicesList"></div>
+    </div>
+  </section>
+  <div class="clear"></div>
+
+  <!-- TV -->
+  <section class="tv-screen wow animate__animated animate__fadeInUpBig mt-5">
+    <div class="calendar">
+      <ul>
+        <li id="clock"></li>
+        <li id="date"></li>
+      </ul>
+    </div>
+    <div class="play">
+      <a onclick="background()">PLAY</a>
+    </div>
+  </section>
+  <div class="clear"></div>
+
+  <!-- Projects -->
+  <section class="my-works wow animate__animated animate__fadeInUpBig py-5 mt-0 mb-0">
+    <iframe src="https://lottie.host/embed/24deca38-53c8-46d6-876a-f0c8972da9d7/ZCbdiKDZvv.lottie" class="first col-md-2 col-"></iframe>
+    <div class="container">
+      <h1 class="my-works-title">My <span class="highlight">Projects</span></h1>
+      <div class="row d-flex justify-content-between">
+        <div class="col-md-5 col-12 work-item">
+          <img src="./Assets/Images/Screenshot 2025-01-08 010455.png" class="work-image">
+          <div class="work-details">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <h3 class="work-title">Bookie</h3>
+              <a href="https://moknight93.github.io/Bookie/" target="_blank" class="git"><i
+                  class="fab fa-github"></i></a>
+            </div>
+            <div class="work-description">
+              <p class="short-desc">Bookie is a digital platform for book lovers to explore, read, and share their
+                favorite
+                books in a serene and interactive environment</p>
+              <p class="full-desc">Bookie is an online platform designed for book enthusiasts, offering a peaceful space
+                to
+                discover the latest books, read summaries, and share reviews. With a user-friendly interface, responsive
+                design,
+                and interactive features like a rating system, Bookie creates a vibrant community for readers to connect
+                and
+                enjoy literature together.</p>
+            </div>
+            <div class="tech-stack d-flex gap-2">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" title="HTML">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" title="CSS">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" title="JavaScript">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-12 work-item">
+          <img src="./Assets/Images/Screenshot 2025-02-23 221330.png" class="work-image">
+          <div class="work-details">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <h3 class="work-title">Finder - Contractors</h3>
+              <a href="https://finder-contractors.netlify.app/" target="_blank" class="git"><i
+                  class="cib-netlify"></i></a>
+            </div>
+            <div class="work-description">
+              <p class="short-desc">Finder is a platform connecting users with local contractors for home projects like
+                cleaning, plumbing, and repairs.</p>
+              <p class="full-desc">Finder is a comprehensive platform designed to help users find and hire local
+                professionals
+                for various home projects, including cleaning, plumbing, roofing, and more. With advanced search features,
+                expert advice, and a user-friendly interface, Finder simplifies the process of connecting with reliable
+                contractors. The platform also offers pricing references, mobile app access, and tools for contractors to
+                grow
+                their businesses.</p>
+            </div>
+            <div class="tech-stack d-flex gap-2">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" title="HTML">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" title="CSS">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" title="JavaScript">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-12 work-item">
+          <img src="./Assets/Images/Screenshot 2025-01-08 014019.png" class="work-image">
+          <div class="work-details">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <h3 class="work-title">Finder - Real Estate</h3>
+              <a href="https://finder-real-estate.netlify.app/" target="_blank" class="git"><i
+                  class="cib-netlify"></i></a>
+            </div>
+            <div class="work-description">
+              <p class="short-desc">Finder is a user-friendly real estate platform for buying, selling, or renting
+                properties
+                with advanced search filters, verified listings, and helpful tools.</p>
+              <p class="full-desc">Finder is a comprehensive real estate platform designed to simplify property searches.
+                It
+                offers advanced filters, verified listings, cost calculators, and detailed property descriptions.
+                Supporting
+                both Arabic and English, along with light/dark modes, it provides a seamless experience for buyers,
+                sellers, and
+                renters.</p>
+            </div>
+            <div class="tech-stack d-flex gap-2">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" title="HTML">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" title="CSS">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" title="Bootstrap">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" title="JavaScript">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-12 work-item">
+          <img src="./Assets/Images/Screenshot 2024-06-29 101912.png" class="work-image">
+          <div class="work-details">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <h3 class="work-title">Nearest Shop</h3>
+              <a href="https://nearest-shops.netlify.app/" target="_blank" class="git"><i
+                class="cib-netlify"></i></a>
+            </div>
+            <div class="work-description">
+              <p class="short-desc">Nearest Shop is a web app that helps users find nearby stores with details like
+                distance, ratings, and directions using real-time location.</p>
+              <p class="full-desc">Nearest Shop is a user-friendly web application that uses Geolocation to detect the
+                user's position and displays a list of nearby stores, complete with essential details such as address,
+                distance, and ratings. It integrates interactive maps for visual guidance, offers search and filter
+                options, and provides directions to selected shops, ensuring a seamless and efficient shopping experience.
+                Designed with a responsive interface, it works flawlessly across all devices.</p>
+            </div>
+            <div class="tech-stack d-flex gap-2">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" title="HTML">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" title="CSS">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" title="Bootstrap">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" title="JavaScript">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" title="NodeJS">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" title="Flutter">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" title="Figma">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" title="Mongo">
+              <i class="devicon-flask-original" title="Flask"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <iframe src="https://lottie.host/embed/24deca38-53c8-46d6-876a-f0c8972da9d7/ZCbdiKDZvv.lottie" class="second col-md-2 col-1"></iframe>
+  </section>
+  <div class="clear"></div>
+  
+  <!-- Skills -->
+  <section class="skills animate__animated animate__fadeInUpBig wow">
+    <div class="container-fluid py-5">
+      <div class="container text mb-5">My <span>Skills</span></div>
+      <div class="logo-slider">
+        <div class="logo-slider-track">
+          <img src="https://skillicons.dev/icons?i=html" alt="HTML" class="logo-img" title="HTML">
+          <img src="https://skillicons.dev/icons?i=css" alt="CSS" class="logo-img" title="CSS">
+          <img src="https://skillicons.dev/icons?i=bootstrap" alt="Bootstrap" class="logo-img" title="Bootstrap">
+          <img src="https://skillicons.dev/icons?i=sass" alt="Sass" class="logo-img" title="Sass">
+          <img src="https://skillicons.dev/icons?i=tailwind" alt="Tailwind" class="logo-img" title="Tailwind">
+          <img src="https://skillicons.dev/icons?i=js" alt="JS" class="logo-img" title="JS">
+          <img src="https://skillicons.dev/icons?i=ts" alt="TS" class="logo-img" title="TS">
+          <img src="https://skillicons.dev/icons?i=react" alt="React" class="logo-img" title="React">
+          <img src="https://skillicons.dev/icons?i=nodejs" alt="Node.js" class="logo-img" title="Node.js">
+          <img src="https://skillicons.dev/icons?i=express" alt="Express" class="logo-img" title="Express">
+          <img src="https://skillicons.dev/icons?i=mongodb" alt="MongoDB" class="logo-img" title="MongoDB">
+          <img src="https://skillicons.dev/icons?i=c" alt="C" class="logo-img" title="C">
+          <img src="https://skillicons.dev/icons?i=cpp" alt="Cpp" class="logo-img" title="Cpp">
+          <img src="https://skillicons.dev/icons?i=python" alt="Python" class="logo-img" title="Python">
+          <img src="https://skillicons.dev/icons?i=git" alt="Git" class="logo-img" title="Git">
+          <img src="https://skillicons.dev/icons?i=github" alt="Github" class="logo-img" title="Github">
+          <img src="https://skillicons.dev/icons?i=vscode" alt="VSCode" class="logo-img" title="VSCode">
+          <img src="https://skillicons.dev/icons?i=atom" alt="Atom" class="logo-img" title="Atom">
+          <img src="https://skillicons.dev/icons?i=postman" alt="Postman" class="logo-img" title="Postman">
+          <img src="https://skillicons.dev/icons?i=notion" alt="Notion" class="logo-img" title="Notion">
+          <img src="https://go-skill-icons.vercel.app/api/icons?i=chatgpt" alt="Chatgpt" class="logo-img" title="Chatgpt">
+          <img src="https://go-skill-icons.vercel.app/api/icons?i=netlify" alt="Netlify" class="logo-img" title="Netlify">
+          <img src="https://go-skill-icons.vercel.app/api/icons?i=vercel" alt="Vercel" class="logo-img" title="Vercel">
+          <img src="https://skillicons.dev/icons?i=pr" alt="Premiere Pro" class="logo-img" title="Premiere Pro">
+          <img src="https://go-skill-icons.vercel.app/api/icons?i=davinci" alt="Davinci Resolve" class="logo-img" title="Davinci Resolve">
+        </div>
+      </div>
+    </div>
+    <div class="d-flex gap-1 container my-5 rowg">
+      <div class="skill-category col-12 col-md-3">
+          <h3 class="skill-head">
+            <i class="fa-solid fa-display front"></i>Front-End Development</h3>
+          <ul>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" title="HTML">HTML</span></li>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" title="CSS">CSS</span></li>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" title="Sass">Sass</span></li>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" title="Bootstrap">Bootstrap</span></li>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" title="Tailwind CSS">Tailwind CSS</span></li>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" title="JavaScript">JavaScript</span></li>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" title="TypeScript">TypeScript</span></li>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" title="React.js">React.js</span></li>
+          </ul>
+      </div>
+      <div class="skill-category col-5 col-md-3">
+          <h3 class="skill-head">
+            <i class="fa-solid fa-gear back"></i>Back-End Development</h3>
+          <ul>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" title="Node.js">Node.js</span></li>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" title="Express.js">Express.js</span></li>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" title="MongoDB">MongoDB</span></li>
+          </ul>
+      </div>
+      <div class="skill-category col-5 col-md-3">
+          <h3 class="skill-head"><i class="fa-solid fa-code code"></i>Programming Languages</h3>
+          <ul>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" title="C">C</span></li>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" title="C++">C++</span></li>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" title="Python">Python</span></li>
+          </ul>
+      </div>
+      <div class="skill-category col-5 col-md-3">
+          <h3 class="skill-head"><i class="fa-solid fa-wrench tool"></i>Developer Tools</h3>
+          <ul>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" title="Visual Studio Code">Visual Studio Code</span></li>
+              <li><span class="skill-tag"><i class="devicon-atom-original" title="Atom"></i>Atom</span></li>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" title="Git">Git</span></li>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" title="GitHub">GitHub</span></li>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/netlify/netlify-original.svg" title="Netlify">Netlify</span></li>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg" title="Vercel">Vercel</span></li>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/notion/notion-original.svg" title="Notion">Notion</span></li>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" title="Postman">Postman</span></li>
+              <li><span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" title="Figma">Figma</span></li>
+          </ul>
+      </div>
+  </div>
+  </section>
+  <div class="clear"></div>
+
+  <!-- Comics -->
+  <section class="comics animate__animated animate__fadeInUpBig wow">
+    <h1 class="pen-title text-center">Nothing interesting to read in my portfolio?<br>read 
+      <span>comics</span>
+    </h1>
+    <div class="posters-container">
+      <div class="poster" data-comic="batman">
+        <span class="caption">
+          <h2>Batman</h2>
+          <p class="desc">In the shadows of Gotham City, Batman strikes fear into criminals with his unmatched intellect and combat skills. As Bruce Wayne, he hides behind the mask of a billionaire, but beneath it, he is a relentless force of justice. With his utility belt, Batmobile, and years of training, he wages a never-ending war against crime, guided by his unbreakable will.</p>
+        </span>
+        <img src="https://static.dc.com/dc/files/default_images/BM_DTC_v3%2528%2520cover%2529_6312312c5c65a9.56652685.jpg?w=640">
+      </div>
+    
+      <div class="poster" data-comic="spiderman">
+        <span class="caption">
+          <h2>Spider-Man</h2>
+          <p class="desc">With great power comes great responsibility. Peter Parker, a young man gifted with incredible agility and spider-like abilities, balances his life as a student, a friend, and New York’s web-slinging protector. Whether facing off against the Green Goblin, Venom, or his own inner struggles, Spider-Man never backs down, proving that even the smallest hero can make the biggest difference.</p>
+        </span>
+        <img src="https://comic-watch.com/wp-content/uploads/2022/03/ASM2022001_Bagley-1349x2048.jpg">
+      </div>
+    
+      <div class="poster" data-comic="daredevil">
+        <span class="caption">
+          <h2>Daredevil</h2>
+          <p class="desc">Blinded as a child but gifted with extraordinary senses, Matt Murdock becomes the guardian devil of Hell’s Kitchen. By day, he fights for justice in the courtroom, and by night, he takes down criminals with his acrobatic skills and radar-like awareness. Daredevil is a symbol of resilience, proving that darkness is no match for a man who refuses to stay down.</p>
+        </span>
+        <img src="https://cdn.marvel.com/content/1x/dd1_cov.jpg">
+      </div>
+    </div>
+    <div class="comic-modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-nav prev">&#10094;</div>
+        <img class="modal-image" src="">
+        <div class="modal-nav next">&#10095;</div>
+        <div class="image-count"></div>
+      </div>
+    </div>
+  </section>
+  <div class="clear"></div>    
+    
+  <!-- Certificates -->
+  <section class="certificates">
+    <h1 class="certificates-heading text-center my-5">My <span class="highlight">Certificates</span></h1>
+    <div class="swiper mySwiper container">
+      <div class="swiper-wrapper"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+  <div class="clear"></div>
+  
+  <!-- Construction -->
+  <section class="under-construction animate__animated animate__fadeInUpBig wow my-5">
+    <h1 class="construction-heading text-center my-5"><span class="highlight">Caution</span> Under Construction</h1>
+    <p class="text-center">We are still working on this section</p>
+    <iframe src="https://lottie.host/embed/579602b4-75d6-464d-a161-a2541d2e7bc6/rjP87OJuEB.lottie" class="col-12 tape"></iframe>
+    <iframe src="https://lottie.host/embed/9cffb715-6dfd-44fc-b398-abc812c38440/S3eOQNwLxM.lottie" class="col-6 cone1"></iframe>
+    <iframe src="https://lottie.host/embed/9cffb715-6dfd-44fc-b398-abc812c38440/S3eOQNwLxM.lottie" class="col-6 cone2"></iframe>
+  </section>
+  <div class="clear"></div>
+
+  <!-- Contact -->
+  <section class="contact-section animate__animated animate__fadeInUpBig wow">
+    <iframe src="https://lottie.host/embed/3816f2e5-e4d2-499f-8dfb-52a58d423526/6W1jzBZp91.lottie" class="col-3"></iframe>
+    <div class="container">
+      <h1 class="contact-title mb-4 text-center">
+        <span class="highlight">Contact </span>Me</h1>
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-10 col-lg-7 col-12">
+          <form class="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="Name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group email-center">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="Email" placeholder="Your@email.com" required>
+            </div>
+            <div class="form-group email-center">
+              <label for="email">Subject</label>
+              <input type="text" id="subject" name="Subject" placeholder="Subject" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="Message" placeholder="Your Message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-button btn-block">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="clear"></div>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-auto">
+          <p class="footer-text">All Rights Reserved © 2025 Developed and Designed by
+            <a href="https://www.linkedin.com/in/mohamed-samir-5a2354224/">@Mohamed Samir</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="clear"></div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src='https://unpkg.com/splitting/dist/splitting.min.js'></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js" type="module" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <script>new WOW().init();</script>
+  <script src="./script.js"></script>
+  
+</body>
+</html>
