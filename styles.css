@@ -419,9 +419,10 @@ body {
   animation: gradientBG 10s ease infinite;
   width: 100vw;
   height: 100vh;
+  height: fit-content;
   padding: 10px;
   margin: 0px;
-  position: relative;
+  /* position: relative; */
 }
 
 .party-heading{
@@ -495,27 +496,25 @@ body {
 }
 
 .player {
+  height: fit-content;
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 100;
+  /* ?? */
 }
-
 .player ::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
-
 .player .img {
   width: 100%;
   flex-shrink: 0;
   display: block;
   object-fit: cover;
 }
-
 .player .list {
-  /* margin: 0; */
-  /* padding: 0; */
+  /* margin: 0;
+  padding: 0; */
   list-style-type: none;
 }
 
@@ -579,33 +578,27 @@ body {
   text-overflow: ellipsis;
 }
 
-.player .loading {
-  gap: 0 0.5rem;
-  font-size: 5rem;
-  font-weight: bold;
-}
-
 .player .music-player {
-  width: 20.9375em;
+  width: 22rem;
+  height: 28rem;
   overflow: hidden;
   user-select: none;
-  color: #000; /* Default text color */
-  height: 24.375em;
-  border-radius: 1.625em;
-  background-color: #fff; /* Default background color */
+  color: black;
+  border-radius: 1.5rem;
+  background-color: snow;
 }
 
 .player .slider {
   z-index: 0;
   flex-shrink: 0;
-  height: 7.125em;
+  height: 7rem;
   position: relative;
   border-radius: inherit;
   transition: height 1s cubic-bezier(0.71, 0.21, 0.3, 0.95);
 }
 
 .player .slider.resize {
-  height: 24.375em;
+  height: 28rem;
 }
 
 .player .slider::after {
@@ -634,31 +627,30 @@ body {
   overflow: hidden;
   position: absolute;
   border-radius: inherit;
-  width: 3.8125em;
-  height: 3.8125em;
+  width: 4rem;
   transition: transform 1s cubic-bezier(0.71, 0.21, 0.3, 0.95),
-    width 1s cubic-bezier(0.71, 0.21, 0.3, 0.95),
-    height 1s cubic-bezier(0.71, 0.21, 0.3, 0.95);
-  transform: translate3d(1.60125em, 1.60125em, 0);
+      width 1s cubic-bezier(0.71, 0.21, 0.3, 0.95),
+      height 1s cubic-bezier(0.71, 0.21, 0.3, 0.95);
+    transform: translate3d(1.60125em, 1.60125em, 0);
 }
 
 .player .slider.resize .slider__content {
   width: 100%;
-  height: 17.8125em;
+  height: 20rem;
   transform: translate3d(0, 0, 0);
 }
 
 .player .slider__content .button {
   z-index: 1;
   position: absolute;
-  width: 3em;
-  height: 3em;
+  width: 3rem;
+  height: 3rem;
 }
 
 .player .slider__content i {
   position: absolute;
   pointer-events: none;
-  font-size: 3em;
+  font-size: 3rem;
 }
 
 .player .music-player__playlist-button {
@@ -695,12 +687,10 @@ body {
 }
 
 .player .slider__controls {
-  gap: 0.375em 0;
+  gap: 0.5rem 0;
   flex-wrap: wrap;
-  position: absolute;
-  align-items: center;
-  padding-top: 0.375em;
-  width: 68.4%;
+  padding: 0.5rem;
+  width: 70%;
   transform: translate3d(17.3%, 0, 0);
   animation: var(--controls-animate, "down paused") 1s
     cubic-bezier(0.71, 0.21, 0.3, 0.95) forwards;
@@ -725,17 +715,17 @@ body {
 }
 
 .player .slider__switch-button {
-  font-size: 3em;
+  font-size: 3rem;
   height: max-content;
 }
 
 .player .music-player__info {
-  width: 56.3%;
+  width: 56%;
   cursor: pointer;
-  line-height: 1.8;
+  line-height: 1.5;
   overflow: hidden;
   font-weight: bold;
-  padding: 0 0.0625em;
+  padding: 0.5rem;
   white-space: nowrap;
 }
 
@@ -745,14 +735,14 @@ body {
 }
 
 .player .music-player__singer-name {
-  font-size: 1.25em;
+  font-size: 1.25rem;
   width: max-content;
 }
 
 .player .music-player__subtitle {
-  font-size: 0.85em;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.42);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: lightslategray;
 }
 
 .player .slider__controls .music-player__subtitle {
@@ -774,8 +764,8 @@ body {
 }
 
 .player .progress {
-  width: 90%;
-  height: 1.25em;
+  width: 100%;
+  height: 0.6rem;
   cursor: pointer;
   transition: width 1s cubic-bezier(0.71, 0.21, 0.3, 0.95);
 }
@@ -786,10 +776,10 @@ body {
 
 .player .progress__wrapper {
   width: 100%;
-  height: 0.3125em;
+  height: 0.5rem;
   position: relative;
-  border-radius: 1em;
-  background-color: #e5e7ea;
+  border-radius: 25rem;
+  background-color: lightgray;
 }
 
 .player .progress__bar {
@@ -799,30 +789,21 @@ body {
   position: absolute;
   width: var(--width);
   border-radius: inherit;
-  background-color: #78adfe;
-}
-
-.player .progress__bar::after {
-  left: 98%;
-  content: "";
-  position: absolute;
-  width: 0.4375em;
-  height: 0.4375em;
-  border-radius: 100%;
-  background-color: #5781bd;
+  background-color: cornflowerblue;
 }
 
 .player .music-player__playlist {
   height: 100%;
   overflow: hidden auto;
-  padding: 1.28125em 1.09375em 0 1.60125em;
+  /* padding: 1.28125em 1.09375em 0 1.60125em; */
+  padding: 1.5rem 1.5rem 0 1.5rem;
 }
 
 .player .music-player__song {
   cursor: pointer;
-  margin-bottom: 0.75em;
-  padding-bottom: 0.75em;
-  border-bottom: 1.938px solid rgba(216, 216, 216, 0.35);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;;
+  border-bottom: 0.5px solid lightgray;
 }
 
 .player .music-player__song audio {
@@ -830,23 +811,22 @@ body {
 }
 
 .player .music-player__song-img {
-  width: 3.8125em;
-  height: 3.8125em;
-  border-radius: 1.625em;
+  width: 5rem;
+  border-radius: 25%;
 }
 
 .player .music-player__playlist-info {
   width: 100%;
   overflow: hidden;
-  line-height: 1.3;
-  font-size: 1.06875em;
-  margin-left: 0.7875em;
+  line-height: 1.5;
+  font-size: 1rem;
+  margin-left: 1rem;
 }
 
 .player .music-player__song-duration {
-  font-weight: bold;
-  font-size: 0.7875em;
-  color: rgba(0, 0, 0, 0.42);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: gray;
 }
 
 @media screen and (min-width: 1366px) {
@@ -868,19 +848,23 @@ body {
 }
 
 .troll-container{
-  position: absolute;
-  bottom: 1%;
+  /* position: absolute; */
+  /* bottom: 1%;
   right: 0%;
-  width: 20%;
+  width: 20%; */
+  /* ?? */
+  display: flex;
+  justify-content: center;
 }
 
 .troll {
-	font-size: 0.6em;
+	font-size: 0.6rem;
 	margin: auto;
 	overflow: hidden;
 	position: relative;
-	width: 17em;
-	height: 35em;
+	width: 25rem;
+	height: 23rem;
+  padding-left: 100px;
 }
 .troll div {
 	animation-duration: 0.75s;
@@ -1181,15 +1165,17 @@ div.troll__right-hand, div.troll__left-hand {
 }
 
 .dance-hero{
-  position: absolute;
+  /* position: absolute;
   bottom: -10%;
-  left: 0%;
-  /* background-color: red; */
+  left: 0%; */
+  /* ?? */
+  display: flex;
+  align-items: flex-end;
 }
 
 .dance-hero svg {
-  height: 50vh;
-  width: 40vw;
+  height: fit-content;
+  width: 100%;
 }
 
 .dance-hero .legs {
@@ -1272,10 +1258,10 @@ div.troll__right-hand, div.troll__left-hand {
     transform: translateX(0px);
   }
   49% {
-    transform: translateX(900px);
+    transform: translateX(150px);
   }
   50% {
-    transform: translateX(900px) scale(-1, 1);
+    transform: translateX(150px) scale(-1, 1);
   }
   99% {
     transform: translateX(0px) scale(-1, 1);
@@ -1295,12 +1281,13 @@ div.troll__right-hand, div.troll__left-hand {
 }
 
 .frank {
-  width: 50%;
+  /* position: relative; */
+  /* width: 50%;
   height: 37%;
   font-size: 1.1em;
-  position: absolute;
   bottom: 0%;
-  right: 0%;
+  right: 0%; */
+  /* ?? */
 }
 
 .frank svg > * {
@@ -1322,9 +1309,9 @@ div.troll__right-hand, div.troll__left-hand {
 
 .frank .body {
   position: relative;
-  top: -2.5em;
-  width: 8em;
-  height: 10.25em;
+  top: 25%;
+  width: 8rem;
+  height: 10rem;
   margin: auto;
 }
 
@@ -2069,12 +2056,6 @@ div.troll__right-hand, div.troll__left-hand {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-.points-container strong.spidey {
-  background: linear-gradient(270deg, #736af4, #fb5252);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 .points-container strong.fire {
   background: linear-gradient(180deg, #deca17, #ff0000);
   -webkit-background-clip: text;
@@ -2091,7 +2072,7 @@ div.troll__right-hand, div.troll__left-hand {
   -webkit-text-fill-color: transparent;
 }
 .points-container strong.rmc {
-  background: linear-gradient(200deg, #d1d728 0%, #d0d0d0 50%);
+  background: linear-gradient(200deg, #d1d728 0%, #ffffff 50%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -2101,7 +2082,7 @@ div.troll__right-hand, div.troll__left-hand {
   -webkit-text-fill-color: transparent;
 }
 .points-container strong.bat {
-  background: linear-gradient(220.55deg, #000000 0%, #ed3434 50%);
+  background: linear-gradient(100deg, #000000, #ff0000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -2121,7 +2102,7 @@ div.troll__right-hand, div.troll__left-hand {
   -webkit-text-fill-color: transparent;
 }
 .points-container strong.kira {
-  background: linear-gradient(360deg, #ffffff 0%, #ffffff 50%);
+  background: linear-gradient(360deg, #666666 0%, #c7c7c7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -2217,10 +2198,11 @@ div.troll__right-hand, div.troll__left-hand {
   top: 58%;
   left: 67%;
   opacity: 0;
+  filter: grayscale(100%);
 }
 .treasure .img-container img.tc5:hover {
   opacity: 1;
-  transition: opacity 2.5s ease-in-out;
+  transition: opacity 1.5s ease-in-out;
 }
 /* -------------------------------------------------------------------------- */
 .services-container {
@@ -2289,9 +2271,9 @@ div.troll__right-hand, div.troll__left-hand {
   background-image: url("https://68.media.tumblr.com/595a5fa01fe53ca0e4ca8f37bacc849d/tumblr_nve67mJtue1tanofjo1_500.gif");
   background-size: cover;
   text-shadow: black 2px 2px 1px, black -2px 2px 1px, black -2px -2px 1px, black 2px -2px 1px, black 0px 2px 1px, black 0px -2px 1px, black 2px 0px 1px, black -2px 0px 1px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
   width: 100vw;
   height: 100vh;
   font-size: 3rem;
@@ -2479,10 +2461,18 @@ div.troll__right-hand, div.troll__left-hand {
   }
 }
 
+.skill-group{
+  /* display: flex; */
+  justify-content: space-evenly;
+  gap: 5px;
+  width: 100%;
+}
+
 .skill-category{
   display: flex;
   flex-direction: column;
   text-align: left;
+  /* flex: 1; */
 }
 .skill-category ul{
   list-style-type: none;
@@ -2493,8 +2483,10 @@ div.troll__right-hand, div.troll__left-hand {
   padding: 20px;
   color: white;
   background-color: #1F2937;
-  text-align: left;
+  text-align: center;
   margin-bottom: 20px;
+  white-space: nowrap;
+  width: fit-content;
 }
 .skill-head i{
   margin-right: 10px;
@@ -2512,8 +2504,12 @@ div.troll__right-hand, div.troll__left-hand {
   color: #94FFD8;
 }
 .skill-tag {
+  display: flex;
+  display: inline-block;
   display: inline-flex;
   align-items: center;
+  align-items: right;
+  align-items: right;
   gap: 0.5rem;
   padding: 10px;
   margin-bottom: 5px;
@@ -2521,6 +2517,7 @@ div.troll__right-hand, div.troll__left-hand {
   color: white;
   background-color: rgba(106, 116, 128, 0.125);
   border-radius: 10px;
+  white-space: nowrap;
 }
 
 .skill-tag img {
@@ -2717,8 +2714,8 @@ width: 1.25rem;
 }
 
 .swiper-slide iframe {
-  width: 120vw;
-  height: 120vh;
+  width: 100vw;
+  height: 130vh;
 }
 
 /* Hide PDF controls */

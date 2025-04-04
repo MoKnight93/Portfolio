@@ -301,15 +301,19 @@ document.addEventListener("DOMContentLoaded", function () {
 function checkCoin() {
   let userInput = prompt("Enter The Treasure Number:");
 
-  if (userInput === "93") {
-    document.querySelector(".coin").style.filter = "none"; // Remove grayscale
-    alert("🦜 Yo-ho-ho! We struck gold, mates!");
+  if (userInput === null || userInput.trim() === "") {
+    alert("🍺 Ye slack-jawed sea rat! Spit it out or walk the plank!");
+  } else if (userInput === "93") {
+    document.querySelector(".coin").style.filter = "none";
+    document.querySelector(".tc5").style.filter = "none";
+    document.querySelector(".tc5").style.opacity = "1";
+    alert("🏴‍☠️ By the rottin’ guts of Blackbeard, we hit the motherload! Gold, rum, and wenches for all! Now, drink till ye drop!");
   } else {
-    alert(
-      "☠️ Blimey! Another empty chest! This be worse than an empty rum barrel!"
-    );
+    alert("☠️ By the devil’s balls! All that work for this rotten, empty heap?! Worse than a dead man’s stench!");
   }
 }
+
+
 
 
 
@@ -600,30 +604,35 @@ const root = querySelector("#root");
 const songsData = {
   songs: [
     {
-      songName: "Dancin",
-      artist: "Aaron Smith",
+      songName: "Bugatti",
+      artist: "Ace Hood ft. Future, Rick Ross",
       files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b2731446699058dbe015b12abb1d",
-        song: "./Assets/Audios/Aaron Smith - Dancin (KRONO Remix).mp3",
+        cover: "https://images.genius.com/db8ec0d7fef01bcd9d372326fff4ea47.640x640x1.jpg",
+        song: "./Assets/Audios/Ace Hood - Bugatti (Explicit Version_Closed Captioned) ft. Future_ Rick Ross.mp3",
       },
     },
     {
-      songName: "Con Calma",
-      artist: "Daddy Yankee, Snow",
+      songName: "Heaven Only Knows",
+      artist: "Bob Moses",
       files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b273896ffcd42561c44fea2bae7b",
-        song: "./Assets/Audios/Daddy Yankee _ Snow - Con Calma (Official Video).mp3",
+        cover: "https://i.scdn.co/image/ab67616d0000b2738339bb10e2145dd4124857b2",
+        song: "./Assets/Audios/Bob Moses - Heaven Only Knows (Official Audio).mp3",
       },
     },
     {
-      songName: "Superman",
-      artist: "Eminem",
+      songName: "Rather Be",
+      artist: "Clean Bandit ft. Jess Glynne",
       files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b2736ca5c90113b30c3c43ffb8f4",
-        song: "./Assets/Audios/Eminem - Superman.mp3",
+        cover: "https://i.scdn.co/image/ab67616d0000b2737e519297d9876b6afff2ab7b",
+        song: "./Assets/Audios/Clean Bandit - Rather Be ft. Jess Glynne [Official Video].mp3",
+      },
+    },
+    {
+      songName: "Still D.R.E.",
+      artist: "Dr. Dre ft. Snoop Dogg",
+      files: {
+        cover: "https://i.scdn.co/image/ab67616d0000b2739b19c107109de740bad72df5",
+        song: "./Assets/Audios/Dr. Dre - Still D.R.E. ft. Snoop Dogg.mp3",
       },
     },
     {
@@ -636,39 +645,35 @@ const songsData = {
       },
     },
     {
-      songName: "Sweet Dreams (Are Made Of This)",
-      artist: "Eurythmics, Annie Lennox, Dave Stewart",
+      songName: "How It Was",
+      artist: "Future",
       files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b273b3994c94dfb241923664bb4d",
-        song: "./Assets/Audios/Eurythmics_ Annie Lennox_ Dave Stewart - Sweet Dreams (Are Made Of This) (Official Video).mp3",
+        cover: "https://i1.sndcdn.com/artworks-000065619625-5o4ydw-t500x500.jpg",
+        song: "./Assets/Audios/How It Was (feat. Future).mp3",
       },
     },
     {
-      songName: "Lemonade",
-      artist: "Internet Money, Don Toliver, Gunna, Nav",
+      songName: "You Know How We Do It",
+      artist: "Ice Cube",
       files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b273d46a8fffbe6c8630784f04da",
-        song: "./Assets/Audios/Internet Money - Lemonade ft. Don Toliver_ Gunna _ Nav (Dir. by __ColeBennett_).mp3",
+        cover: "https://m.media-amazon.com/images/M/MV5BZmY5MmU4YTctY2NiNS00MmY3LWI3MzctOWFmNzU0MjQ0M2EzXkEyXkFqcGc@._V1_.jpg",
+        song: "./Assets/Audios/Ice Cube - You Know How We Do It.mp3",
       },
     },
     {
-      songName: "Mi Gente",
-      artist: "J Balvin, Willy William",
+      songName: "Algo Como Tu",
+      artist: "Kaydy Cain",
       files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b273dc1e881b8bb3e6ca57e82fcd",
-        song: "./Assets/Audios/J Balvin_ Willy William - Mi Gente (Official Video).mp3",
+        cover: "http://i.scdn.co/image/ab67616d0000b27374b027d613b42163780513dc",
+        song: "./Assets/Audios/Kaydy Cain - Algo Como Tu (Video Oficial).mp3",
       },
     },
     {
-      songName: "Poker Face",
-      artist: "Lady Gaga",
+      songName: "ZEZE",
+      artist: "Kodak Black ft. Travis Scott, Offset",
       files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b2739ff8dea75219ec13530d97f1",
-        song: "./Assets/Audios/Lady Gaga - Poker Face (Official Music Video).mp3",
+        cover: "https://i.scdn.co/image/ab67616d0000b2738a5a04dbb1c7a3242fdfdfe8",
+        song: "./Assets/Audios/Kodak Black - ZEZE (feat. Travis Scott _ Offset) [Official Audio].mp3",
       },
     },
     {
@@ -681,17 +686,8 @@ const songsData = {
       },
     },
     {
-      songName: "Industry Baby",
-      artist: "Lil Nas X, Jack Harlow",
-      files: {
-        cover:
-          "https://t2.genius.com/unsafe/425x425/https%3A%2F%2Fimages.genius.com%2Fb516940e5677887660c9b712af106ce8.750x750x1.jpg",
-        song: "./Assets/Audios/Lil Nas X - Industry Baby ft. Jack Harlow.mp3",
-      },
-    },
-    {
       songName: "Old Town Road",
-      artist: "Lil Nas X, Billy Ray Cyrus",
+      artist: "Lil Nas X ft. Billy Ray Cyrus",
       files: {
         cover:
           "https://media.gq.com/photos/5cdeef0e1f8a4e271cddab8d/1:1/w_689,h_689,c_limit/Old-Town-Road-Video-GQ-2019-051719.jpg",
@@ -699,93 +695,19 @@ const songsData = {
       },
     },
     {
-      songName: "500lbs",
-      artist: "Lil Tecca",
+      songName: "Rihanna - Where Have You Been",
+      artist: "Rihanna",
       files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b273b512ec018be2b70cc0ffa23d",
-        song: "./Assets/Audios/Lil Tecca - 500lbs (Official Video).mp3",
+        cover: "https://i.scdn.co/image/ab67616d0000b273bef074de9ca825bddaeb9f46",
+        song: "./Assets/Audios/Rihanna - Where Have You Been.mp3",
       },
     },
     {
-      songName: "Live It Up",
-      artist: "Nicky Jam, Will Smith, Era Istrefi",
+      songName: "Sickick - Talking to the Moon (Bruno Mars Remix)",
+      artist: "Sickick",
       files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b273c060765288c9f00c1f0a0aeb",
-        song: "./Assets/Audios/Live It Up - Nicky Jam feat. Will Smith _ Era Istr.mp3",
-      },
-    },
-    {
-      songName: "Magic In The Air",
-      artist: "MAGIC SYSTEM, Chawki",
-      files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b273aefeb44448351090ba3b604d",
-        song: "./Assets/Audios/MAGIC SYSTEM - Magic In The Air Feat. Chawki [Clip Officiel].mp3",
-      },
-    },
-    {
-      songName: "Beggin'",
-      artist: "Måneskin",
-      files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b273fa0ab3a28b5c52d8a5f97045",
-        song: "./Assets/Audios/Måneskin - Beggin_ (Lyrics_Testo).mp3",
-      },
-    },
-    {
-      songName: "Invincible",
-      artist: "MGK, Ester Dean",
-      files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b2739d6ec3a90c2504f1f4966a25",
-        song: "./Assets/Audios/MGK - Invincible (Explicit) ft. Ester Dean.mp3",
-      },
-    },
-    {
-      songName: "Take Control",
-      artist: "Old Gods of Asgard",
-      files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b273048651764cd67529e29d93fd",
-        song: "./Assets/Audios/Old Gods of Asgard - Take Control (Lyric Video).mp3",
-      },
-    },
-    {
-      songName: "Hey Baby (Drop It To The Floor)",
-      artist: "Pitbull, T-Pain",
-      files: {
-        cover:
-          "https://i1.sndcdn.com/artworks-000004750446-zhfw4p-t500x500.jpg",
-        song: "./Assets/Audios/Pitbull - Hey Baby (Drop It To The Floor) ft. T-Pain.mp3",
-      },
-    },
-    {
-      songName: "rockstar",
-      artist: "Post Malone, 21 Savage",
-      files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b273d3884f06c92d826ecd87a319",
-        song: "./Assets/Audios/Post Malone - rockstar ft. 21 Savage.mp3",
-      },
-    },
-    {
-      songName: "Sucker for Pain",
-      artist: "Imagine Dragons, Lil Wayne, Wiz Khalifa",
-      files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b2737d8dfcfd507069d7f2062caf",
-        song: "./Assets/Audios/Sucker for Pain Lyrics   Imagine Dragons, Lil Wayne &amp; Wiz Khalifa.mp3",
-      },
-    },
-    {
-      songName: "Heathens",
-      artist: "Twenty One Pilots",
-      files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b2732ca3ba8f334ca5a5f0312efb",
-        song: "./Assets/Audios/SuicideSquadHeathensTwentyOnePilotsLyrics.mp3",
+        cover: "https://i1.sndcdn.com/artworks-KnuZQJTOW0SJLR6G-z8cZiw-t500x500.jpg",
+        song: "./Assets/Audios/Sickick - Talking to the Moon (Bruno Mars Remix).mp3",
       },
     },
     {
@@ -798,29 +720,12 @@ const songsData = {
       },
     },
     {
-      songName: "Written In The Stars",
-      artist: "Tinie Tempah, Eric Turner",
-      files: {
-        cover: "https://i1.sndcdn.com/artworks-qxuKv504YG3w-0-t500x500.jpg",
-        song: "./Assets/Audios/Tinie Tempah - Written In The Stars ft. Eric Turne.mp3",
-      },
-    },
-    {
       songName: "BUTTERFLY EFFECT",
       artist: "Travis Scott",
       files: {
         cover:
           "https://i1.sndcdn.com/artworks-AteYKQAUrh4vLE4n-pOmoTA-t1080x1080.jpg",
         song: "./Assets/Audios/Travis Scott - BUTTERFLY EFFECT (Official Music Video).mp3",
-      },
-    },
-    {
-      songName: "goosebumps",
-      artist: "Travis Scott, Kendrick Lamar",
-      files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b273f54b99bf27cda88f4a7403ce",
-        song: "./Assets/Audios/Travis Scott - goosebumps ft. Kendrick Lamar.mp3",
       },
     },
     {
@@ -834,26 +739,26 @@ const songsData = {
     },
     {
       songName: "SICKO MODE",
-      artist: "Travis Scott, Drake",
+      artist: "Travis Scott ft. Drake",
       files: {
         cover:
           "https://i.scdn.co/image/ab67616d0000b273072e9faef2ef7b6db63834a3",
         song: "./Assets/Audios/Travis Scott - SICKO MODE (Official Audio).mp3",
       },
     },
-  ],
+  ],  
 };
 
 function App({ songs }) {
   function handleChangeMusic({ isPrev = false, playListIndex = null }) {
     if (isLocked || indexSong === playListIndex) return;
-
+  
     if (playListIndex || playListIndex === 0) {
       indexSong = playListIndex;
     } else {
       indexSong = isPrev ? (indexSong -= 1) : (indexSong += 1);
     }
-
+  
     if (indexSong < 0) {
       indexSong = 0;
       return;
@@ -861,15 +766,17 @@ function App({ songs }) {
       indexSong = songsLength;
       return;
     }
-
+  
     selectedSong.pause();
     selectedSong.currentTime = 0;
     progressBarIsUpdating = false;
     selectedSong = playlistSongs_elmnt[indexSong];
-
-    if (selectedSong.paused && songIsPlayed) selectedSong.play();
-    else selectedSongpause();
-
+  
+    // Always play the new song when selected
+    selectedSong.play();
+    songIsPlayed = true;
+    broadcastGuarantor_elmnt.classList.add("click");
+  
     setProperty(sliderImgs_elmnt, "--index", -indexSong);
     updateInfo(singerName_elmnt, songs[indexSong].artist);
     updateInfo(songName_elmnt, songs[indexSong].songName);
@@ -901,8 +808,9 @@ function Slider({ slides, handleChangeMusic }) {
   function handlePlayMusic() {
     if (selectedSong.currentTime === selectedSong.duration) {
       handleChangeMusic({});
+      return;
     }
-
+  
     this.classList.toggle("click");
     songIsPlayed = !songIsPlayed;
     selectedSong.paused ? selectedSong.play() : selectedSong.pause();
