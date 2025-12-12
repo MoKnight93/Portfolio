@@ -2,14 +2,19 @@
 document.addEventListener("DOMContentLoaded", function () {
   const texts = [
     "Software Engineer",
-    "Web Developer",
+    "MERN Stack Developer",
+    "Data Analyst",
+    "Data Scientist",
+    "Machine Learning Engineer",
+    "AI Engineer",
     "UI/UX Designer",
     "Problem Solver",
     "Competitive Programmer",
-    "Passionate Coder",
-    "Self-Taught Developer",
+    "Critical Thinker",
+    "Freelancer",
+    "Video Editor",
+    "Passionate Person",
     "Knowledge Seeker",
-    "Fast Learner",
   ];
   let currentTextIndex = 0;
 
