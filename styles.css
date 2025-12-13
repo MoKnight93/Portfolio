@@ -1588,6 +1588,7 @@ div.troll__right-hand, div.troll__left-hand {
   color: #fff;
   margin-bottom: 40px;
   font-weight: 800;
+  padding-left: 0px;
   text-transform: capitalize;
 }
 .timeline {
@@ -2062,7 +2063,8 @@ div.troll__right-hand, div.troll__left-hand {
   -webkit-text-fill-color: transparent;
 }
 .points-container strong.blue {
-  background: linear-gradient(180deg, #1728de, #4a60c2);
+  background: linear-gradient(360deg, #1728de 0%, #1728de 50%);
+  /* background: linear-gradient(180deg, #1728de, #4a60c2); */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -2143,6 +2145,11 @@ div.troll__right-hand, div.troll__left-hand {
 .single_counter_item h3{
   color: #ffffff;
   font-size: 36px;
+  line-height: 46px;
+}
+.single_counter_item h3.infinite{
+  /* font-size: 36px; */
+  font-size: 50px;
   line-height: 46px;
 }
 /* -------------------------------------------------------------------------- */
@@ -2235,7 +2242,7 @@ div.troll__right-hand, div.troll__left-hand {
 
 .services-list {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   animation: scrollServices 30s linear infinite;
 }
 
@@ -2245,11 +2252,12 @@ div.troll__right-hand, div.troll__left-hand {
   gap: 0.5rem;
   color: white;
   font-weight: bold;
+  font-size: 1rem;
   text-transform: capitalize;
 }
 
 .service-item img {
-  width: 2rem;
+  width: 3rem;
 }
 
 @keyframes scrollServices {
@@ -2430,7 +2438,8 @@ div.troll__right-hand, div.troll__left-hand {
 
 .logo-slider-track {
   display: flex;
-  animation: slide 30s linear infinite;
+  width: max-content;
+  animation: slide 30s linear infinite alternate;
 }
 
 .logo-slider-track:hover {
@@ -2452,12 +2461,8 @@ div.troll__right-hand, div.troll__left-hand {
   0% {
     transform: translateX(0);
   }
-
-  50%{
-    transform: translateX(-70%);
-  }
   100% {
-    transform: translateX(0%);
+    transform: translateX(calc(-100% + 100vw));
   }
 }
 

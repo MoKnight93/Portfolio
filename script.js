@@ -174,29 +174,55 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Services Section
 const services = [
-  "Website Design",
-  "UI/UX Design",
-  "Graphic Design",
-  "Responsive Websites",
-  "Secure Websites",
-  "Easy-to-Use Interfaces",
-  "Bug Fixing",
-  "SEO Optimization",
-  "Mobile-Friendly Design",
-  "Fast Loading Websites",
-  "Dark Mode Support",
-  "E-Commerce Websites",
-  "User-Friendly Navigation",
-  "Form Design & Validation",
-  "Website Speed Improvement",
-  "Basic Website Security",
-  "API Integration",
-  "Multi-Language Support",
-  "Simple Dashboard Creation",
-  "Improving Code Readability",
-  "Writing Efficient Code",
+  // Software Engineering
+  "Software Design & Architecture",
+  "Writing Efficient & Scalable Code",
+  "Code Optimization & Refactoring",
   "Unit Testing & Debugging",
-  "Solving DSA Problems",
+  "Technical Consulting & Solutions",
+  
+  // Web Development – Front-End
+  "Interactive Web Interfaces",
+  "Responsive Web Design",
+  "Mobile-Friendly Websites",
+  "Fast-Loading Web Pages",
+  "Accessible & User-Friendly UI",
+  
+  // Web Development – Back-End
+  "Server-Side Development",
+  "API Development & Integration",
+  "Database Management & SQL Queries",
+  "Secure Server & Application Logic",
+  "Performance Optimization",
+  
+  // UI/UX Design
+  "User-Centered Interface Design",
+  "UI Prototyping & Testing",
+  "Designing Intuitive Workflows",
+  "Creating Visually Appealing Layouts",
+  
+  // Data Analysis / Data Science
+  "Data Cleaning & Preprocessing",
+  "Insight Generation from Data",
+  "Actionable Recommendations",
+  "Data Visualization & Storytelling",
+  "Statistical Analysis & Reporting",
+  
+  // AI / Machine Learning
+  "Building Predictive Models",
+  "Machine Learning Model Deployment",
+  "AI-Driven Automation Solutions",
+  "Algorithm Design for ML Tasks",
+  
+  // Problem Solving / Competitive Programming
+  "Algorithm & Data Structure Optimization",
+  "Competitive Programming Solutions",
+  "Solving Complex Technical Problems",
+  
+  // General Computer Science / Project Skills
+  "End-to-End Project Development",
+  "Technical Decision Support",
+  "System Architecture Planning",
 ];
 const servicesList = document.getElementById("servicesList");
 
@@ -352,7 +378,6 @@ countupEls.forEach(animateCountUp);
 const comicImages = {
   batman: [
     "./Assets/Images/Batman/Batman - Dark Patterns 003 (2025) 001.jpg",
-    "./Assets/Images/Batman/Batman - Dark Patterns 003 (2025) 002.jpg",
     "./Assets/Images/Batman/Batman - Dark Patterns 003 (2025) 003.jpg",
     "./Assets/Images/Batman/Batman - Dark Patterns 003 (2025) 004.jpg",
     "./Assets/Images/Batman/Batman - Dark Patterns 003 (2025) 005.jpg",
@@ -382,8 +407,6 @@ const comicImages = {
   ],
   spiderman: [
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0001.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0002.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0003.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0004.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0005.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0006.jpg",
@@ -488,7 +511,6 @@ const comicImages = {
   ],  
   daredevil: [
     "./Assets/Images/Daredevil/Daredevil 016 (2025) (Digital) (Shan-Empire) 00001.jpg",
-    "./Assets/Images/Daredevil/Daredevil 016 (2025) (Digital) (Shan-Empire) 00002.jpg",
     "./Assets/Images/Daredevil/Daredevil 016 (2025) (Digital) (Shan-Empire) 00003.jpg",
     "./Assets/Images/Daredevil/Daredevil 016 (2025) (Digital) (Shan-Empire) 00004.jpg",
     "./Assets/Images/Daredevil/Daredevil 016 (2025) (Digital) (Shan-Empire) 00005.jpg",
@@ -510,7 +532,6 @@ const comicImages = {
     "./Assets/Images/Daredevil/Daredevil 016 (2025) (Digital) (Shan-Empire) 00020.jpg",
     "./Assets/Images/Daredevil/Daredevil 016 (2025) (Digital) (Shan-Empire) 00021.jpg",
     "./Assets/Images/Daredevil/Daredevil 016 (2025) (Digital) (Shan-Empire) 00022.jpg",
-    "./Assets/Images/Daredevil/Daredevil 016 (2025) (Digital) (Shan-Empire) 00023.jpg",
   ],
 };
 
