@@ -1439,15 +1439,21 @@ const memories = [
   },
   {
     id: 4,
-    title: "Dr. Esraa Eleraky",
+    title: "Eng. Esraa Eleraky",
     image: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWFiM3B2Z2VqMTc0ZzNhcDcydWJqNDdvdTlhYTFldHBqMXFsdGN2aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tDFmApXRr5b24uI3sd/giphy.gif",
     text: "I don’t know what to say except thank you for everything. You didn’t just teach me how to be a data analyst, you taught me how to think like one to look beyond the numbers and search for context, meaning, and insight in everything I analyze"
   },
   {
     id: 5,
-    title: "Dr. Nahla Fayyad",
+    title: "Eng. Nahla Fayyad",
     image: "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3aTR0MzRjNmxjNmQ2bmU2Z2h6eG5nd25qM3dnaGhkYzZqdnBiNHpoOSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/1PB2ZpDj3CwPtaUW1l/giphy.gif",
-    text: "In just five sessions, I got to know an incredible person: a voice actor, a lawyer, someone managing the legal affairs of several companies, a freelance lecturer, and a talented painter. On our behalf, I want to apologize that the period wasn’t what you wished it to be, but you gave us something we will never forget. We wish for you to rediscover your passion and achieve even greater success in everything you pursue"
+    text: "In just four sessions, I got to know an incredible person: a voice actor, a lawyer, someone managing the legal affairs of several companies, a freelance lecturer, and a talented painter. On our behalf, I want to apologize that the period wasn’t what you wished it to be, but you gave us something we will never forget. We wish for you to rediscover your passion and achieve even greater success in everything you pursue"
+  },
+  {
+    id: 6,
+    title: "Eng. Basma Abdel Halim",
+    image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2R5eXA0aXAzZHl4eDkxdjFnbmFqYmp0Z2wyYXllamg2cTVwdHdrMSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/NSRPQHOnHwV7M8siam/giphy.gif",
+    text: "Over the course of six months, I completed my journey learning the MERN stack in full, building more than five projects, including a graduation project that was awarded as the best web project at the scholarship level, along with financial rewards and official certificates from the ministry. None of this would have been possible without God first, and then Engineer Basma. Thank you, thank you, and thank you"
   },
 
 ];
