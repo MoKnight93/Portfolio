@@ -1402,3 +1402,342 @@ window.onload = wave();
 
 
 
+
+
+
+
+
+// Remarkable
+const memories = [
+  {
+    id: 1,
+    title: "Mr. Hamed Fadel",
+    image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnV6eWt1ZndmbWlhdjJxaGU3ZjlzcXV4MmR6MDZmN2w4bG1wb3p0MSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ui0Qh8Gqz8j1LQ67YS/giphy.gif",
+    text: "I don’t know what to say except thank you for everything you gave, selflessly and sincerely. Thank you for bringing my passion for mathematics back to life and showing me that it’s not just numbers, but logic, structured thinking, and clarity of mind. You taught me how to think correctly and what it truly means to be a good engineer, not just someone who memorizes. You were like a father figure, not only to me but to many who needed guidance and belief. I regret that I couldn’t attend the funeral, but my respect and sadness remain. All I can offer now is a sincere prayer: may God have mercy on you, and may every piece of knowledge you shared be counted in your good deeds"
+  },
+  {
+    id: 2,
+    title: "Dr. Mahmoud Farag",
+    image: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExazJhN2lxYjdjdzluMHh3Y2d2aGx5aGdoeWp6amd0enM1NjA5Y2MybiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7xkxbhryQO7hm/giphy.gif",
+    text: "Imagine being interested in AI while knowing almost nothing about it, joining a course expecting only basic theory, and then discovering that your instructor is one of the most well-known AI educators and speakers in Egypt. In less than one month, I was able to truly understand AI, Machine Learning, and Deep Learning—both theoretically and practically—through hands-on projects. That single month helped me grasp nearly 60% of the AI field and played a major role in shaping who I am today; without him, I honestly wouldn’t be where I am now"
+  },
+  {
+    id: 3,
+    title: "Weeza",
+    image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDh1c3p1YThuYnRhOHhsdHhqcHQyams0dGZzOHdhcDJkeWh1NHhwYiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/syEfLvksYQnmM/giphy.gif",
+    text: "First meeting was a fight. Two fucking losers. Two motherfuckers. Two dreamers dreaming of becoming millionaires, chasing money to waste on super classic cars, Whores, drugs, and weed chasing ruling the business world, owning companies that own the world, laughing about ending up with our names on the Epstein list. Still dreaming. Still fucked up. Two idiots smiling while getting thrown into hell. From this fucked-up life, I walked away with one thing only: one real friend"
+  },
+  {
+    id: 4,
+    title: "Dr. Esraa Eleraky",
+    image: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWFiM3B2Z2VqMTc0ZzNhcDcydWJqNDdvdTlhYTFldHBqMXFsdGN2aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tDFmApXRr5b24uI3sd/giphy.gif",
+    text: "I don’t know what to say except thank you for everything. You didn’t just teach me how to be a data analyst, you taught me how to think like one to look beyond the numbers and search for context, meaning, and insight in everything I analyze"
+  },
+  {
+    id: 5,
+    title: "Dr. Nahla Fayyad",
+    image: "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3aTR0MzRjNmxjNmQ2bmU2Z2h6eG5nd25qM3dnaGhkYzZqdnBiNHpoOSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/1PB2ZpDj3CwPtaUW1l/giphy.gif",
+    text: "In just five sessions, I got to know an incredible person: a voice actor, a lawyer, someone managing the legal affairs of several companies, a freelance lecturer, and a talented painter. On our behalf, I want to apologize that the period wasn’t what you wished it to be, but you gave us something we will never forget. We wish for you to rediscover your passion and achieve even greater success in everything you pursue"
+  },
+
+];
+
+// DOM elements
+const cardsContainer = document.getElementById('cardsContainer');
+
+// State
+let draggedCard = null;
+let isDragging = false;
+let startX = 0;
+let startY = 0;
+let cardStartX = 0;
+let cardStartY = 0;
+let resizeTimeout;
+
+// Initialize cards
+function initCards() {
+    // Clear container
+    cardsContainer.innerHTML = '';
+    
+    // Calculate initial positions in a grid (4 columns max)
+    const cols = 4;
+    const cardWidth = 300;
+    const cardHeight = 300;
+    const gap = 20;
+    const containerWidth = cardsContainer.clientWidth;
+    
+    // Calculate how many cards per row (max 4)
+    const cardsPerRow = Math.min(cols, Math.floor(containerWidth / (cardWidth + gap)));
+    
+    // Calculate number of rows needed
+    const numRows = Math.ceil(memories.length / cardsPerRow);
+    
+    // Calculate dynamic container height
+    const containerHeight = 20 + (numRows * (cardHeight + gap));
+    cardsContainer.style.minHeight = `${containerHeight}px`;
+    
+    // Calculate starting position to center cards
+    const totalWidth = cardsPerRow * cardWidth + (cardsPerRow - 1) * gap;
+    const startX = (containerWidth - totalWidth) / 2;
+    
+    // Create and position cards
+    memories.forEach((memory, index) => {
+        const row = Math.floor(index / cardsPerRow);
+        const col = index % cardsPerRow;
+        
+        const posX = startX + col * (cardWidth + gap);
+        const posY = 20 + row * (cardHeight + gap);
+        
+        createCard(memory, posX, posY);
+    });
+}
+
+// Create a card element
+function createCard(memory, posX, posY) {
+  const card = document.createElement('div');
+  card.className = 'remark-card';
+  card.id = `card-${memory.id}`;
+  card.dataset.id = memory.id;
+
+  // Set initial position
+  card.style.left = `${posX}px`;
+  card.style.top = `${posY}px`;
+
+  // Determine title color based on image brightness
+  const isLightImage = memory.id === 4; // Assuming 4th image needs black text
+  const titleClass = isLightImage ? 'title-white' : 'title-white';
+
+  card.innerHTML = `
+                <div class="pin-indicator">
+                    <i class="fas fa-thumbtack"></i>
+                </div>
+                <div class="remark-card-front">
+                    <div class="card_image">
+                        <img src="${memory.image}" alt="${memory.title}">
+                    </div>
+                    <div class="card_title ${titleClass}">
+                        <p>${memory.title}</p>
+                    </div>
+                </div>
+                <div class="remark-card-back">
+                    <div class="memory-text">
+                        <p>${memory.text}</p>
+                    </div>
+                    ${memory.date ? `<div class="memory-date">${memory.date}</div>` : ''}
+                </div>
+            `;
+
+  // Add event listeners
+  card.addEventListener('mousedown', startDrag);
+  card.addEventListener('touchstart', startDragTouch, { passive: false });
+
+  cardsContainer.appendChild(card);
+}
+
+// Mouse drag functions
+function startDrag(e) {
+  // Prevent text selection
+  e.preventDefault();
+
+  // Don't start drag if it's a double click or right click
+  if (e.button !== 0) return;
+
+  draggedCard = e.currentTarget;
+  isDragging = false; // Will be set to true after movement
+
+  // Get starting positions
+  startX = e.clientX;
+  startY = e.clientY;
+  cardStartX = parseInt(draggedCard.style.left) || 0;
+  cardStartY = parseInt(draggedCard.style.top) || 0;
+
+  // Add global event listeners
+  document.addEventListener('mousemove', onMouseMove);
+  document.addEventListener('mouseup', onMouseUp);
+
+  // Store initial positions for click detection
+  draggedCard.dataset.startX = startX;
+  draggedCard.dataset.startY = startY;
+}
+
+function onMouseMove(e) {
+  if (!draggedCard) return;
+
+  // Calculate movement distance
+  const dx = e.clientX - startX;
+  const dy = e.clientY - startY;
+  const distance = Math.sqrt(dx * dx + dy * dy);
+
+  // Start dragging only if moved more than 5 pixels (prevents accidental drags)
+  if (distance > 5 && !isDragging) {
+    isDragging = true;
+    draggedCard.classList.add('dragging');
+  }
+
+  if (isDragging) {
+    const container = cardsContainer;
+    const containerRect = container.getBoundingClientRect();
+    const cardWidth = draggedCard.offsetWidth;
+    const cardHeight = draggedCard.offsetHeight;
+
+    // Calculate new position
+    let newX = cardStartX + dx;
+    let newY = cardStartY + dy;
+
+    // Keep card within container boundaries
+    newX = Math.max(0, Math.min(newX, containerRect.width - cardWidth));
+    newY = Math.max(0, Math.min(newY, containerRect.height - cardHeight));
+
+    // Update card position smoothly
+    draggedCard.style.left = `${newX}px`;
+    draggedCard.style.top = `${newY}px`;
+  }
+}
+
+function onMouseUp(e) {
+  if (!draggedCard) return;
+
+  // Calculate movement distance
+  const startX = parseFloat(draggedCard.dataset.startX);
+  const startY = parseFloat(draggedCard.dataset.startY);
+  const dx = e.clientX - startX;
+  const dy = e.clientY - startY;
+  const distance = Math.sqrt(dx * dx + dy * dy);
+
+  // If not dragging (movement was less than threshold), it's a click -> flip
+  if (!isDragging && distance < 5) {
+    // Remove any existing flipped class
+    document.querySelectorAll('.remark-card.flipped').forEach(card => {
+      if (card !== draggedCard) card.classList.remove('flipped');
+    });
+
+    // Toggle flip on current card
+    draggedCard.classList.toggle('flipped');
+  }
+
+  // Clean up
+  if (isDragging) {
+    draggedCard.classList.remove('dragging');
+
+    // Add a small animation when dropping
+    draggedCard.style.transition = 'transform 0.2s ease';
+    setTimeout(() => {
+      if (draggedCard) draggedCard.style.transition = '';
+    }, 200);
+  }
+
+  draggedCard = null;
+  isDragging = false;
+
+  // Remove global event listeners
+  document.removeEventListener('mousemove', onMouseMove);
+  document.removeEventListener('mouseup', onMouseUp);
+}
+
+// Touch drag functions for mobile
+function startDragTouch(e) {
+  e.preventDefault();
+
+  if (e.touches.length !== 1) return;
+
+  const touch = e.touches[0];
+  draggedCard = e.currentTarget;
+  isDragging = false;
+
+  startX = touch.clientX;
+  startY = touch.clientY;
+  cardStartX = parseInt(draggedCard.style.left) || 0;
+  cardStartY = parseInt(draggedCard.style.top) || 0;
+
+  draggedCard.dataset.startX = startX;
+  draggedCard.dataset.startY = startY;
+
+  document.addEventListener('touchmove', onTouchMove, { passive: false });
+  document.addEventListener('touchend', onTouchEnd);
+}
+
+function onTouchMove(e) {
+  if (!draggedCard || e.touches.length !== 1) return;
+
+  e.preventDefault();
+  const touch = e.touches[0];
+
+  const dx = touch.clientX - startX;
+  const dy = touch.clientY - startY;
+  const distance = Math.sqrt(dx * dx + dy * dy);
+
+  if (distance > 10 && !isDragging) {
+    isDragging = true;
+    draggedCard.classList.add('dragging');
+  }
+
+  if (isDragging) {
+    const container = cardsContainer;
+    const containerRect = container.getBoundingClientRect();
+    const cardWidth = draggedCard.offsetWidth;
+    const cardHeight = draggedCard.offsetHeight;
+
+    let newX = cardStartX + dx;
+    let newY = cardStartY + dy;
+
+    newX = Math.max(0, Math.min(newX, containerRect.width - cardWidth));
+    newY = Math.max(0, Math.min(newY, containerRect.height - cardHeight));
+
+    draggedCard.style.left = `${newX}px`;
+    draggedCard.style.top = `${newY}px`;
+  }
+}
+
+function onTouchEnd(e) {
+  if (!draggedCard) return;
+
+  const touch = e.changedTouches[0];
+  const startX = parseFloat(draggedCard.dataset.startX);
+  const startY = parseFloat(draggedCard.dataset.startY);
+  const dx = touch.clientX - startX;
+  const dy = touch.clientY - startY;
+  const distance = Math.sqrt(dx * dx + dy * dy);
+
+  if (!isDragging && distance < 10) {
+    document.querySelectorAll('.remark-card.flipped').forEach(card => {
+      if (card !== draggedCard) card.classList.remove('flipped');
+    });
+
+    draggedCard.classList.toggle('flipped');
+  }
+
+  if (isDragging) {
+    draggedCard.classList.remove('dragging');
+    draggedCard.style.transition = 'transform 0.2s ease';
+    setTimeout(() => {
+      if (draggedCard) draggedCard.style.transition = '';
+    }, 200);
+  }
+
+  draggedCard = null;
+  isDragging = false;
+
+  document.removeEventListener('touchmove', onTouchMove);
+  document.removeEventListener('touchend', onTouchEnd);
+}
+
+// Initialize when page loads
+window.addEventListener('DOMContentLoaded', () => {
+  initCards();
+
+  // Handle window resize with debounce
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(initCards, 250);
+  });
+
+  // Disable right-click menu on cards
+  document.addEventListener('contextmenu', (e) => {
+    if (e.target.closest('.remark-card')) {
+      e.preventDefault();
+    }
+  });
+});
+
+

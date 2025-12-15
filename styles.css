@@ -2736,6 +2736,233 @@ width: 1.25rem;
 }
 
 /* -------------------------------------------------------------------------- */
+/* Remarkable */
+
+.remarkable {
+  background-color: #1F2937;
+  background-image: url('./Assets/Images/board.jpg');
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: cover;
+  width: 100vw;
+  height: auto;
+  padding: 25px 0px;
+  position: relative;
+  overflow: hidden;
+}
+
+.remarkable-heading{
+  font-size: 50px;
+  color: #fff;
+  margin-bottom: 40px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.board-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+}
+
+/* Cards Container */
+.cards-list {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  height: auto;
+  /* margin: 0 auto; */
+}
+
+/* Memory Card - Matching your original style */
+.remark-card {
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+  cursor: grab;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: absolute;
+  user-select: none;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  touch-action: none;
+  /* Prevents browser touch actions */
+}
+
+.remark-card.dragging {
+  cursor: grabbing;
+  transform: scale(1.05);
+  z-index: 100;
+  transition: none;
+  /* Remove transition during drag */
+}
+
+/* Card front - matching your original style */
+.remark-card-front {
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card_image {
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.card_image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
+}
+
+.title-white {
+  color: white;
+}
+
+/* Card back - for flipped state */
+.remark-card-back {
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  position: absolute;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #1F2937 0%, #374151 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  box-shadow: 5px 5px 30px 7px rgba(76, 175, 111, 0.5);
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.memory-text {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  /* max-height: 70%; */
+  height: auto;
+  overflow-y: auto;
+}
+
+.memory-text::-webkit-scrollbar {
+  width: 5px;
+}
+
+.memory-text::-webkit-scrollbar-thumb {
+  background-color: rgba(76, 175, 111, 0.5);
+  border-radius: 10px;
+}
+
+.memory-date {
+  font-size: 14px;
+  color: #9CA3AF;
+  margin-top: auto;
+}
+
+/* Flipped state */
+.remark-card.flipped .remark-card-front {
+  transform: rotateY(180deg);
+}
+
+.remark-card.flipped .remark-card-back {
+  transform: rotateY(0deg);
+}
+
+/* Original hover effects */
+.remark-card:not(.dragging):not(.flipped):hover {
+  transform: scale(0.95);
+  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
+}
+
+.remark-card:not(.dragging):hover .card_image img {
+  transform: scale(1.05);
+}
+
+/* Pin indicator */
+.pin-indicator {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 24px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  z-index: 11;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transform: translateX(-50%) translateZ(10px);
+  /* Add translateZ */
+}
+
+.pin-indicator i {
+  color: white;
+  font-size: 0.8rem;
+}
+
+/* Responsive */
+@media all and (max-width: 1300px) {
+  .cards-list {
+    max-width: 900px;
+  }
+}
+
+@media all and (max-width: 900px) {
+  .cards-list {
+    max-width: 600px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .cards-list {
+    max-width: 300px;
+  }
+
+  .remark-card {
+    width: 280px;
+    height: 280px;
+  }
+
+  .card_title {
+    font-size: 24px;
+  }
+}
+/* -------------------------------------------------------------------------- */
 /* Construction */
 .under-construction{
   width: 100vw;
