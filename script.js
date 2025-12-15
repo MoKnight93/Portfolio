@@ -252,17 +252,27 @@ services.forEach((service) => {
 document.addEventListener("DOMContentLoaded", function () {
   const pdfFiles = [
     "./Assets/Pdf/2022-SuezCanalCPC2021-Mohamed Samir-PLACE.pdf",
+    "./Assets/Pdf/AI For Everyone(AI4E).pdf",
     "./Assets/Pdf/Attendance_Certificate (2).pdf",
+    "./Assets/Pdf/Certifi.pdf",
     "./Assets/Pdf/Course_Certificate_En (2).pdf",
     "./Assets/Pdf/Course_Certificate_En.pdf",
+    "./Assets/Pdf/Course_Certificate_En_py.pdf",
     "./Assets/Pdf/CS50x.pdf",
+    "./Assets/Pdf/downloaded - AI.pdf",
+    "./Assets/Pdf/downloaded - Py.pdf",
+    "./Assets/Pdf/downloaded - Web.pdf",
+    "./Assets/Pdf/Mohamed Samir Ahmad AI.pdf",
+    "./Assets/Pdf/Mohamed Samir Ahmad.pdf",
+    "./Assets/Pdf/Mohamed Samir CV.pdf",
     "./Assets/Pdf/MohamedSamir Ahmad-CyberOps Associa-certificate_2.pdf",
     "./Assets/Pdf/MohamedSamir Ahmad-CyberOps Associa-letter.pdf",
     "./Assets/Pdf/MohamedSamir Ahmad-Cybersecurity Es-certificate.pdf",
-    "./Assets/Pdf/MohamedSamir Ahmad-Introduction to -certificate.pdf",
     "./Assets/Pdf/MohamedSamir Ahmad-Entrepreneurship-certificate.pdf",
+    "./Assets/Pdf/MohamedSamir Ahmad-Introduction to -certificate.pdf",
     "./Assets/Pdf/MohamedSamir Ahmad-SUMMER TRAINING -certificate.pdf",
     "./Assets/Pdf/MohamedSamir Ahmad-SUMMER TRAINING -letter.pdf",
+    "./Assets/Pdf/NASA Space Apps Challenge.pdf",
   ];
 
   const swiperWrapper = document.querySelector(".certificates .swiper-wrapper");
