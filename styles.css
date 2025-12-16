@@ -2704,13 +2704,13 @@ width: 1.25rem;
   font-weight: 800;
 }
 
-.swiper {
+.certificates .swiper {
   height: 100%;
   width: 100%;
   overflow: hidden;
 }
 
-.swiper-slide {
+.certificates .swiper-slide {
   display: flex;
   align-items: center; 
   justify-content: center;
@@ -2718,23 +2718,46 @@ width: 1.25rem;
   overflow: hidden;
 }
 
-.swiper-slide iframe {
+.certificates .swiper-slide iframe {
   width: 100vw;
   height: 130vh;
 }
 
-/* Hide PDF controls */
-.swiper-slide iframe::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  pointer-events: none; /* Allow interaction with the PDF */
+/* Navigation buttons */
+.certificates .swiper-button-next,
+.certificates .swiper-button-prev {
+  color: #3B82F6;
+  background: rgba(255, 255, 255, 0.5);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgb(0, 0, 0);
 }
 
+.certificates .swiper-button-next:after,
+.certificates .swiper-button-prev:after {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.certificates .swiper-button-next:hover,
+.certificates .swiper-button-prev:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+/* Pagination */
+.certificates .swiper-pagination-bullet {
+  background: black;
+  opacity: 0.5;
+  width: 13px;
+  height: 13px;
+}
+
+.certificates .swiper-pagination-bullet-active {
+  background: #3B82F6;
+  opacity: 1;
+}
 /* -------------------------------------------------------------------------- */
 /* Remarkable */
 

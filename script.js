@@ -172,6 +172,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+
+
+
+
 // Services Section
 const services = [
   // Software Engineering
@@ -248,69 +253,104 @@ services.forEach((service) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Certificates Section
 document.addEventListener("DOMContentLoaded", function () {
   const pdfFiles = [
-    "./Assets/Pdf/2022-SuezCanalCPC2021-Mohamed Samir-PLACE.pdf",
-    "./Assets/Pdf/AI For Everyone(AI4E).pdf",
-    "./Assets/Pdf/Attendance_Certificate (2).pdf",
-    "./Assets/Pdf/Certifi.pdf",
-    "./Assets/Pdf/Course_Certificate_En (2).pdf",
-    "./Assets/Pdf/Course_Certificate_En.pdf",
-    "./Assets/Pdf/Course_Certificate_En_py.pdf",
-    "./Assets/Pdf/CS50x.pdf",
-    "./Assets/Pdf/downloaded - AI.pdf",
-    "./Assets/Pdf/downloaded - Py.pdf",
-    "./Assets/Pdf/downloaded - Web.pdf",
-    "./Assets/Pdf/Mohamed Samir Ahmad AI.pdf",
-    "./Assets/Pdf/Mohamed Samir Ahmad.pdf",
-    "./Assets/Pdf/Mohamed Samir CV.pdf",
-    "./Assets/Pdf/MohamedSamir Ahmad-CyberOps Associa-certificate_2.pdf",
-    "./Assets/Pdf/MohamedSamir Ahmad-CyberOps Associa-letter.pdf",
-    "./Assets/Pdf/MohamedSamir Ahmad-Cybersecurity Es-certificate.pdf",
-    "./Assets/Pdf/MohamedSamir Ahmad-Entrepreneurship-certificate.pdf",
-    "./Assets/Pdf/MohamedSamir Ahmad-Introduction to -certificate.pdf",
-    "./Assets/Pdf/MohamedSamir Ahmad-SUMMER TRAINING -certificate.pdf",
-    "./Assets/Pdf/MohamedSamir Ahmad-SUMMER TRAINING -letter.pdf",
-    "./Assets/Pdf/NASA Space Apps Challenge.pdf",
+    "./Assets/Pdf/Certificates/AI For Everyone(AI4E).pdf",
+    "./Assets/Pdf/Certificates/Attendance_Certificate (2).pdf",
+    "./Assets/Pdf/Certificates/Certifi.pdf",
+    "./Assets/Pdf/Certificates/Course_Certificate_En (2).pdf",
+    "./Assets/Pdf/Certificates/Course_Certificate_En.pdf",
+    "./Assets/Pdf/Certificates/Course_Certificate_En_py.pdf",
+    "./Assets/Pdf/Certificates/CS50x.pdf",
+    "./Assets/Pdf/Certificates/download.pdf",
+    "./Assets/Pdf/Certificates/downloaded - AI.pdf",
+    "./Assets/Pdf/Certificates/downloaded - Py.pdf",
+    "./Assets/Pdf/Certificates/downloaded - Web.pdf",
+    "./Assets/Pdf/Certificates/Mohamed Samir Ahmad AI.pdf",
+    "./Assets/Pdf/Certificates/Mohamed Samir Ahmad.pdf",
+    "./Assets/Pdf/Certificates/MohamedSamir Ahmad-CyberOps Associa-certificate_2.pdf",
+    "./Assets/Pdf/Certificates/MohamedSamir Ahmad-Cybersecurity Es-certificate.pdf",
+    "./Assets/Pdf/Certificates/MohamedSamir Ahmad-Entrepreneurship-certificate.pdf",
+    "./Assets/Pdf/Certificates/MohamedSamir Ahmad-Introduction to -certificate.pdf",
+    "./Assets/Pdf/Certificates/MohamedSamir Ahmad-SUMMER TRAINING -certificate.pdf",
+    "./Assets/Pdf/Certificates/NASA Space Apps Challenge.pdf",
   ];
 
   const swiperWrapper = document.querySelector(".certificates .swiper-wrapper");
 
   // Dynamically create slides for each PDF file
-  pdfFiles.forEach((pdfFile) => {
-    const slide = document.createElement("div");
-    slide.className = "swiper-slide";
+pdfFiles.forEach((pdfFile) => {
+  const slide = document.createElement("div");
+  slide.className = "swiper-slide";
 
-    const iframe = document.createElement("iframe");
-    iframe.src = pdfFile + "#toolbar=0&navpanes=0&scrollbar=0"; // Hide all controls
-    iframe.title = "Certificate";
+  const wrapper = document.createElement("div");
+  wrapper.className = "pdf-wrapper";
 
-    slide.appendChild(iframe);
-    swiperWrapper.appendChild(slide);
+  const iframe = document.createElement("iframe");
+  iframe.src = pdfFile + "#toolbar=0&navpanes=0&scrollbar=0&view=Fit&zoom=page-height";
+  iframe.title = "Certificate";
+  iframe.loading = "lazy";
+
+  wrapper.appendChild(iframe);
+  swiperWrapper.appendChild(slide);
+  slide.appendChild(wrapper);
+
+  slide.addEventListener("click", () => {
+    window.open(pdfFile, "_blank");
   });
+});
+
 
   // Initialize Swiper
   try {
-    new Swiper(".mySwiper", {
+    new Swiper(".certificates .mySwiper", {
       direction: "horizontal", // Horizontal scrolling
       slidesPerView: 1,
       spaceBetween: 30,
-      mousewheel: true, // Enable mousewheel navigation
+      loop: true, // Loop through slides indefinitely
+      autoHeight: true,
+      mousewheel: true,
       pagination: {
-        el: ".swiper-pagination",
+        el: ".certificates .swiper-pagination",
         clickable: true,
+      },
+      navigation: {
+        nextEl: ".certificates .swiper-button-next",
+        prevEl: ".certificates .swiper-button-prev",
       },
       autoplay: {
         delay: 5000, // Change slide every 5 seconds
         disableOnInteraction: false, // Continue autoplay after user interaction
       },
-      loop: true, // Loop through slides indefinitely
     });
   } catch (error) {
     console.error("Swiper initialization failed:", error);
   }
 });
+
+
+
+
+
+
+
+
+
 
 
 
@@ -409,15 +449,9 @@ const comicImages = {
     "./Assets/Images/Batman/Batman - Dark Patterns 003 (2025) 022.jpg",
     "./Assets/Images/Batman/Batman - Dark Patterns 003 (2025) 023.jpg",
     "./Assets/Images/Batman/Batman - Dark Patterns 003 (2025) 024.jpg",
-    "./Assets/Images/Batman/Batman - Dark Patterns 003 (2025) 025.jpg",
-    "./Assets/Images/Batman/Batman - Dark Patterns 003 (2025) 026.jpg",
-    "./Assets/Images/Batman/Batman - Dark Patterns 003 (2025) 027.jpg",
-    "./Assets/Images/Batman/Batman - Dark Patterns 003 (2025) 028.jpg",
-    "./Assets/Images/Batman/Batman - Dark Patterns 003 (2025) 029.jpg",
   ],
   spiderman: [
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0001.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0004.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0005.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0006.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0007.jpg",
@@ -430,7 +464,6 @@ const comicImages = {
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0014.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0015.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0016.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0017.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0018.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0019.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0020.jpg",
@@ -451,7 +484,6 @@ const comicImages = {
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0035.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0036.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0037.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0038.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0039.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0040.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0041.jpg",
@@ -472,7 +504,6 @@ const comicImages = {
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0056.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0057.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0058.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0059.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0060.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0061.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0062.jpg",
@@ -493,7 +524,6 @@ const comicImages = {
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0077.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0078.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0079.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0080.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0081.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0082.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0083.jpg",
@@ -514,10 +544,6 @@ const comicImages = {
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0098.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0099.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0100.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0101.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0102.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0103.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0104.jpg"
   ],  
   daredevil: [
     "./Assets/Images/Daredevil/Daredevil 016 (2025) (Digital) (Shan-Empire) 00001.jpg",
@@ -640,35 +666,19 @@ const root = querySelector("#root");
 const songsData = {
   songs: [
     {
-      songName: "Bugatti",
-      artist: "Ace Hood ft. Future, Rick Ross",
+      songName: "This Fire Burns",
+      artist: "Killswitch Engage",
       files: {
-        cover: "https://images.genius.com/db8ec0d7fef01bcd9d372326fff4ea47.640x640x1.jpg",
-        song: "./Assets/Audios/Ace Hood - Bugatti (Explicit Version_Closed Captioned) ft. Future_ Rick Ross.mp3",
+        cover: "https://i.scdn.co/image/ab67616d0000b273cc5bb1a3f809896baf67dba4",
+        song: "./Assets/Audios/Killswitch Engage - This Fire Burns (HQ).mp3",
       },
     },
     {
-      songName: "Heaven Only Knows",
-      artist: "Bob Moses",
+      songName: "Peligrosa",
+      artist: "FloyyMenor",
       files: {
-        cover: "https://i.scdn.co/image/ab67616d0000b2738339bb10e2145dd4124857b2",
-        song: "./Assets/Audios/Bob Moses - Heaven Only Knows (Official Audio).mp3",
-      },
-    },
-    {
-      songName: "Rather Be",
-      artist: "Clean Bandit ft. Jess Glynne",
-      files: {
-        cover: "https://i.scdn.co/image/ab67616d0000b2737e519297d9876b6afff2ab7b",
-        song: "./Assets/Audios/Clean Bandit - Rather Be ft. Jess Glynne [Official Video].mp3",
-      },
-    },
-    {
-      songName: "Still D.R.E.",
-      artist: "Dr. Dre ft. Snoop Dogg",
-      files: {
-        cover: "https://i.scdn.co/image/ab67616d0000b2739b19c107109de740bad72df5",
-        song: "./Assets/Audios/Dr. Dre - Still D.R.E. ft. Snoop Dogg.mp3",
+        cover: "https://i.scdn.co/image/ab67616d00001e02d0495d03671b5d9a365db8f5",
+        song: "./Assets/Audios/FloyyMenor - Peligrosa (Video Oficial).mp3",
       },
     },
     {
@@ -681,19 +691,19 @@ const songsData = {
       },
     },
     {
-      songName: "How It Was",
-      artist: "Future",
+      songName: "Life is a Highway",
+      artist: "Rascal Flatts",
       files: {
-        cover: "https://i1.sndcdn.com/artworks-000065619625-5o4ydw-t500x500.jpg",
-        song: "./Assets/Audios/How It Was (feat. Future).mp3",
+        cover: "https://i.scdn.co/image/ab67616d0000b2731592cc2826db055a99558286",
+        song: "./Assets/Audios/Life is a Highway.mp3",
       },
     },
     {
-      songName: "You Know How We Do It",
-      artist: "Ice Cube",
+      songName: "MALA",
+      artist: "6ix9ine",
       files: {
-        cover: "https://m.media-amazon.com/images/M/MV5BZmY5MmU4YTctY2NiNS00MmY3LWI3MzctOWFmNzU0MjQ0M2EzXkEyXkFqcGc@._V1_.jpg",
-        song: "./Assets/Audios/Ice Cube - You Know How We Do It.mp3",
+        cover: "https://i.scdn.co/image/ab67616d00001e0208c1c9cba7dc84118976e66d",
+        song: "./Assets/Audios/6ix9ine - MALA (feat. Anuel Aa).mp3",
       },
     },
     {
@@ -705,11 +715,71 @@ const songsData = {
       },
     },
     {
-      songName: "ZEZE",
-      artist: "Kodak Black ft. Travis Scott, Offset",
+      songName: "Rather Be",
+      artist: "Clean Bandit ft. Jess Glynne",
       files: {
-        cover: "https://i.scdn.co/image/ab67616d0000b2738a5a04dbb1c7a3242fdfdfe8",
-        song: "./Assets/Audios/Kodak Black - ZEZE (feat. Travis Scott _ Offset) [Official Audio].mp3",
+        cover: "https://i.scdn.co/image/ab67616d0000b2737e519297d9876b6afff2ab7b",
+        song: "./Assets/Audios/Clean Bandit - Rather Be ft. Jess Glynne [Official Video].mp3",
+      },
+    },
+    {
+      songName: "Take What You Want",
+      artist: "Post Malone",
+      files: {
+        cover:
+          "https://images.genius.com/e5ff99bdbe52cdb142ac91fad7b79a5e.822x822x1.jpg",
+        song: "./Assets/Audios/Post Malone - Take What You Want (Audio) ft. Ozzy.mp3",
+      },
+    },
+    {
+      songName: "Internet Money",
+      artist: "Lemonade ft. Don Toliver, Gunna & Nav",
+      files: {
+        cover:
+          "https://i.scdn.co/image/ab67616d0000b273a64752f7639c1220d56ea129",
+        song: "./Assets/Audios/Internet Money - Lemonade ft. Don Toliver_ Gunna _ Nav (Dir. by __ColeBennett_).mp3",
+      },
+    },
+    {
+      songName: "Save Your Tears",
+      artist: "The Weeknd",
+      files: {
+        cover:
+          "https://i.scdn.co/image/ab67616d0000b273c6af5ffa661a365b77df6ef6",
+        song: "./Assets/Audios/The Weeknd - Save Your Tears (Official Audio).mp3",
+      },
+    },
+    {
+      songName: "Goosebumps",
+      artist: "Travis Scott ft. Kendrick Lamar",
+      files: {
+        cover: "https://i.scdn.co/image/ab67616d0000b2738752a7355996e64709247c53",
+        song: "./Assets/Audios/Travis Scott - goosebumps ft. Kendrick Lamar.mp3",
+      },
+    },
+    {
+      songName: "BUTTERFLY EFFECT",
+      artist: "Travis Scott",
+      files: {
+        cover:
+          "https://i1.sndcdn.com/artworks-AteYKQAUrh4vLE4n-pOmoTA-t1080x1080.jpg",
+        song: "./Assets/Audios/Travis Scott - BUTTERFLY EFFECT (Official Music Video).mp3",
+      },
+    },
+    {
+      songName: "Choose Your Fighter",
+      artist: "Ava Max",
+      files: {
+        cover: "https://images.genius.com/3154302e023b3900cf1e89be1238bc13.1000x1000x1.png",
+        song: "./Assets/Audios/Ava Max - Choose Your Fighter (Lyrics).mp3",
+      },
+    },
+    {
+      songName: "MOONLIGHT",
+      artist: "XXXTENTACION",
+      files: {
+        cover: "https://images.genius.com/8b673f80818e4cc1b975e8d8cd81344c.1000x1000x1.png",
+        song: "./Assets/Audios/XXXTENTACION - MOONLIGHT (OFFICIAL MUSIC VIDEO).mp3",
       },
     },
     {
@@ -719,6 +789,15 @@ const songsData = {
         cover:
           "https://i.scdn.co/image/ab67616d0000b2736771a05f34d77e5fc2bde64c",
         song: "./Assets/Audios/Lil Nas X - HOLIDAY (Official Video).mp3",
+      },
+    },
+    {
+      songName: "Industry Baby",
+      artist: "Lil Nas X ft. Jack Harlow",
+      files: {
+        cover:
+          "https://i.scdn.co/image/ab67616d0000b2731e212a6eff9f90acc8a2ff51",
+        song: "./Assets/Audios/Lil Nas X - Industry Baby ft. Jack Harlow.mp3",
       },
     },
     {
@@ -736,32 +815,6 @@ const songsData = {
       files: {
         cover: "https://i.scdn.co/image/ab67616d0000b273bef074de9ca825bddaeb9f46",
         song: "./Assets/Audios/Rihanna - Where Have You Been.mp3",
-      },
-    },
-    {
-      songName: "Sickick - Talking to the Moon (Bruno Mars Remix)",
-      artist: "Sickick",
-      files: {
-        cover: "https://i1.sndcdn.com/artworks-KnuZQJTOW0SJLR6G-z8cZiw-t500x500.jpg",
-        song: "./Assets/Audios/Sickick - Talking to the Moon (Bruno Mars Remix).mp3",
-      },
-    },
-    {
-      songName: "Save Your Tears",
-      artist: "The Weeknd",
-      files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b273c6af5ffa661a365b77df6ef6",
-        song: "./Assets/Audios/The Weeknd - Save Your Tears (Official Audio).mp3",
-      },
-    },
-    {
-      songName: "BUTTERFLY EFFECT",
-      artist: "Travis Scott",
-      files: {
-        cover:
-          "https://i1.sndcdn.com/artworks-AteYKQAUrh4vLE4n-pOmoTA-t1080x1080.jpg",
-        song: "./Assets/Audios/Travis Scott - BUTTERFLY EFFECT (Official Music Video).mp3",
       },
     },
     {
@@ -1432,12 +1485,6 @@ const memories = [
     text: "Imagine being interested in AI while knowing almost nothing about it, joining a course expecting only basic theory, and then discovering that your instructor is one of the most well-known AI educators and speakers in Egypt. In less than one month, I was able to truly understand AI, Machine Learning, and Deep Learning—both theoretically and practically—through hands-on projects. That single month helped me grasp nearly 60% of the AI field and played a major role in shaping who I am today; without him, I honestly wouldn’t be where I am now"
   },
   {
-    id: 3,
-    title: "Weeza",
-    image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDh1c3p1YThuYnRhOHhsdHhqcHQyams0dGZzOHdhcDJkeWh1NHhwYiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/syEfLvksYQnmM/giphy.gif",
-    text: "First meeting was a fight. Two fucking losers. Two motherfuckers. Two dreamers dreaming of becoming millionaires, chasing money to waste on super classic cars, Whores, drugs, and weed chasing ruling the business world, owning companies that own the world, laughing about ending up with our names on the Epstein list. Still dreaming. Still fucked up. Two idiots smiling while getting thrown into hell. From this fucked-up life, I walked away with one thing only: one real friend"
-  },
-  {
     id: 4,
     title: "Eng. Esraa Eleraky",
     image: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWFiM3B2Z2VqMTc0ZzNhcDcydWJqNDdvdTlhYTFldHBqMXFsdGN2aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tDFmApXRr5b24uI3sd/giphy.gif",
@@ -1454,6 +1501,12 @@ const memories = [
     title: "Eng. Basma Abdel Halim",
     image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2R5eXA0aXAzZHl4eDkxdjFnbmFqYmp0Z2wyYXllamg2cTVwdHdrMSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/NSRPQHOnHwV7M8siam/giphy.gif",
     text: "Over the course of six months, I completed my journey learning the MERN stack in full, building more than five projects, including a graduation project that was awarded as the best web project at the scholarship level, along with financial rewards and official certificates from the ministry. None of this would have been possible without God first, and then Engineer Basma. Thank you, thank you, and thank you"
+  },
+  {
+    id: 69,
+    title: "Weza",
+    image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDh1c3p1YThuYnRhOHhsdHhqcHQyams0dGZzOHdhcDJkeWh1NHhwYiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/syEfLvksYQnmM/giphy.gif",
+    text: "First meeting was a fight. Two fucking losers. Two motherfuckers. Two dreamers dreaming of becoming millionaires, chasing money to waste on super classic cars, Whores, drugs, and weed chasing ruling the business world, owning companies that own the world, laughing about ending up with our names on the Epstein list. Still dreaming. Still fucked up. Two idiots smiling while getting thrown into hell. From this fucked-up life, I walked away with one thing only: one real friend"
   },
 
 ];
@@ -1519,9 +1572,7 @@ function createCard(memory, posX, posY) {
   card.style.left = `${posX}px`;
   card.style.top = `${posY}px`;
 
-  // Determine title color based on image brightness
-  const isLightImage = memory.id === 4; // Assuming 4th image needs black text
-  const titleClass = isLightImage ? 'title-white' : 'title-white';
+  const titleClass = 'title-white';
 
   card.innerHTML = `
                 <div class="pin-indicator">
