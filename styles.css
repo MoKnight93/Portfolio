@@ -2242,22 +2242,25 @@ div.troll__right-hand, div.troll__left-hand {
 
 .services-list {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   animation: scrollServices 30s linear infinite;
 }
 
 .service-item {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   color: white;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.3rem;
   text-transform: capitalize;
+  white-space: nowrap;
 }
 
 .service-item img {
   width: 3rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 @keyframes scrollServices {
