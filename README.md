@@ -120,7 +120,6 @@ I'm Mohamed Samir, a recent Computer Science graduate from Suez Canal University
 - **Location:** Port Said, Egypt
 - **Education:** Bachelor's in Computer Science (GPA: 3.0/4.0)
 - **Languages:** Arabic (Native), English (B2 Level)
-- **Current Role:** React Frontend Developer Intern - DEPI
 - **Specialization:** AI, Data Analysis, Full-Stack Development
 
 ## 📊 Skills Summary
