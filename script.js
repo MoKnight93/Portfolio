@@ -185,45 +185,45 @@ const services = [
   "Code Optimization & Refactoring",
   "Unit Testing & Debugging",
   "Technical Consulting & Solutions",
-  
+
   // Web Development – Front-End
   "Interactive Web Interfaces",
   "Responsive Web Design",
   "Mobile-Friendly Websites",
   "Fast-Loading Web Pages",
   "Accessible & User-Friendly UI",
-  
+
   // Web Development – Back-End
   "Server-Side Development",
   "API Development & Integration",
   "Database Management & SQL Queries",
   "Secure Server & Application Logic",
   "Performance Optimization",
-  
+
   // UI/UX Design
   "User-Centered Interface Design",
   "UI Prototyping & Testing",
   "Designing Intuitive Workflows",
   "Creating Visually Appealing Layouts",
-  
+
   // Data Analysis / Data Science
   "Data Cleaning & Preprocessing",
   "Insight Generation from Data",
   "Actionable Recommendations",
   "Data Visualization & Storytelling",
   "Statistical Analysis & Reporting",
-  
+
   // AI / Machine Learning
   "Building Predictive Models",
   "Machine Learning Model Deployment",
   "AI-Driven Automation Solutions",
   "Algorithm Design for ML Tasks",
-  
+
   // Problem Solving / Competitive Programming
   "Algorithm & Data Structure Optimization",
   "Competitive Programming Solutions",
   "Solving Complex Technical Problems",
-  
+
   // General Computer Science / Project Skills
   "End-to-End Project Development",
   "Technical Decision Support",
@@ -294,26 +294,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const swiperWrapper = document.querySelector(".certificates .swiper-wrapper");
 
   // Dynamically create slides for each PDF file
-pdfFiles.forEach((pdfFile) => {
-  const slide = document.createElement("div");
-  slide.className = "swiper-slide";
+  pdfFiles.forEach((pdfFile) => {
+    const slide = document.createElement("div");
+    slide.className = "swiper-slide";
 
-  const wrapper = document.createElement("div");
-  wrapper.className = "pdf-wrapper";
+    const wrapper = document.createElement("div");
+    wrapper.className = "pdf-wrapper";
 
-  const iframe = document.createElement("iframe");
-  iframe.src = pdfFile + "#toolbar=0&navpanes=0&scrollbar=0&view=Fit&zoom=page-height";
-  iframe.title = "Certificate";
-  iframe.loading = "lazy";
+    const iframe = document.createElement("iframe");
+    iframe.src = pdfFile + "#toolbar=0&navpanes=0&scrollbar=0&view=Fit&zoom=page-height";
+    iframe.title = "Certificate";
+    iframe.loading = "lazy";
 
-  wrapper.appendChild(iframe);
-  swiperWrapper.appendChild(slide);
-  slide.appendChild(wrapper);
+    wrapper.appendChild(iframe);
+    swiperWrapper.appendChild(slide);
+    slide.appendChild(wrapper);
 
-  slide.addEventListener("click", () => {
-    window.open(pdfFile, "_blank");
+    slide.addEventListener("click", () => {
+      window.open(pdfFile, "_blank");
+    });
   });
-});
 
 
   // Initialize Swiper
@@ -464,46 +464,6 @@ const comicImages = {
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0014.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0015.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0016.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0018.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0019.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0020.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0021.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0022.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0023.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0024.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0025.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0026.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0027.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0028.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0029.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0030.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0031.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0032.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0033.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0034.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0035.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0036.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0037.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0039.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0040.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0041.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0042.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0043.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0044.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0045.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0046.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0047.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0048.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0049.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0050.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0051.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0052.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0053.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0054.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0055.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0056.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0057.jpg",
-    "./Assets/Images/Spider-Verse - Amazing Spider-Man/0058.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0060.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0061.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0062.jpg",
@@ -544,7 +504,7 @@ const comicImages = {
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0098.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0099.jpg",
     "./Assets/Images/Spider-Verse - Amazing Spider-Man/0100.jpg",
-  ],  
+  ],
   daredevil: [
     "./Assets/Images/Daredevil/Daredevil 016 (2025) (Digital) (Shan-Empire) 00001.jpg",
     "./Assets/Images/Daredevil/Daredevil 016 (2025) (Digital) (Shan-Empire) 00003.jpg",
@@ -629,9 +589,8 @@ window.addEventListener("keydown", (e) => {
 
 function updateModal() {
   modalImg.src = comicImages[currentComic][currentIndex];
-  countDisplay.textContent = `${currentIndex + 1}/${
-    comicImages[currentComic].length
-  }`;
+  countDisplay.textContent = `${currentIndex + 1}/${comicImages[currentComic].length
+    }`;
 }
 
 
@@ -646,24 +605,7 @@ function updateModal() {
 
 
 // Party
-let indexSong = 0;
-let isLocked = false;
-let songsLength = null;
-let selectedSong = null;
-let songIsPlayed = false;
-let progress_elmnt = null;
-let songName_elmnt = null;
-let sliderImgs_elmnt = null;
-let singerName_elmnt = null;
-let progressBar_elmnt = null;
-let playlistSongs_elmnt = [];
-let musicPlayerInfo_elmnt = null;
-let progressBarIsUpdating = false;
-let broadcastGuarantor_elmnt = null;
-const root = querySelector("#root");
-
-// Your songs data
-const songsData = {
+const musicBoardData = {
   songs: [
     {
       songName: "This Fire Burns",
@@ -679,23 +621,6 @@ const songsData = {
       files: {
         cover: "https://i.scdn.co/image/ab67616d00001e02d0495d03671b5d9a365db8f5",
         song: "./Assets/Audios/FloyyMenor - Peligrosa (Video Oficial).mp3",
-      },
-    },
-    {
-      songName: "Without Me",
-      artist: "Eminem",
-      files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b2736ca5c90113b30c3c43ffb8f4",
-        song: "./Assets/Audios/Eminem - Without Me (Official Music Video).mp3",
-      },
-    },
-    {
-      songName: "Life is a Highway",
-      artist: "Rascal Flatts",
-      files: {
-        cover: "https://i.scdn.co/image/ab67616d0000b2731592cc2826db055a99558286",
-        song: "./Assets/Audios/Life is a Highway.mp3",
       },
     },
     {
@@ -715,37 +640,18 @@ const songsData = {
       },
     },
     {
-      songName: "Rather Be",
-      artist: "Clean Bandit ft. Jess Glynne",
-      files: {
-        cover: "https://i.scdn.co/image/ab67616d0000b2737e519297d9876b6afff2ab7b",
-        song: "./Assets/Audios/Clean Bandit - Rather Be ft. Jess Glynne [Official Video].mp3",
-      },
-    },
-    {
       songName: "Take What You Want",
       artist: "Post Malone",
       files: {
-        cover:
-          "https://images.genius.com/e5ff99bdbe52cdb142ac91fad7b79a5e.822x822x1.jpg",
+        cover: "https://images.genius.com/e5ff99bdbe52cdb142ac91fad7b79a5e.822x822x1.jpg",
         song: "./Assets/Audios/Post Malone - Take What You Want (Audio) ft. Ozzy.mp3",
-      },
-    },
-    {
-      songName: "Internet Money",
-      artist: "Lemonade ft. Don Toliver, Gunna & Nav",
-      files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b273a64752f7639c1220d56ea129",
-        song: "./Assets/Audios/Internet Money - Lemonade ft. Don Toliver_ Gunna _ Nav (Dir. by __ColeBennett_).mp3",
       },
     },
     {
       songName: "Save Your Tears",
       artist: "The Weeknd",
       files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b273c6af5ffa661a365b77df6ef6",
+        cover: "https://i.scdn.co/image/ab67616d0000b273c6af5ffa661a365b77df6ef6",
         song: "./Assets/Audios/The Weeknd - Save Your Tears (Official Audio).mp3",
       },
     },
@@ -761,17 +667,8 @@ const songsData = {
       songName: "BUTTERFLY EFFECT",
       artist: "Travis Scott",
       files: {
-        cover:
-          "https://i1.sndcdn.com/artworks-AteYKQAUrh4vLE4n-pOmoTA-t1080x1080.jpg",
+        cover: "https://i1.sndcdn.com/artworks-AteYKQAUrh4vLE4n-pOmoTA-t1080x1080.jpg",
         song: "./Assets/Audios/Travis Scott - BUTTERFLY EFFECT (Official Music Video).mp3",
-      },
-    },
-    {
-      songName: "Choose Your Fighter",
-      artist: "Ava Max",
-      files: {
-        cover: "https://images.genius.com/3154302e023b3900cf1e89be1238bc13.1000x1000x1.png",
-        song: "./Assets/Audios/Ava Max - Choose Your Fighter (Lyrics).mp3",
       },
     },
     {
@@ -786,8 +683,7 @@ const songsData = {
       songName: "HOLIDAY",
       artist: "Lil Nas X",
       files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b2736771a05f34d77e5fc2bde64c",
+        cover: "https://i.scdn.co/image/ab67616d0000b2736771a05f34d77e5fc2bde64c",
         song: "./Assets/Audios/Lil Nas X - HOLIDAY (Official Video).mp3",
       },
     },
@@ -795,8 +691,7 @@ const songsData = {
       songName: "Industry Baby",
       artist: "Lil Nas X ft. Jack Harlow",
       files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b2731e212a6eff9f90acc8a2ff51",
+        cover: "https://i.scdn.co/image/ab67616d0000b2731e212a6eff9f90acc8a2ff51",
         song: "./Assets/Audios/Lil Nas X - Industry Baby ft. Jack Harlow.mp3",
       },
     },
@@ -804,25 +699,15 @@ const songsData = {
       songName: "Old Town Road",
       artist: "Lil Nas X ft. Billy Ray Cyrus",
       files: {
-        cover:
-          "https://media.gq.com/photos/5cdeef0e1f8a4e271cddab8d/1:1/w_689,h_689,c_limit/Old-Town-Road-Video-GQ-2019-051719.jpg",
+        cover: "https://media.gq.com/photos/5cdeef0e1f8a4e271cddab8d/1:1/w_689,h_689,c_limit/Old-Town-Road-Video-GQ-2019-051719.jpg",
         song: "./Assets/Audios/Lil Nas X - Old Town Road (Official Video) ft. Billy Ray Cyrus.mp3",
-      },
-    },
-    {
-      songName: "Where Have You Been",
-      artist: "Rihanna",
-      files: {
-        cover: "https://i.scdn.co/image/ab67616d0000b273bef074de9ca825bddaeb9f46",
-        song: "./Assets/Audios/Rihanna - Where Have You Been.mp3",
       },
     },
     {
       songName: "HIGHEST IN THE ROOM",
       artist: "Travis Scott",
       files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b273e42b5fea4ac4c3d6328b622b",
+        cover: "https://i.scdn.co/image/ab67616d0000b273e42b5fea4ac4c3d6328b622b",
         song: "./Assets/Audios/Travis Scott - HIGHEST IN THE ROOM (Official Music).mp3",
       },
     },
@@ -830,379 +715,269 @@ const songsData = {
       songName: "SICKO MODE",
       artist: "Travis Scott ft. Drake",
       files: {
-        cover:
-          "https://i.scdn.co/image/ab67616d0000b273072e9faef2ef7b6db63834a3",
+        cover: "https://i.scdn.co/image/ab67616d0000b273072e9faef2ef7b6db63834a3",
         song: "./Assets/Audios/Travis Scott - SICKO MODE (Official Audio).mp3",
       },
     },
-  ],  
+  ],
 };
 
-function App({ songs }) {
-  function handleChangeMusic({ isPrev = false, playListIndex = null }) {
-    if (isLocked || indexSong === playListIndex) return;
-  
-    if (playListIndex || playListIndex === 0) {
-      indexSong = playListIndex;
-    } else {
-      indexSong = isPrev ? (indexSong -= 1) : (indexSong += 1);
-    }
-  
-    if (indexSong < 0) {
-      indexSong = 0;
-      return;
-    } else if (indexSong > songsLength) {
-      indexSong = songsLength;
-      return;
-    }
-  
-    selectedSong.pause();
-    selectedSong.currentTime = 0;
-    progressBarIsUpdating = false;
-    selectedSong = playlistSongs_elmnt[indexSong];
-  
-    // Always play the new song when selected
-    selectedSong.play();
-    songIsPlayed = true;
-    broadcastGuarantor_elmnt.classList.add("click");
-  
-    setProperty(sliderImgs_elmnt, "--index", -indexSong);
-    updateInfo(singerName_elmnt, songs[indexSong].artist);
-    updateInfo(songName_elmnt, songs[indexSong].songName);
-  }
+// DOM Elements with unique names
+const musicBoardPlaylistContainer = document.querySelector('.music-board .playlist');
+const musicBoardSwiperWrapper = document.querySelector('.music-board .swiper-wrapper');
+const musicBoardAudioPlayer = document.getElementById("musicBoardAudioPlayer");
+const musicBoardVolumeRange = document.getElementById("musicBoardVolumeRange");
+const musicBoardProgressBar = document.getElementById("musicBoardProgressBar");
+const musicBoardPlayPauseBtn = document.getElementById("musicBoardPlayPauseBtn");
+const musicBoardPlayPauseIcon = document.getElementById("musicBoardPlayPauseIcon");
+const musicBoardPrevBtn = document.getElementById("musicBoardPrevBtn");
+const musicBoardNextBtn = document.getElementById("musicBoardNextBtn");
+const musicBoardShuffleBtn = document.getElementById("musicBoardShuffleBtn");
 
-  return dom(
-    "div",
-    { class: "music-player flex-column" },
-    dom(Slider, { slides: songs, handleChangeMusic: handleChangeMusic }),
-    dom(Playlist, { list: songs, handleChangeMusic: handleChangeMusic })
-  );
-}
+// State variables with unique names
+let musicBoardCurrentSongIndex = 0;
+let musicBoardIsSongLoaded = false;
+let musicBoardSongs = [];
+let musicBoardPlaylistItems = [];
+let musicBoardSongDurations = {};
+let musicBoardSwiperInstance = null;
 
-function Slider({ slides, handleChangeMusic }) {
-  function handleResizeSlider({ target }) {
-    if (isLocked) {
-      return;
-    } else if (target.classList.contains("music-player__info")) {
-      this.classList.add("resize");
-      setProperty(this, "--controls-animate", "down running");
-      return;
-    } else if (target.classList.contains("music-player__playlist-button")) {
-      this.classList.remove("resize");
-      setProperty(this, "--controls-animate", "up running");
-      return;
-    }
-  }
+// Initialize the application
+function musicBoardInit() {
+  musicBoardSongs = musicBoardData.songs;
 
-  function handlePlayMusic() {
-    if (selectedSong.currentTime === selectedSong.duration) {
-      handleChangeMusic({});
-      return;
-    }
-  
-    this.classList.toggle("click");
-    songIsPlayed = !songIsPlayed;
-    selectedSong.paused ? selectedSong.play() : selectedSong.pause();
-  }
+  // Create Swiper slides
+  musicBoardSongs.forEach((song, index) => {
+    // Create Swiper slide
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+    slide.innerHTML = `
+                    <img src="${song.files.cover}" />
+                    <h1>${song.songName}</h1>
+                `;
+    musicBoardSwiperWrapper.appendChild(slide);
 
-  return dom(
-    "div",
-    { class: "slider center", onClick: handleResizeSlider },
-    dom(
-      "div",
-      { class: "slider__content center" },
-      dom(
-        "button",
-        { class: "music-player__playlist-button center button" },
-        dom("i", { class: "icon-playlist" })
-      ),
-      dom(
-        "button",
-        {
-          onClick: handlePlayMusic,
-          class: "music-player__broadcast-guarantor center button",
-        },
-        dom("i", { class: "icon-play" }),
-        dom("i", { class: "icon-pause" })
-      ),
-      dom(
-        "div",
-        { class: "slider__imgs flex-row" },
-        slides.map(({ songName, files: { cover } }) =>
-          dom("img", { src: cover, class: "img", alt: songName })
-        )
-      )
-    ),
-    dom(
-      "div",
-      { class: "slider__controls center" },
-      dom(
-        "button",
-        {
-          class: "slider__switch-button flex-row button",
-          onClick: () => handleChangeMusic({ isPrev: true }),
-        },
-        dom("i", { class: "icon-back" })
-      ),
-      dom(
-        "div",
-        { class: "music-player__info text_trsf-cap" },
-        dom(
-          "div",
-          null,
-          dom(
-            "div",
-            { class: "music-player__singer-name" },
-            dom("div", null, slides[0].artist)
-          )
-        ),
-        dom(
-          "div",
-          null,
-          dom(
-            "div",
-            { class: "music-player__subtitle" },
-            dom("div", null, slides[0].songName)
-          )
-        )
-      ),
-      dom(
-        "button",
-        {
-          class: "slider__switch-button flex-row button",
-          onClick: () => handleChangeMusic({ isPrev: false }),
-        },
-        dom("i", { class: "icon-next" })
-      ),
-      dom(
-        "div",
-        {
-          class: "progress center",
-          onPointerdown: (e) => {
-            handleScrub(e);
-            progressBarIsUpdating = true;
-          },
-        },
-        dom(
-          "div",
-          { class: "progress__wrapper" },
-          dom("div", { class: "progress__bar center" })
-        )
-      )
-    )
-  );
-}
+    // Create playlist item
+    const playlistItem = document.createElement('div');
+    playlistItem.className = 'playlist-item';
+    playlistItem.innerHTML = `
+                    <img src="${song.files.cover}" alt="${song.songName}" />
+                    <div class="song">
+                        <p>${song.songName}</p>
+                        <p>${song.artist}</p>
+                    </div>
+                    <div class="duration">--:--</div>
+                `;
+    musicBoardPlaylistContainer.appendChild(playlistItem);
+  });
 
-function Playlist({ list, handleChangeMusic }) {
-  function loadedAudio() {
-    const duration = this.duration;
-    const target = this.parentElement.querySelector(
-      ".music-player__song-duration"
-    );
+  // Re-select DOM elements after creation
+  musicBoardPlaylistItems = document.querySelectorAll(".music-board .playlist-item");
 
-    let min = parseInt(duration / 60);
-    if (min < 10) min = "0" + min;
+  // Initialize Swiper with full path
+  musicBoardSwiperInstance = new Swiper(".music-board .swiper", {
+    effect: "cards",
+    cardsEffect: {
+      perSlideOffset: 9,
+      perSlideRotate: 3,
+    },
+    grabCursor: true,
+    speed: 700,
+    initialSlide: musicBoardCurrentSongIndex,
+  });
 
-    let sec = parseInt(duration % 60);
-    if (sec < 10) sec = "0" + sec;
-
-    target.appendChild(document.createTextNode(`${min}:${sec}`));
-  }
-
-  function updateTheProgressBar() {
-    const duration = this.duration;
-    const currentTime = this.currentTime;
-
-    const progressBarWidth = (currentTime / duration) * 100;
-    setProperty(progressBar_elmnt, "--width", `${progressBarWidth}%`);
-
-    if (songIsPlayed && currentTime === duration) {
-      handleChangeMusic({});
-    }
-
-    if (
-      indexSong === songsLength &&
-      this === selectedSong &&
-      currentTime === duration
-    ) {
-      songIsPlayed = false;
-      broadcastGuarantor_elmnt.classList.remove("click");
-    }
-  }
-
-  return dom(
-    "ul",
-    { class: "music-player__playlist list" },
-    list.map(({ songName, artist, files: { cover, song } }, index) => {
-      return dom(
-        "li",
-        {
-          class: "music-player__song",
-          onClick: () =>
-            handleChangeMusic({ isPrev: false, playListIndex: index }),
-        },
-        dom(
-          "div",
-          { class: "flex-row _align_center" },
-          dom("img", { src: cover, class: "img music-player__song-img" }),
-          dom(
-            "div",
-            { class: "music-player__playlist-info text_trsf-cap" },
-            dom("b", { class: "text_overflow" }, songName),
-            dom(
-              "div",
-              { class: "flex-row _justify_space-btwn" },
-              dom("span", { class: "music-player__subtitle" }, artist),
-              dom("span", { class: "music-player__song-duration" })
-            )
-          )
-        ),
-        dom("audio", {
-          src: song,
-          onLoadeddata: loadedAudio,
-          onTimeupdate: updateTheProgressBar,
-        })
-      );
-    })
-  );
-}
-
-function dom(tag, props, ...children) {
-  if (typeof tag === "function") return tag(props, ...children);
-
-  function addChild(parent, child) {
-    if (Array.isArray(child)) {
-      child.forEach((nestedChild) => addChild(parent, nestedChild));
-    } else {
-      parent.appendChild(
-        child.nodeType ? child : document.createTextNode(child.toString())
-      );
-    }
-  }
-
-  const element = document.createElement(tag);
-
-  Object.entries(props || {}).forEach(([name, value]) => {
-    if (name.startsWith("on") && name.toLowerCase() in window) {
-      element[name.toLowerCase()] = value;
-    } else if (name === "style") {
-      Object.entries(value).forEach(([styleProp, styleValue]) => {
-        element.style[styleProp] = styleValue;
-      });
-    } else {
-      element.setAttribute(name, value.toString());
+  // Swiper event listener
+  musicBoardSwiperInstance.on("slideChange", () => {
+    const newIndex = musicBoardSwiperInstance.realIndex;
+    if (newIndex !== musicBoardCurrentSongIndex) {
+      musicBoardCurrentSongIndex = newIndex;
+      musicBoardLoadAndPlaySong(musicBoardCurrentSongIndex);
+      musicBoardUpdatePlayPauseIcon(true);
     }
   });
 
-  children.forEach((child) => {
-    addChild(element, child);
+  // Event listeners for playlist items
+  musicBoardPlaylistItems.forEach((item, index) => {
+    item.addEventListener("click", () => {
+      musicBoardCurrentSongIndex = index;
+      musicBoardLoadAndPlaySong(index);
+      if (musicBoardSwiperInstance) {
+        musicBoardSwiperInstance.slideTo(index);
+      }
+    });
   });
 
-  return element;
+  // Initialize with first song
+  musicBoardUpdatePlaylistHighlight(musicBoardCurrentSongIndex);
+  if (musicBoardSwiperInstance) {
+    musicBoardSwiperInstance.slideTo(musicBoardCurrentSongIndex);
+  }
 }
 
-// Render the App component with the songs data
-root.appendChild(dom(App, { songs: songsData.songs }));
+// Update Swiper to match current song
+function musicBoardUpdateSwiperToMatchSong(index) {
+  if (musicBoardSwiperInstance && musicBoardSwiperInstance.activeIndex !== index) {
+    musicBoardSwiperInstance.slideTo(index);
+  }
+}
 
-// Initialize the necessary variables after rendering
-songsLength = songsData.songs.length - 1;
-progress_elmnt = querySelector(".progress");
-playlistSongs_elmnt = querySelectorAll("audio");
-sliderImgs_elmnt = querySelector(".slider__imgs");
-songName_elmnt = querySelector(".music-player__subtitle");
-musicPlayerInfo_elmnt = querySelector(".music-player__info");
-singerName_elmnt = querySelector(".music-player__singer-name");
-selectedSong = playlistSongs_elmnt[indexSong];
-progressBar_elmnt = querySelector(".progress__bar");
-broadcastGuarantor_elmnt = querySelector(".music-player__broadcast-guarantor");
+// Update playlist highlight
+function musicBoardUpdatePlaylistHighlight(index) {
+  musicBoardPlaylistItems.forEach((item, i) => {
+    if (i === index) {
+      item.classList.add("active-playlist-item");
+    } else {
+      item.classList.remove("active-playlist-item");
+    }
+  });
+}
 
-controlSubtitleAnimation(musicPlayerInfo_elmnt, songName_elmnt);
-controlSubtitleAnimation(musicPlayerInfo_elmnt, singerName_elmnt);
+// Load and play song
+function musicBoardLoadAndPlaySong(index) {
+  musicBoardAudioPlayer.src = musicBoardSongs[index].files.song;
 
-function controlSubtitleAnimation(parent, child) {
-  if (child.classList.contains("animate")) return;
-
-  const element = child.firstChild;
-
-  if (child.clientWidth > parent.clientWidth) {
-    child.appendChild(element.cloneNode(true));
-    child.classList.add("animate");
+  // If we already have the duration, display it
+  if (musicBoardSongDurations[index]) {
+    musicBoardUpdateDurationDisplay(index, musicBoardSongDurations[index]);
   }
 
-  setProperty(child.parentElement, "width", `${element.clientWidth}px`);
-}
+  musicBoardPlaySong();
+  musicBoardUpdatePlaylistHighlight(index);
+  musicBoardUpdateSwiperToMatchSong(index);
+  musicBoardIsSongLoaded = true;
 
-function handleResize() {
-  const vH = window.innerHeight * 0.01;
-  setProperty(document.documentElement, "--vH", `${vH}px`);
-}
+  // Load duration if not already loaded
+  if (!musicBoardSongDurations[index]) {
+    musicBoardAudioPlayer.addEventListener('loadedmetadata', function () {
+      const duration = Math.floor(musicBoardAudioPlayer.duration);
+      musicBoardSongDurations[index] = duration;
+      musicBoardUpdateDurationDisplay(index, duration);
 
-function querySelector(target) {
-  return document.querySelector(target);
-}
-
-function querySelectorAll(target) {
-  return document.querySelectorAll(target);
-}
-
-function setProperty(target, prop, value = "") {
-  target.style.setProperty(prop, value);
-}
-
-function updateInfo(target, value) {
-  while (target.firstChild) {
-    target.removeChild(target.firstChild);
+      // Update progress bar
+      musicBoardProgressBar.max = duration;
+    }, { once: true });
   }
-
-  const targetChild_elmnt = document.createElement("div");
-  targetChild_elmnt.appendChild(document.createTextNode(value));
-  target.appendChild(targetChild_elmnt);
-  target.classList.remove("animate");
-  controlSubtitleAnimation(musicPlayerInfo_elmnt, target);
 }
 
-function handleScrub(e) {
-  const progressOffsetLeft = progress_elmnt.getBoundingClientRect().left;
-  const progressWidth = progress_elmnt.offsetWidth;
-  const duration = selectedSong.duration;
-  const currentTime = (e.clientX - progressOffsetLeft) / progressWidth;
-
-  selectedSong.currentTime = currentTime * duration;
+// Update duration display
+function musicBoardUpdateDurationDisplay(index, duration) {
+  const minutes = Math.floor(duration / 60);
+  const seconds = duration % 60;
+  musicBoardPlaylistItems[index].querySelector('.duration').textContent =
+    `${minutes}:${seconds.toString().padStart(2, '0')}`;
 }
 
-handleResize();
+// Play song
+function musicBoardPlaySong() {
+  musicBoardAudioPlayer.play().catch(error => {
+    console.log("Play error:", error);
+    alert("Audio playback error. This might be due to browser autoplay policies. Please click the play button manually.");
+  });
+  musicBoardUpdatePlayPauseIcon(true);
+}
 
-window.addEventListener("resize", handleResize);
-window.addEventListener("orientationchange", handleResize);
-window.addEventListener("transitionstart", ({ target }) => {
-  if (target === sliderImgs_elmnt) {
-    isLocked = true;
-    setProperty(sliderImgs_elmnt, "will-change", "transform");
+// Pause song
+function musicBoardPauseSong() {
+  musicBoardAudioPlayer.pause();
+  musicBoardUpdatePlayPauseIcon(false);
+}
+
+// Toggle play/pause
+function musicBoardTogglePlayPause() {
+  if (!musicBoardIsSongLoaded) {
+    musicBoardLoadAndPlaySong(musicBoardCurrentSongIndex);
+    musicBoardIsSongLoaded = true;
+  } else if (musicBoardAudioPlayer.paused) {
+    musicBoardPlaySong();
+  } else {
+    musicBoardPauseSong();
+  }
+}
+
+// Update play/pause icon
+function musicBoardUpdatePlayPauseIcon(isPlaying) {
+  if (isPlaying) {
+    musicBoardPlayPauseIcon.classList.add("fa-pause");
+    musicBoardPlayPauseIcon.classList.remove("fa-play");
+  } else {
+    musicBoardPlayPauseIcon.classList.add("fa-play");
+    musicBoardPlayPauseIcon.classList.remove("fa-pause");
+  }
+}
+
+// Next song
+function musicBoardNextSong() {
+  musicBoardCurrentSongIndex = (musicBoardCurrentSongIndex + 1) % musicBoardSongs.length;
+  musicBoardLoadAndPlaySong(musicBoardCurrentSongIndex);
+  if (musicBoardSwiperInstance) {
+    musicBoardSwiperInstance.slideTo(musicBoardCurrentSongIndex);
+  }
+}
+
+// Previous song
+function musicBoardPrevSong() {
+  musicBoardCurrentSongIndex = (musicBoardCurrentSongIndex - 1 + musicBoardSongs.length) % musicBoardSongs.length;
+  musicBoardLoadAndPlaySong(musicBoardCurrentSongIndex);
+  if (musicBoardSwiperInstance) {
+    musicBoardSwiperInstance.slideTo(musicBoardCurrentSongIndex);
+  }
+}
+
+// Player control event listeners
+musicBoardPlayPauseBtn.addEventListener("click", musicBoardTogglePlayPause);
+musicBoardNextBtn.addEventListener("click", musicBoardNextSong);
+musicBoardPrevBtn.addEventListener("click", musicBoardPrevSong);
+
+// Audio player event listeners
+musicBoardAudioPlayer.addEventListener("loadedmetadata", () => {
+  musicBoardProgressBar.max = musicBoardAudioPlayer.duration;
+  musicBoardProgressBar.value = musicBoardAudioPlayer.currentTime;
+});
+
+musicBoardAudioPlayer.addEventListener("timeupdate", () => {
+  if (!musicBoardAudioPlayer.paused) {
+    musicBoardProgressBar.value = musicBoardAudioPlayer.currentTime;
   }
 });
-window.addEventListener("transitionend", ({ target, propertyName }) => {
-  if (target === sliderImgs_elmnt) {
-    isLocked = false;
-    setProperty(sliderImgs_elmnt, "will-change", "auto");
-  }
-  if (target.classList.contains("slider") && propertyName === "height") {
-    controlSubtitleAnimation(musicPlayerInfo_elmnt, songName_elmnt);
-    controlSubtitleAnimation(musicPlayerInfo_elmnt, singerName_elmnt);
-  }
-});
-window.addEventListener("pointerup", () => {
-  if (progressBarIsUpdating) {
-    selectedSong.muted = false;
-    progressBarIsUpdating = false;
-  }
-});
-window.addEventListener("pointermove", (e) => {
-  if (progressBarIsUpdating) {
-    handleScrub(e);
-    selectedSong.muted = true;
-  }
+
+// Progress bar event listeners
+musicBoardProgressBar.addEventListener("input", () => {
+  musicBoardAudioPlayer.currentTime = musicBoardProgressBar.value;
 });
 
+musicBoardProgressBar.addEventListener("change", () => {
+  musicBoardPlaySong();
+});
+
+// Volume control
+musicBoardVolumeRange.addEventListener("input", () => {
+  var newVolume = musicBoardVolumeRange.value;
+  musicBoardAudioPlayer.volume = newVolume / 100;
+});
+
+// When song ends, play next
+musicBoardAudioPlayer.addEventListener("ended", musicBoardNextSong);
+
+// Shuffle functionality
+musicBoardShuffleBtn.addEventListener("click", () => {
+  const randomIndex = Math.floor(Math.random() * musicBoardSongs.length);
+
+  if (randomIndex !== musicBoardCurrentSongIndex) {
+    musicBoardCurrentSongIndex = randomIndex;
+    musicBoardLoadAndPlaySong(musicBoardCurrentSongIndex);
+  } else {
+    const nextRandomIndex = (randomIndex + 1) % musicBoardSongs.length;
+    musicBoardCurrentSongIndex = nextRandomIndex;
+    musicBoardLoadAndPlaySong(musicBoardCurrentSongIndex);
+  }
+
+  if (musicBoardSwiperInstance) {
+    musicBoardSwiperInstance.slideTo(musicBoardCurrentSongIndex);
+  }
+});
+
+// Initialize the app when page loads
+window.addEventListener('load', musicBoardInit);
 
 
 
@@ -1212,21 +987,154 @@ window.addEventListener("pointermove", (e) => {
 
 
 
-
-
-
-
-// Photos
-const photo_swiper = new Swiper(".photo .swiper", {
-  loop: true,
-  slidesPerView: 3, // Show 3 slides at once
-  spaceBetween: 20, // Add space between slides
-  centeredSlides: true,
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+// Memory Game Photos
+const myPhotos = [
+  {
+    url: "./Assets/Images/Photos/20240723_203511.jpg",
+    name: "1"
   },
-});
+  {
+    url: "./Assets/Images/Photos/20220824_121139.jpg",
+    name: "2"
+  },
+  {
+    url: "./Assets/Images/Photos/IMG-20240708-WA0027.jpg",
+    name: "3"
+  },
+  {
+    url: "./Assets/Images/Photos/IMG-20251007-WA0002.jpg",
+    name: "4"
+  },
+];
+
+// Game state
+const gameState = {
+  cards: [],
+  flippedCards: [],
+  canFlip: true
+};
+
+// DOM elements
+const cardsGrid = document.getElementById('cards-grid');
+
+// Initialize game
+function initGame() {
+  gameState.cards = [];
+  gameState.flippedCards = [];
+  gameState.canFlip = true;
+
+  // Clear grid
+  cardsGrid.innerHTML = '';
+
+  // Create card pairs
+  const cardPairs = [];
+  myPhotos.forEach(photo => {
+    cardPairs.push({ ...photo });
+    cardPairs.push({ ...photo }); // Add duplicate for pair
+  });
+
+  // Shuffle cards using Fisher-Yates algorithm
+  const shuffledCards = [...cardPairs];
+  for (let i = shuffledCards.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledCards[i], shuffledCards[j]] = [shuffledCards[j], shuffledCards[i]];
+  }
+
+  // Create card elements
+  shuffledCards.forEach((photo, index) => {
+    const card = document.createElement('div');
+    card.className = 'memory-card';
+    card.dataset.index = index;
+    card.dataset.name = photo.name;
+
+    // Card back (same for all)
+    const cardBack = document.createElement('div');
+    cardBack.className = 'card-back';
+
+    // Card front (your photo)
+    const cardFront = document.createElement('div');
+    cardFront.className = 'card-front';
+    const img = document.createElement('img');
+    img.src = photo.url;
+    img.alt = `Photo ${photo.name}`;
+    img.loading = 'lazy';
+    cardFront.appendChild(img);
+
+    // Assemble card
+    card.appendChild(cardBack);
+    card.appendChild(cardFront);
+
+    // Add click event
+    card.addEventListener('click', () => flipCard(card));
+
+    // Add to grid and state
+    cardsGrid.appendChild(card);
+    gameState.cards.push({
+      element: card,
+      name: photo.name,
+      flipped: false,
+      matched: false
+    });
+  });
+}
+
+// Flip card function
+function flipCard(cardElement) {
+  if (!gameState.canFlip) return;
+
+  const cardIndex = parseInt(cardElement.dataset.index);
+  const card = gameState.cards[cardIndex];
+
+  if (card.flipped || card.matched) return;
+
+  // Flip the card
+  cardElement.classList.add('flipped');
+  card.flipped = true;
+  gameState.flippedCards.push(card);
+
+  // Check for match when two cards are flipped
+  if (gameState.flippedCards.length === 2) {
+    gameState.canFlip = false;
+
+    const card1 = gameState.flippedCards[0];
+    const card2 = gameState.flippedCards[1];
+
+    if (card1.name === card2.name) {
+      // Match found
+      setTimeout(() => {
+        card1.matched = true;
+        card2.matched = true;
+        card1.element.classList.add('matched');
+        card2.element.classList.add('matched');
+
+        // Reset flipped cards
+        gameState.flippedCards = [];
+        gameState.canFlip = true;
+      }, 600);
+    } else {
+      // No match - flip back
+      setTimeout(() => {
+        card1.element.classList.remove('flipped');
+        card2.element.classList.remove('flipped');
+        card1.flipped = false;
+        card2.flipped = false;
+
+        // Reset flipped cards
+        gameState.flippedCards = [];
+        gameState.canFlip = true;
+      }, 1000);
+    }
+  }
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', initGame);
+
+// Instructions for customization
+console.log('To customize with your photos:');
+console.log('1. Replace the URLs in the myPhotos array with your photo URLs');
+console.log('2. Update the photo names in the name property');
+console.log('3. Change the card-back background by modifying the .card-back::before background-image');
 
 
 
@@ -1234,66 +1142,105 @@ const photo_swiper = new Swiper(".photo .swiper", {
 
 
 
-
-
-// Hero
+// Hero Section - Simplified and working
 (() => {
-  const modelViewers = document.querySelectorAll("model-viewer");
-  const cards = document.querySelectorAll(".hero-card");
+  const heroesData = [
+    { name: "SpiderMan", model: "./Assets/Models/spider-_man_chapter_3_season_2_skin.glb", description: "A quick-witted hero who swings through the city, using his acrobatic agility, web-slinging skills, and spider-sense to outmaneuver enemies and protect the innocent." },
+    { name: "Thor", model: "./Assets/Models/thor__marvel_rivals.glb", description: "The mighty God of Thunder wields Mjolnir to summon lightning, crush foes with godly strength, and defend realms with unshakable valor." },
+    { name: "Batman", model: "./Assets/Models/stylized_fortnite_batman.glb", description: "A relentless vigilante and tactical genius, wielding fear, combat mastery, and advanced technology to protect Gotham from crime." },
+    { name: "Moon Knight", model: "./Assets/Models/moon_knight.glb", description: "A relentless vigilante empowered by Khonshu, striking from the shadows with masterful combat skills, unbreakable will, and multiple identities that keep enemies guessing." },
+    { name: "Doctor Strange", model: "./Assets/Models/doctor_strange__marvel_rivals.glb", description: "The Sorcerer Supreme wields mystical arts to bend reality, conjure powerful spells, and protect the multiverse from supernatural threats." },
+    { name: "Venom", model: "./Assets/Models/venomvenommarvel_rivals.glb", description: "A fearsome anti-hero bonded with a powerful symbiote, granting superhuman strength, shape-shifting abilities, and a monstrous appetite for justice—or vengeance." },
+    { name: "Deadpool", model: "./Assets/Models/deadpool_movie_model.glb", description: "An unkillable mercenary with a razor-sharp wit, unmatched combat skills, and a healing factor that makes him nearly unstoppable—breaking the fourth wall as easily as his enemies." },
+    { name: "Wolverine", model: "./Assets/Models/james_howlett_-_wolverine.glb", description: "A fierce warrior with unbreakable claws, accelerated healing, and a relentless fighting spirit, carving through enemies with primal ferocity." }
+  ];
 
-  // Function to ensure models are loaded and visible
-  const ensureModelLoaded = (modelViewer) => {
-    if (!modelViewer) return;
+  const cardContainer = document.getElementById("heroCardContainer");
 
-    // Force the model to load and display in its original size
-    modelViewer.setAttribute("camera-orbit", "0deg 90deg 164m");
-    modelViewer.setAttribute("camera-target", "auto");
-    modelViewer.setAttribute("interpolation-decay", "200");
-    modelViewer.style.opacity = "1"; // Ensure visibility
-    modelViewer.classList.add("loaded"); // Add loaded class for CSS animations
+  // Build HTML structure
+  const buildCards = () => {
+    if (!cardContainer) return;
+    heroesData.forEach((hero) => {
+      const card = document.createElement("div");
+      card.className = "hero-card";
+      
+      card.innerHTML = `
+        <div class="overflow">
+          <div class="model">
+            <model-viewer camera-orbit="0deg 90deg 164m" camera-target="0m 140m 10m" src="${hero.model}" shadow-intensity="0.4"></model-viewer>
+          </div>
+        </div>
+        <div class="glass">
+          <div class="gradient-blur">
+            <div></div><div></div><div></div><div></div><div></div><div></div>
+          </div>
+        </div>
+        <div class="content">
+          <h2>${hero.name}</h2>
+          <p>${hero.description}</p>
+        </div>
+      `;
+      
+      cardContainer.appendChild(card);
+    });
   };
 
-  // Initialize all models
-  modelViewers.forEach((modelViewer) => {
-    // Ensure the model is loaded and visible immediately
-    ensureModelLoaded(modelViewer);
+  // Initialize and set attributes immediately
+  const initHeros = () => {
+    const modelViewers = document.querySelectorAll(".hero model-viewer");
+    const cards = document.querySelectorAll(".hero-card");
 
-    // Force load event if the model is already loaded
-    if (modelViewer.loaded) {
-      modelViewer.dispatchEvent(new Event("load"));
-    }
+    if (modelViewers.length === 0 || cards.length === 0) return;
 
-    // Add a load event listener to ensure visibility
-    modelViewer.addEventListener("load", () => {
-      ensureModelLoaded(modelViewer);
-    });
-  });
-
-  // Optional: Add rotation on hover (if desired)
-  cards.forEach((card, index) => {
-    const modelViewer = modelViewers[index];
-
-    if (!modelViewer) {
-      console.warn(`⚠️ No model found for card at index: ${index}`);
-      return;
-    }
-
-    const calcOrbit = (xPos, cardRect) => {
-      const normalizedX = (xPos - cardRect.left) / cardRect.width;
-      const angle = normalizedX * 180 - 90; // Adjust angle range for smoother rotation
-      return `${-angle}deg 90deg 164m`;
-    };
-
-    card.addEventListener("mousemove", (event) => {
-      const cardRect = card.getBoundingClientRect();
-      const orbit = calcOrbit(event.clientX, cardRect);
-      modelViewer.setAttribute("camera-orbit", orbit);
-    });
-
-    card.addEventListener("mouseleave", () => {
+    // Set attributes immediately and synchronously
+    modelViewers.forEach((modelViewer) => {
       modelViewer.setAttribute("camera-orbit", "0deg 90deg 164m");
+      modelViewer.setAttribute("camera-target", "auto");
+      modelViewer.setAttribute("interpolation-decay", "200");
+      modelViewer.style.opacity = "1";
+      modelViewer.classList.add("loaded");
+
+      // Ensure visibility on load
+      if (modelViewer.loaded) {
+        modelViewer.dispatchEvent(new Event("load"));
+      }
+      modelViewer.addEventListener("load", () => {
+        modelViewer.style.opacity = "1";
+        modelViewer.classList.add("loaded");
+      });
     });
-  });
+
+    // Add hover interactions
+    cards.forEach((card, index) => {
+      const modelViewer = modelViewers[index];
+      if (!modelViewer) return;
+
+      const calcOrbit = (xPos, cardRect) => {
+        const normalizedX = (xPos - cardRect.left) / cardRect.width;
+        const angle = normalizedX * 180 - 90;
+        return `${-angle}deg 90deg 164m`;
+      };
+
+      card.addEventListener("mousemove", (event) => {
+        const cardRect = card.getBoundingClientRect();
+        const orbit = calcOrbit(event.clientX, cardRect);
+        modelViewer.setAttribute("camera-orbit", orbit);
+      });
+
+      card.addEventListener("mouseleave", () => {
+        modelViewer.setAttribute("camera-orbit", "0deg 90deg 164m");
+      });
+    });
+  };
+
+  // Execute on DOM ready - synchronized with other events
+  const initHeroSection = () => {
+    buildCards();
+    // Delay initHeros slightly to ensure DOM is fully ready
+    setTimeout(initHeros, 50);
+  };
+
+  document.addEventListener("DOMContentLoaded", initHeroSection, { once: true });
 })();
 
 
@@ -1433,21 +1380,23 @@ bod.addEventListener("animationend", function () {
 });
 
 window.addEventListener("keydown", function (e) {
-  e.preventDefault();
-
   interacted = true;
 
   switch (e.key) {
     case "ArrowUp":
+      // e.preventDefault();
       changePos("up");
       break;
     case "ArrowDown":
+      // e.preventDefault();
       changePos("down");
       break;
     case "ArrowLeft":
+      // e.preventDefault();
       changePos("left");
       break;
     case "ArrowRight":
+      // e.preventDefault();
       changePos("right");
       break;
     default:
@@ -1503,12 +1452,11 @@ const memories = [
     text: "Over the course of six months, I completed my journey learning the MERN stack in full, building more than five projects, including a graduation project that was awarded as the best web project at the scholarship level, along with financial rewards and official certificates from the ministry. None of this would have been possible without God first, and then Engineer Basma. Thank you, thank you, and thank you"
   },
   {
-    id: 69,
-    title: "Weza",
-    image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDh1c3p1YThuYnRhOHhsdHhqcHQyams0dGZzOHdhcDJkeWh1NHhwYiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/syEfLvksYQnmM/giphy.gif",
-    text: "First meeting was a fight. Two fucking losers. Two motherfuckers. Two dreamers dreaming of becoming millionaires, chasing money to waste on super classic cars, Whores, drugs, and weed chasing ruling the business world, owning companies that own the world, laughing about ending up with our names on the Epstein list. Still dreaming. Still fucked up. Two idiots smiling while getting thrown into hell. From this fucked-up life, I walked away with one thing only: one real friend"
+    id: 7,
+    title: "Eng. George Samuel",
+    image: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzFoOGEwbjVicmJoc3N4dW5jeHFwZjBjaHdzanptdWJ2MzRsYWk5OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RSnbPf5osSUKMdzwog/giphy.gif",
+    text: "I haven’t finished my mentorship in AI and Data Science yet, and I’ll update this testimonial later once I do. For now, I want to sincerely thank you for everything. I will do my best to ensure that your work with us is highlighted and properly recognized, especially considering the effort, time, and guidance you’ve given me so far. Thank you for believing in me and for your continuous support"
   },
-
 ];
 
 // DOM elements
@@ -1525,40 +1473,40 @@ let resizeTimeout;
 
 // Initialize cards
 function initCards() {
-    // Clear container
-    cardsContainer.innerHTML = '';
-    
-    // Calculate initial positions in a grid (4 columns max)
-    const cols = 4;
-    const cardWidth = 300;
-    const cardHeight = 300;
-    const gap = 20;
-    const containerWidth = cardsContainer.clientWidth;
-    
-    // Calculate how many cards per row (max 4)
-    const cardsPerRow = Math.min(cols, Math.floor(containerWidth / (cardWidth + gap)));
-    
-    // Calculate number of rows needed
-    const numRows = Math.ceil(memories.length / cardsPerRow);
-    
-    // Calculate dynamic container height
-    const containerHeight = 20 + (numRows * (cardHeight + gap));
-    cardsContainer.style.minHeight = `${containerHeight}px`;
-    
-    // Calculate starting position to center cards
-    const totalWidth = cardsPerRow * cardWidth + (cardsPerRow - 1) * gap;
-    const startX = (containerWidth - totalWidth) / 2;
-    
-    // Create and position cards
-    memories.forEach((memory, index) => {
-        const row = Math.floor(index / cardsPerRow);
-        const col = index % cardsPerRow;
-        
-        const posX = startX + col * (cardWidth + gap);
-        const posY = 20 + row * (cardHeight + gap);
-        
-        createCard(memory, posX, posY);
-    });
+  // Clear container
+  cardsContainer.innerHTML = '';
+
+  // Calculate initial positions in a grid (4 columns max)
+  const cols = 4;
+  const cardWidth = 300;
+  const cardHeight = 300;
+  const gap = 20;
+  const containerWidth = cardsContainer.clientWidth;
+
+  // Calculate how many cards per row (max 4)
+  const cardsPerRow = Math.min(cols, Math.floor(containerWidth / (cardWidth + gap)));
+
+  // Calculate number of rows needed
+  const numRows = Math.ceil(memories.length / cardsPerRow);
+
+  // Calculate dynamic container height
+  const containerHeight = 20 + (numRows * (cardHeight + gap));
+  cardsContainer.style.minHeight = `${containerHeight}px`;
+
+  // Calculate starting position to center cards
+  const totalWidth = cardsPerRow * cardWidth + (cardsPerRow - 1) * gap;
+  const startX = (containerWidth - totalWidth) / 2;
+
+  // Create and position cards
+  memories.forEach((memory, index) => {
+    const row = Math.floor(index / cardsPerRow);
+    const col = index % cardsPerRow;
+
+    const posX = startX + col * (cardWidth + gap);
+    const posY = 20 + row * (cardHeight + gap);
+
+    createCard(memory, posX, posY);
+  });
 }
 
 // Create a card element
@@ -1817,3 +1765,187 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+
+// Contact Form
+document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.getElementById('contactForm');
+  const messagesList = document.getElementById('messagesList');
+  const noMessages = document.getElementById('noMessages');
+  const messagesTitle = document.getElementById('messagesTitle');
+  
+  // Load existing messages from localStorage
+  loadMessages();
+  
+  // Handle form submission
+  contactForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Get form values
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
+    
+    // Validate form
+    if (!name || !email || !subject || !message) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+    
+    // Create message object
+    const messageObj = {
+      id: Date.now(),
+      name: name,
+      email: email,
+      subject: subject,
+      message: message,
+      timestamp: new Date().toLocaleString()
+    };
+    
+    // Save message to localStorage
+    saveMessage(messageObj);
+    
+    // Add message to display
+    addMessageCard(messageObj);
+    
+    // Clear form
+    contactForm.reset();
+    
+    // Show success message
+    showNotification('Message sent successfully!', 'success');
+  });
+  
+  // Save message to localStorage
+  function saveMessage(message) {
+    let messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
+    messages.unshift(message); // Add new message at beginning
+    localStorage.setItem('contactMessages', JSON.stringify(messages));
+  }
+  
+  // Load messages from localStorage
+  function loadMessages() {
+    const messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
+    
+    if (messages.length > 0) {
+      noMessages.style.display = 'none';
+      messagesTitle.style.display = 'block';
+      
+      // Display all messages
+      messages.forEach(message => {
+        addMessageCard(message);
+      });
+    } else {
+      noMessages.style.display = 'block';
+      messagesTitle.style.display = 'none';
+    }
+  }
+  
+  // Add message card to the list
+  function addMessageCard(message) {
+    // Hide "no messages" text if it's visible
+    if (noMessages.style.display !== 'none') {
+      noMessages.style.display = 'none';
+      messagesTitle.style.display = 'block';
+    }
+    
+    // Create message card
+    const messageCard = document.createElement('div');
+    messageCard.className = 'message-card';
+    messageCard.setAttribute('data-id', message.id);
+    
+    // Format the message card HTML
+    messageCard.innerHTML = `
+      <div class="message-card-header">
+        <div class="message-sender">${escapeHtml(message.name)}</div>
+        <div class="message-subject">${escapeHtml(message.subject)}</div>
+      </div>
+      <div class="message-content">${escapeHtml(message.message)}</div>
+      <div class="message-meta">
+        <div class="message-email">${escapeHtml(message.email)}</div>
+        <div class="message-time">${message.timestamp}</div>
+      </div>
+    `;
+    
+    // Add to the top of the messages list
+    messagesList.insertBefore(messageCard, messagesList.firstChild);
+  }
+  
+  // Show notification
+  function showNotification(text, type) {
+    // Remove existing notification if any
+    const existingNotification = document.querySelector('.form-notification');
+    if (existingNotification) {
+      existingNotification.remove();
+    }
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `form-notification ${type}`;
+    notification.textContent = text;
+    notification.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: ${type === 'success' ? '#4CAF50' : '#f44336'};
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 1000;
+      animation: slideIn 0.3s ease-out;
+    `;
+    
+    // Add CSS for animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    document.body.appendChild(notification);
+    
+    // Remove notification after 3 seconds
+    setTimeout(() => {
+      notification.style.animation = 'slideOut 0.3s ease-out forwards';
+      
+      // Add slideOut animation
+      const slideOutStyle = document.createElement('style');
+      slideOutStyle.textContent = `
+        @keyframes slideOut {
+          from { transform: translateX(0); opacity: 1; }
+          to { transform: translateX(100%); opacity: 0; }
+        }
+      `;
+      document.head.appendChild(slideOutStyle);
+      
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.parentNode.removeChild(notification);
+        }
+      }, 300);
+    }, 3000);
+  }
+  
+  // Helper function to escape HTML (prevent XSS)
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+  
+  // Clear all messages (for testing purposes - optional)
+  function clearAllMessages() {
+    localStorage.removeItem('contactMessages');
+    messagesList.innerHTML = '<div class="no-messages" id="noMessages">No messages yet. Be the first to send a message!</div>';
+    noMessages.style.display = 'block';
+    messagesTitle.style.display = 'none';
+    
+    // Reload references
+    noMessages = document.getElementById('noMessages');
+  }
+});
