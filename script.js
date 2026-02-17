@@ -1436,7 +1436,7 @@ const memories = [
   {
     id: 4,
     title: "Eng. Esraa Eleraky",
-    image: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWFiM3B2Z2VqMTc0ZzNhcDcydWJqNDdvdTlhYTFldHBqMXFsdGN2aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tDFmApXRr5b24uI3sd/giphy.gif",
+    image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnp3OXhhbHN3M3ZjdHcwaGhrYjE1dXhramZ2d2U5YXQ0YzY3dDkweiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/LXoFuds81sEDJkUDkf/giphy.gif",
     text: "I don’t know what to say except thank you for everything. You didn’t just teach me how to be a data analyst, you taught me how to think like one to look beyond the numbers and search for context, meaning, and insight in everything I analyze"
   },
   {
@@ -1457,6 +1457,11 @@ const memories = [
     image: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzFoOGEwbjVicmJoc3N4dW5jeHFwZjBjaHdzanptdWJ2MzRsYWk5OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RSnbPf5osSUKMdzwog/giphy.gif",
     text: "I haven’t finished my mentorship in AI and Data Science yet, and I’ll update this testimonial later once I do. For now, I want to sincerely thank you for everything. I will do my best to ensure that your work with us is highlighted and properly recognized, especially considering the effort, time, and guidance you’ve given me so far. Thank you for believing in me and for your continuous support"
   },
+  {
+    id: 8,
+    title: "Dr. Mohamed Zorkany",
+    image: "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3bW43NW12amNsYThiemh6ZmVsNjFwdWJ5enpnMDhtbGJpNjZxamdrYyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/KN8wTf8YZzj1Q9KPHF/giphy.gif",
+    text: "Imagine starting with only a little knowledge in Deep Learning and almost zero in Computer Vision, then going through 15 lectures and 60+ intensive hours full of tons of information, real practice, and many hands-on projects until building my first real-world CV systems, Step by step, everything started to make sense, and what felt complex became something I can confidently work with, Thank you Dr. Mohamed for your effort and dedication — I truly hope I get the chance to learn from you again."},
 ];
 
 // DOM elements
