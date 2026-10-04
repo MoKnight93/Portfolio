@@ -902,7 +902,7 @@
       {
         src: "./Assets/Images/Collectibles/franky.png",
         sectionClass: ".remarkable",
-        left: "18%",
+        left: "95%",
         top: "42%",
       },
       {
@@ -921,7 +921,7 @@
         src: "./Assets/Images/Collectibles/spidercap.png",
         sectionClass: ".footer",
         left: "1%",
-        top: "10%",
+        top: "15%",
       },
     ];
 
