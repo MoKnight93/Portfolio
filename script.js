@@ -2233,7 +2233,7 @@
         "./Assets/Pdf/Certificates/downloaded - AI.pdf",
         "./Assets/Pdf/Certificates/downloaded - Py.pdf",
         "./Assets/Pdf/Certificates/downloaded - Web.pdf",
-        "./Assets/Pdf/Certificates/HCIA-AI V4.0 Course Certification.pdf",
+        "./Assets/Pdf/Certificates/HCIA-AI V4.0.pdf",
         "./Assets/Pdf/Certificates/Mohamed Samir Ahmad AI.pdf",
         "./Assets/Pdf/Certificates/Mohamed Samir Ahmad Mohamed 2.pdf",
         "./Assets/Pdf/Certificates/Mohamed Samir Ahmad Mohamed.pdf",
