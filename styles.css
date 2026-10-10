@@ -12,7 +12,6 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  text-transform: capitalize;
 }
 
 main {
@@ -1217,6 +1216,10 @@ svg.ico {
   -webkit-text-fill-color: transparent;
 }
 
+.About .board.bg-ready {
+  background-image: url("./Assets/Images/corkboard.jpg");
+}
+
 .About .board {
   position: relative;
   width: 100%;
@@ -1228,7 +1231,6 @@ svg.ico {
   overflow: hidden;
   overflow-anchor: none;
   background-color: #1f2937;
-  background-image: url("./Assets/Images/corkboard.jpg");
   border: 2px solid #141414;
   border-radius: 25px;
   padding: 0px;
@@ -1641,13 +1643,6 @@ svg.ico {
   border: 2px solid #141414;
   border-radius: 25px;
   padding: 40px;
-}
-
-.projects iframe.first {
-  position: absolute;
-  top: 0%;
-  right: 0%;
-  z-index: 1;
 }
 
 .projects .projects-head {
@@ -2311,63 +2306,6 @@ svg.ico {
   -webkit-text-fill-color: transparent;
 }
 
-.logo-slider {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  padding: 25px 0;
-  background-color: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 8%,
-    black 92%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 8%,
-    black 92%,
-    transparent 100%
-  );
-  margin-bottom: 3rem;
-}
-
-.logo-slider-track {
-  display: flex;
-  width: max-content;
-  animation: slide 30s linear infinite alternate;
-}
-
-.logo-slider-track:hover {
-  animation-play-state: paused;
-}
-
-.logo-slider-track .logo-img {
-  width: 60px;
-  height: 90px;
-  margin: auto 18px;
-  object-fit: contain;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
-  transition: transform 0.4s ease;
-}
-
-.logo-slider-track .logo-img:hover {
-  transform: scale(1.2) translateY(-4px);
-}
-
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(calc(-100% + 100vw));
-  }
-}
 
 .skill-group {
   display: grid;
@@ -2539,13 +2477,6 @@ svg.ico {
   }
 }
 
-@media (max-width: 600px) {
-  .logo-slider-track .logo-img {
-    width: 48px;
-    height: 70px;
-    margin: auto 12px;
-  }
-}
 
 /* ----------------------------------------------------------------------- */
 /* Certificates */
@@ -2931,13 +2862,17 @@ svg.ico {
   color: #e9f2f9;
   font-family: "Barlow", system-ui, sans-serif;
   text-align: left;
+  background: #060a11;
+  border: 2px solid #141414;
+  border-radius: 25px;
+  padding: 20px 0px;
+}
+
+.heroes.bg-ready {
   background:
     url("./Assets/Images/jonathan-thompson-mk1-mainmenu-title1thompson.jpg")
       center / cover no-repeat,
     #060a11;
-  border: 2px solid #141414;
-  border-radius: 25px;
-  padding: 20px 0px;
 }
 
 .heroes .heroes__title {
@@ -3432,9 +3367,12 @@ svg.ico {
 /* -------------------------------------------------------------------------- */
 /* Remarkable */
 
+.remarkable.bg-ready {
+  background-image: url("./Assets/Images/board.jpg");
+}
+
 .remarkable {
   background-color: #1f2937;
-  background-image: url("./Assets/Images/board.jpg");
   background-position: center top;
   background-size: cover;
   width: 100vw;
@@ -3691,7 +3629,7 @@ svg.ico {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
+  /* border-radius: 14px; */
   font-weight: 800;
   font-size: clamp(1rem, 2.6vw, 2.4rem);
   color: white;
@@ -4253,4 +4191,46 @@ svg.ico {
   background: linear-gradient(200deg, #4837ff 0%, #ff7070 50%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+
+/* ---------------------------------------------------------------------------
+   Performance: reserve space for sections that are filled in by script.js,
+   so lazy-built content doesn't make the page jump (and so scroll-triggered
+   loading is spread out instead of firing all at once).
+   --------------------------------------------------------------------------- */
+.cards-grid:not(:has(*)) {
+  min-height: 900px;
+}
+.career .content-grid:not(:has(#detail-panel > *)) {
+  min-height: 520px;
+}
+#cardsCol:not(:has(*)) {
+  min-height: 1000px;
+}
+.cards-list:not(:has(*)) {
+  min-height: 1000px;
+}
+
+/* Before Swiper loads, keep the 25 slides in one row instead of a tall stack */
+.certificates .swiper:not(.swiper-initialized) {
+  overflow: hidden;
+  min-height: 380px;
+}
+.certificates .swiper:not(.swiper-initialized) .swiper-wrapper {
+  display: flex;
+  gap: 30px;
+}
+.certificates .swiper:not(.swiper-initialized) .swiper-slide {
+  flex: 0 0 calc((100% - 60px) / 3);
+}
+@media (max-width: 1023px) {
+  .certificates .swiper:not(.swiper-initialized) .swiper-slide {
+    flex-basis: calc((100% - 24px) / 2);
+  }
+}
+@media (max-width: 639px) {
+  .certificates .swiper:not(.swiper-initialized) .swiper-slide {
+    flex-basis: 100%;
+  }
 }

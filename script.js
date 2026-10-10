@@ -79,7 +79,7 @@
       : setTimeout(fn, 200);
 
   // Runs `run` once, the first time `el` gets within `margin` of the viewport.
-  const whenNear = (el, run, margin = "1000px") => {
+  const whenNear = (el, run, margin = "350px") => {
     if (!("IntersectionObserver" in window)) return run();
     const observer = new IntersectionObserver(
       (entries) => {
@@ -94,49 +94,106 @@
 
   // Draws a white outline around the shape of a PNG (used by stickers and collectibles).
   // Falls back to the plain image if it can't be loaded or the canvas is blocked.
+  // Jobs run one at a time, each in its own idle slot, so they never create a long task.
+  const contourQueue = [];
+  let contourRunning = false;
+  const pumpContours = () => {
+    if (contourRunning) return;
+    const job = contourQueue.shift();
+    if (!job) return;
+    contourRunning = true;
+    const next = () => {
+      contourRunning = false;
+      pumpContours();
+    };
+    idle(() => job(next));
+  };
+
   const addContourBorder = (src, size, borderPx, extraPad) =>
     new Promise((resolve) => {
-      const img = new Image();
-      img.onerror = () => resolve(src);
-      img.onload = () => {
-        try {
-          const pad = borderPx + extraPad;
-          const scale = Math.min(
-            (size - pad * 2) / img.width,
-            (size - pad * 2) / img.height,
-          );
-          const dw = img.width * scale;
-          const dh = img.height * scale;
-          const dx = (size - dw) / 2;
-          const dy = (size - dh) / 2;
+      const job = (done) => {
+        const finish = (value) => {
+          resolve(value);
+          done();
+        };
+        const img = new Image();
+        img.decoding = "async";
+        img.onerror = () => finish(src);
+        img.onload = () => {
+          try {
+            const pad = borderPx + extraPad;
+            const scale = Math.min(
+              (size - pad * 2) / img.width,
+              (size - pad * 2) / img.height,
+            );
+            const dw = img.width * scale;
+            const dh = img.height * scale;
+            const dx = (size - dw) / 2;
+            const dy = (size - dh) / 2;
 
-          const out = document.createElement("canvas");
-          out.width = size;
-          out.height = size;
-          const ctx = out.getContext("2d");
+            const out = document.createElement("canvas");
+            out.width = size;
+            out.height = size;
+            const ctx = out.getContext("2d");
 
-          const tmp = document.createElement("canvas");
-          tmp.width = size;
-          tmp.height = size;
-          const tctx = tmp.getContext("2d");
-          tctx.drawImage(img, dx, dy, dw, dh);
-          tctx.globalCompositeOperation = "source-in";
-          tctx.fillStyle = "#fff";
-          tctx.fillRect(0, 0, size, size);
+            const tmp = document.createElement("canvas");
+            tmp.width = size;
+            tmp.height = size;
+            const tctx = tmp.getContext("2d");
+            tctx.drawImage(img, dx, dy, dw, dh);
+            tctx.globalCompositeOperation = "source-in";
+            tctx.fillStyle = "#fff";
+            tctx.fillRect(0, 0, size, size);
 
-          const steps = 28;
-          for (let i = 0; i < steps; i++) {
-            const a = (i / steps) * Math.PI * 2;
-            ctx.drawImage(tmp, Math.cos(a) * borderPx, Math.sin(a) * borderPx);
+            const steps = 12;
+            for (let i = 0; i < steps; i++) {
+              const a = (i / steps) * Math.PI * 2;
+              ctx.drawImage(tmp, Math.cos(a) * borderPx, Math.sin(a) * borderPx);
+            }
+            ctx.drawImage(img, dx, dy, dw, dh);
+            if (out.toBlob) {
+              out.toBlob((blob) => finish(blob ? URL.createObjectURL(blob) : src));
+            } else {
+              finish(out.toDataURL());
+            }
+          } catch {
+            finish(src);
           }
-          ctx.drawImage(img, dx, dy, dw, dh);
-          resolve(out.toDataURL());
-        } catch {
-          resolve(src);
-        }
+        };
+        img.src = src;
       };
-      img.src = src;
+      contourQueue.push(job);
+      pumpContours();
     });
+
+  // ---------------------------------------------------------------------------
+  // Deferred decoration: Lottie iframes and heavy CSS backgrounds
+  // ---------------------------------------------------------------------------
+  {
+    // Each decorative Lottie iframe is a whole extra page (its own JS + player).
+    // They are only started after the page has loaded, and only when near the screen.
+    const startLotties = () => {
+      document.querySelectorAll("iframe[data-lottie][data-src]").forEach((frame) => {
+        whenNear(
+          frame,
+          () =>
+            idle(() => {
+              frame.src = frame.dataset.src;
+              frame.removeAttribute("data-src");
+            }),
+          "300px",
+        );
+      });
+    };
+    if (document.readyState === "complete") idle(startLotties);
+    else window.addEventListener("load", () => idle(startLotties), { once: true });
+
+    // Big background photos are switched on by a class once their section is close.
+    [".About .board", ".heroes", ".remarkable"].forEach((selector) => {
+      const el = document.querySelector(selector);
+      if (el) whenNear(el, () => el.classList.add("bg-ready"), "500px");
+    });
+  }
 
   // ---------------------------------------------------------------------------
   // Head Section
@@ -508,8 +565,20 @@
     let panelOpen = false;
 
     // ---------- Panel open/close (never touches audio) ----------
+    // Album covers are remote images; they are only requested once the panel is first opened.
+    let thumbsApplied = false;
+    function applyThumbs() {
+      if (thumbsApplied) return;
+      thumbsApplied = true;
+      els.panelList.querySelectorAll(".thumb[data-cover]").forEach((t) => {
+        t.style.backgroundImage = `url('${t.dataset.cover}')`;
+      });
+    }
     function openPanel() {
       panelOpen = true;
+      applyThumbs();
+      if (!els.panelCover.style.backgroundImage)
+        els.panelCover.style.backgroundImage = `url('${songs[currentIndex].cover}')`;
       els.panel.classList.add("open");
       els.fab.setAttribute("aria-expanded", "true");
       prefetchDurations();
@@ -546,7 +615,7 @@
           <span class="idx-icon">${PLAY_ICON}</span>
         </div>
         <div class="track-cell">
-          <div class="thumb" style="background-image:url('${song.cover}')"></div>
+          <div class="thumb" data-cover="${song.cover}"></div>
           <div class="track-text">
             <div class="t">${song.name}</div>
             <div class="a">${song.artist}</div>
@@ -590,12 +659,14 @@
       els.fab.classList.toggle("playing", playing);
     }
 
-    function loadSong(index, autoplay) {
+    function loadSong(index, autoplay, deferMedia) {
       currentIndex = index;
       const song = songs[index];
       els.panelTitle.textContent = song.name;
       els.panelArtist.textContent = song.artist;
-      els.panelCover.style.backgroundImage = `url('${song.cover}')`;
+      if (!deferMedia || panelOpen) {
+        els.panelCover.style.backgroundImage = `url('${song.cover}')`;
+      }
       els.fabArt.style.backgroundImage = `url('${song.cover}')`;
       els.fab.classList.add("has-art");
       els.notice.classList.remove("show");
@@ -607,8 +678,11 @@
       els.phandle.style.left = "0%";
       highlightActive();
 
-      els.audio.src = song.src;
-      els.audio.load();
+      // First paint of the player: don't touch the network until someone presses play.
+      if (!deferMedia) {
+        els.audio.src = song.src;
+        els.audio.load();
+      }
       if (autoplay) play();
       else {
         isPlaying = false;
@@ -793,7 +867,7 @@
     els.shuffleBtn.addEventListener("click", toggleShuffle);
 
     renderRows();
-    loadSong(0, false);
+    loadSong(0, false, true);
 
     // Quietly fetch duration metadata for every track in the background,
     // without playing anything, so times populate even before you've
@@ -1444,16 +1518,10 @@
       drag = null;
     });
 
-    const buildItems = async () => {
-      // Generate every outlined sticker in parallel, then stack the items in list order.
-      const sources = await Promise.all(
-        items.map((it) =>
-          it.type === "sticker" && it.addBorder
-            ? addContourBorder(it.src, 300, 300 * 0.045, 6)
-            : it.src,
-        ),
-      );
-
+    const buildItems = () => {
+      board.classList.add("bg-ready");
+      // Items appear at once with their plain image; outlined versions swap in
+      // one by one in the background (queued, never blocking the page).
       items.forEach((it, i) => {
         const el = document.createElement("div");
         el.className = "item " + it.type;
@@ -1470,8 +1538,14 @@
           const img = document.createElement("img");
           img.alt = it.label;
           img.decoding = "async";
-          img.src = sources[i];
+          img.loading = "lazy";
+          img.src = it.src;
           el.appendChild(img);
+          if (it.addBorder) {
+            addContourBorder(it.src, 300, 300 * 0.045, 6).then((out) => {
+              if (out !== it.src) img.src = out;
+            });
+          }
         } else {
           el.innerHTML = `<div class="frame"><div class="photo" style="background-image:url('${it.src}')"></div></div>`;
         }
@@ -1481,7 +1555,7 @@
       });
     };
 
-    whenNear(board, buildItems, "600px");
+    whenNear(board, buildItems, "400px");
   }
 
   // ---------------------------------------------------------------------------
@@ -2109,25 +2183,22 @@
         "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjg5MHlnNHRpNzl2Mng4bDJjejZvbDhvdnFuNXowbXM2Y20xeWx2byZlcD12MV9naWZzX3NlYXJjaCZjdD1n/zwPRprvrP4Lm0/giphy.gif",
         "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3MnNpNmI4NWIxNmo2d3EwMDQ3ODl0NzRldGxmZHRsNWNndjRmc2phNCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Y1L0dHsQrUpkv8Org7/giphy.gif",
         "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjgzMnJ4dWluN3dhMnQ4NXlmcjRuaXRwY29zNGFqZmRvNWZzcTV6ciZlcD12MV9naWZzX3NlYXJjaCZjdD1n/nDSlfqf0gn5g4/giphy.gif",
-        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjMwNWk1aXZmOGc5MTk3enFrcHV5cGU4OWlkN3V5OXd3dWoxeWI1dCZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/IcAVmvillsBz73mn5K/giphy.gif",
-        "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3NzJpMm1ieDRhb3RtdnBhNHVncjR1ajBmOXdjaDk0eGZ2aGppOGZlOSZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/3oEhmGfS6wSQ6uMaOs/giphy.gif",
-        "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHR0OTY4N2JvY3kydjhlaHI1NXM5a2o1ZmlnOHdjeGk0cXB5NWtrNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tCzWe3PQwJeuI/giphy.gif",
         "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDJxdnFzZTdmdWo0Njk4YmxuZ3QybWkxaDJ3NXlscXB2dWlqcm1lYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MOWPkhRAUbR7i/giphy.gif",
-        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExanpnYXBqMHAxN295MzN2NWc0eGQ4ZWw2aXprbnM2NW10aHNveHh3MCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/DEZA7FlHbMesUF1jm9/giphy.gif",
         "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnhxc2VvaDdiZGgxOGIwczkydzU0aTFzcDB6OWJpM2E5aDZzZncxZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/aF8IHR5OtfvQk/giphy.gif",
-        "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXBrNjIxdHR2dmdjaTNsbTFoM2RpaDM2eWQ2MW0wazhwcGp6eWIzcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DuoLKerazS0r61ffGo/giphy.gif",
         "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdoN3c3Y3B6M2plOTZ3MWg1M3luZGtiZzRwaDZ5cGl5b3dxaGZvaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/rMt21mWOyuxcoLwgwU/giphy.gif",
-        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTI3ZmR6YWpueGNqaDhjdjM0OHhjdHdtdjNxa2FhZ284YmlqMmFrZCZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/ocAzqRep3bLitRTmKP/giphy.gif",
-        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnUwYTBobmJyZmthOTU5dmoyeWJ4bDBzdG9ua2Z2dzhkeHFsNjU4cSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/YmZOBDYBcmWK4/giphy.gif",
         "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnVsN3VjNGFsd3U4dTQ3Y3F2a3JncTUwMTF5eGFoeGh0b2R6ZWJuZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/DRsN032KfVl19CCnqK/giphy.gif",
-        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExanFkdTdkaWo5OG8zNTFsZW80OWpjd3JnN2oyZnlsbHA5dnQ5cDM0dSZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/5guYctWhB0FxK/giphy.gif",
         "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3Z2x5Y3pydmFoNmdyMW55MXlqanVmdWZuem8yODVrcHl2aXAwY2w5NyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/dJo9h2zrdANo1GO3pd/giphy.gif",
         "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExanNvNHNjbjE0bG05YWVpY213aXI2djFkODh0end1aWhmZnJ1NWV1MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/avLffXT6HClxIEidov/giphy.gif",
-        "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3eDlocGEzZHhqMjJpYjB4eXIzYWRlMXZ6Y2ZsM251OHduM3BjeDByMSZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/klbAEHKBjZspFgnUuW/giphy.gif",
-        "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3bGx5YWszMG5ob2U3MHR0b3dtM25jOHB1dXZzaHU5dnJnbG0yNzYzbiZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/WE5IOBJQdRSNIXBVW0/giphy.gif",
-        "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjJidnkxb3g2ZHVyZjY5YzBtczcyaDk4MTQwZHA5ZWQydnNhbDMzayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Y0GzquhmU03NpyOF42/giphy.gif",
-        "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTUybmgycndzbm5uYWQybTZodXNzNG5hdTR5a3UzOGg3NmkxcXpmeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0aIY8ZCncOtgh35ftC/giphy.gif",
         "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3g3aDkwNmJ1YWJ0aDhkdmJxOXFjMnU4MTZjNHZyb2FnaWlycHJtZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/oMLJaPmbUnoC4/giphy.gif",
+        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDYzbzlpb2lzem1ieTZoYTR3bTBpaHRobXhqZ3F1Nmh0czBnN3AxbSZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/aDatXkGQsfgXK/giphy.gif",
+        "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExem9zNHNzZjBrdXc5ODJseWk1cXl0aGVsMTVoNGo5aW93cWJzNjdsbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1yld7nW3oQ2IyRubUm/giphy.gif",
+        "https://64.media.tumblr.com/31491223671803eaf1459c95805c2225/tumblr_puc2j2wa1N1tgo74ho1_1280.gif",
+        "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXZqcnB3YXpidXE4OGs2YzR1czcwa3VpeHRxNDFocHZ5b29jZ3ZweCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iiJ870TcI3PZKxatzS/giphy.gif",
+        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjB0cG1zeTEyYWhpaXZhaWtwejE1anB1cnc4aXptNHVwMWw0MXc1ayZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/22kxQ12cxyEww/giphy.gif",
+        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWZlN2owZDl3NmhjMXp0OGNobjR4eTBrOTlzNXhjbHh0b3I3ZzdqbCZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/pVGsAWjzvXcZW4ZBTE/giphy.gif",
+        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2pnanBnOXFxNHA5ZzBoODZreGZwemo4eWc1and4bTU1djdmdDkxMiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ckr4W2ppxPBeIF8dx4/giphy.gif",
+        "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3OTdiZms0MnNpdDZiZnN0bmU4bGM1b2Zvazhub3JwbWdrbGxrd3A3NiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/afPx1UGhOs4d0dvzkI/giphy.gif",
+        "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3aTVvZzg0cTJtd2s4cG9lcDJlZnU0ZXQ1NnhzM3d4ZHlhZG5tYmxyZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/F1ySpBJXLjIU6OfFqE/giphy.gif",
       ];
 
       const tv = document.getElementById("tvScreen");
@@ -2219,168 +2290,101 @@
   // Certificates Section
   // ---------------------------------------------------------------------------
   {
-    whenNear(document.querySelector(".certificates"), async () => {
-      const pdfFiles = [
-        "./Assets/Pdf/Certificates/AI For Everyone(AI4E).pdf",
-        "./Assets/Pdf/Certificates/Attendance_Certificate (2).pdf",
-        "./Assets/Pdf/Certificates/Certifi.pdf",
-        "./Assets/Pdf/Certificates/Certificate - Mohamed Samir Ahmad.pdf",
-        "./Assets/Pdf/Certificates/Course_Certificate_En (2).pdf",
-        "./Assets/Pdf/Certificates/Course_Certificate_En.pdf",
-        "./Assets/Pdf/Certificates/Course_Certificate_En_py.pdf",
-        "./Assets/Pdf/Certificates/CS50x.pdf",
-        "./Assets/Pdf/Certificates/download.pdf",
-        "./Assets/Pdf/Certificates/downloaded - AI.pdf",
-        "./Assets/Pdf/Certificates/downloaded - Py.pdf",
-        "./Assets/Pdf/Certificates/downloaded - Web.pdf",
-        "./Assets/Pdf/Certificates/HCIA-AI V4.0.pdf",
-        "./Assets/Pdf/Certificates/Mohamed Samir Ahmad AI.pdf",
-        "./Assets/Pdf/Certificates/Mohamed Samir Ahmad Mohamed 2.pdf",
-        "./Assets/Pdf/Certificates/Mohamed Samir Ahmad Mohamed.pdf",
-        "./Assets/Pdf/Certificates/Mohamed Samir Ahmad.pdf",
-        "./Assets/Pdf/Certificates/Mohamed Samir.pdf",
-        "./Assets/Pdf/Certificates/MohamedSamir Ahmad-CyberOps Associa-certificate_2.pdf",
-        "./Assets/Pdf/Certificates/MohamedSamir Ahmad-Cybersecurity Es-certificate.pdf",
-        "./Assets/Pdf/Certificates/MohamedSamir Ahmad-Entrepreneurship-certificate.pdf",
-        "./Assets/Pdf/Certificates/MohamedSamir Ahmad-Introduction to -certificate.pdf",
-        "./Assets/Pdf/Certificates/MohamedSamir Ahmad-SUMMER TRAINING -certificate.pdf",
-        "./Assets/Pdf/Certificates/NASA Space Apps Challenge.pdf",
-      ];
+    const CERT_COUNT = 25; // add a certificate: bump this number, add Certificate N.pdf + Certificate N.jpg
+    const CERT_DIR = "./Assets/Images/Certificates/";
+    const PDF_DIR = "./Assets/Pdf/Certificates/"; // Certificate 1.pdf ... Certificate 25.pdf
+    const CERT_EXTS = ["jpg", "jpeg", "png", "webp"]; // tried in this order
 
-      try {
-        await Promise.all([
-          loadScript(LIBS.swiperJs),
-          loadStyle(LIBS.swiperCss),
-        ]);
-      } catch {
-        console.warn(
-          "Swiper did not load, the certificates carousel is unavailable.",
-        );
-        return;
-      }
+    const section = document.querySelector(".certificates");
+    const wrapper = section && section.querySelector(".swiper-wrapper");
 
-      const THUMB_WIDTH = 900;
-      const PARALLEL_RENDERS = 3;
-      const PDFJS_SRC =
-        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
-      const PDFJS_WORKER_SRC =
-        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
-
-      const section = document.querySelector(".certificates");
-      const swiperWrapper = section.querySelector(".swiper-wrapper");
-
-      const toTitle = (path) =>
-        path
-          .split("/")
-          .pop()
-          .replace(/\.pdf$/i, "")
-          .replace(/[_-]+/g, " ")
-          .replace(/\s*\(\d+\)\s*/g, "")
-          .replace(/\s+/g, " ")
-          .trim();
-
-      const slideRefs = pdfFiles.map((pdfFile) => {
+    if (wrapper) {
+      // Build the slides right away (just empty frames) so the carousel has its size;
+      // the images themselves are lazy and only download when near the screen.
+      for (let n = 1; n <= CERT_COUNT; n++) {
         const slide = document.createElement("div");
         slide.className = "swiper-slide";
-        slide.innerHTML = `
-        <div class="cert-card">
-          <div class="cert-thumb-wrap loading"></div>
-        </div>
-      `;
-        slide.querySelector(".cert-card").addEventListener("click", () => {
-          window.open(pdfFile, "_blank", "noopener");
-        });
-        swiperWrapper.appendChild(slide);
-        return { slide, pdfFile };
-      });
+        slide.innerHTML = `<div class="cert-card"><div class="cert-thumb-wrap loading"></div></div>`;
+        const wrap = slide.querySelector(".cert-thumb-wrap");
 
-      let swiperInstance = null;
-      try {
-        swiperInstance = new Swiper(".certificates .mySwiper", {
-          slidesPerView: 1,
-          spaceBetween: 20,
-          loop: true,
-          grabCursor: true,
-          keyboard: { enabled: true },
-          pagination: {
-            el: ".certificates .swiper-pagination",
-            clickable: true,
-          },
-          navigation: {
-            nextEl: ".certificates .swiper-button-next",
-            prevEl: ".certificates .swiper-button-prev",
-          },
-          autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          },
-          breakpoints: {
-            640: { slidesPerView: 2, spaceBetween: 24 },
-            1024: { slidesPerView: 3, spaceBetween: 30 },
-          },
+        const img = document.createElement("img");
+        img.alt = `Certificate ${n}`;
+        img.decoding = "async";
+        img.loading = "lazy";
+        let extIndex = 0;
+        const done = () => {
+          img.classList.add("loaded");
+          wrap.classList.remove("loading");
+        };
+        img.addEventListener("load", done);
+        img.addEventListener("error", () => {
+          extIndex++;
+          if (extIndex < CERT_EXTS.length) {
+            img.src = `${CERT_DIR}Certificate ${n}.${CERT_EXTS[extIndex]}`;
+          } else {
+            wrap.classList.remove("loading");
+            console.warn("Certificate image not found:", n);
+          }
         });
-      } catch (error) {
-        console.error("Swiper initialization failed:", error);
+        img.src = `${CERT_DIR}Certificate ${n}.${CERT_EXTS[0]}`;
+        wrap.appendChild(img);
+
+        slide.querySelector(".cert-card").addEventListener("click", () => {
+          window.open(encodeURI(`${PDF_DIR}Certificate ${n}.pdf`), "_blank", "noopener");
+        });
+        wrapper.appendChild(slide);
       }
 
-      const renderFirstPage = async (pdfFile) => {
-        // Spaces/parentheses in filenames must be percent-encoded for fetch to find them
-        const pdf = await pdfjsLib.getDocument(encodeURI(pdfFile)).promise;
-        const page = await pdf.getPage(1);
-        const scale = THUMB_WIDTH / page.getViewport({ scale: 1 }).width;
-        const viewport = page.getViewport({ scale });
-
-        const canvas = document.createElement("canvas");
-        canvas.width = viewport.width;
-        canvas.height = viewport.height;
-        await page.render({ canvasContext: canvas.getContext("2d"), viewport })
-          .promise;
-        return canvas.toDataURL("image/jpeg", 0.82);
-      };
-
-      // PDF.js is heavy, so it is only downloaded (and the thumbnails only drawn,
-      // a few at a time) once this section is close to the screen.
-      const renderThumbnails = async () => {
+      // Swiper itself is only downloaded when this section is close.
+      whenNear(section, async () => {
         try {
-          await loadScript(PDFJS_SRC);
+          await Promise.all([
+            loadScript(LIBS.swiperJs),
+            loadStyle(LIBS.swiperCss),
+          ]);
         } catch {
-          console.warn(
-            "PDF.js did not load, certificate previews are unavailable.",
-          );
+          console.warn("Swiper did not load, the certificates carousel is unavailable.");
           return;
         }
-        pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJS_WORKER_SRC;
-
-        let next = 0;
-        const worker = async () => {
-          while (next < slideRefs.length) {
-            const { slide, pdfFile } = slideRefs[next++];
-            const wrap = slide.querySelector(".cert-thumb-wrap");
-            try {
-              const img = document.createElement("img");
-              img.alt = toTitle(pdfFile);
-              img.onload = () => img.classList.add("loaded");
-              img.src = await renderFirstPage(pdfFile);
-              wrap.prepend(img);
-            } catch (err) {
-              console.warn("Thumbnail failed for", pdfFile, err);
-            }
-            wrap.classList.remove("loading");
-          }
-        };
-        await Promise.all(Array.from({ length: PARALLEL_RENDERS }, worker));
-
-        // Rebuild the looped clones so they contain the finished thumbnails.
-        if (swiperInstance) {
-          swiperInstance.loopDestroy();
-          swiperInstance.loopCreate();
-          swiperInstance.update();
+        let swiper = null;
+        try {
+          swiper = new Swiper(".certificates .mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            grabCursor: true,
+            keyboard: { enabled: true },
+            pagination: {
+              el: ".certificates .swiper-pagination",
+              clickable: true,
+            },
+            navigation: {
+              nextEl: ".certificates .swiper-button-next",
+              prevEl: ".certificates .swiper-button-prev",
+            },
+            autoplay: {
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            },
+            breakpoints: {
+              640: { slidesPerView: 2, spaceBetween: 24 },
+              1024: { slidesPerView: 3, spaceBetween: 30 },
+            },
+          });
+        } catch (error) {
+          console.error("Swiper initialization failed:", error);
+          return;
         }
-      };
-
-      whenNear(section, renderThumbnails, "300px");
-    });
+        // Only autoplay while the carousel is on screen.
+        if ("IntersectionObserver" in window) {
+          new IntersectionObserver((entries) => {
+            if (entries.some((e) => e.isIntersecting)) swiper.autoplay.start();
+            else swiper.autoplay.stop();
+          }).observe(section);
+        }
+      }, "300px");
+    }
   }
 
   // ---------------------------------------------------------------------------
@@ -2989,7 +2993,7 @@
           image:
             "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExazJhN2lxYjdjdzluMHh3Y2d2aGx5aGdoeWp6amd0enM1NjA5Y2MybiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7xkxbhryQO7hm/giphy.gif",
           text: "I had always wanted to try learning AI, so I decided to apply for an NTI x Huawei course that lasted for a month, hoping that I could at least understand the basics or maybe even build a model. I was honestly surprised when I found out that Eng. Mahmoud was going to be our instructor. What an amazing coincidence — having one of the most talented and knowledgeable AI experts in Egypt as your instructor is something I truly did not expect. In less than a month, I was able to build my first AI model and, more importantly, understand the fundamentals of ML and DL and what AI actually means and how the field works. That month made the path ahead much clearer and made it much easier for me to continue learning and exploring areas like CV, NLP, and RAG. Even now, I feel that this experience helped me understand nearly 60% of the AI field and played a huge role in shaping where I am today in this field. I am genuinely grateful for everything you taught me and for the impact you had on my journey in AI",
-        },
+        },  
         {
           id: 4,
           title: "Eng. Esraa Eleraky",
